@@ -1,0 +1,257 @@
+const fs = require('fs');
+let html = fs.readFileSync('index - Copy.html', 'utf8');
+
+const newCSS = `/* ── SUPER PREMIUM ANIMATED PRICE BOX ── */
+        .premium-price-box {
+            background: linear-gradient(145deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.95) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 28px 32px;
+            margin: 32px auto 28px;
+            max-width: 420px;
+            text-align: center;
+            position: relative;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6), 0 0 24px rgba(56, 189, 248, 0.1) inset;
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            overflow: hidden;
+            transform: scale(0.98);
+            opacity: 0.9;
+        }
+
+        .premium-price-box.loaded {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .premium-price-box::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%; width: 50%; height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.06), transparent);
+            transform: skewX(-20deg);
+            animation: shineSweep 4s infinite 2s;
+        }
+
+        .premium-price-box.glowing {
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6), 0 0 40px rgba(250, 204, 21, 0.15) inset, 0 0 20px rgba(250, 204, 21, 0.08);
+            border-top: 1px solid rgba(250, 204, 21, 0.4);
+            border-bottom: 1px solid rgba(250, 204, 21, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .ppb-top {
+            font-size: 0.95rem;
+            color: var(--muted);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            opacity: 0; /* Hides it initially */
+            transform: translateY(-10px);
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .ppb-top.show-strike {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .ppb-strike {
+            text-decoration: line-through;
+            color: var(--red);
+            opacity: 0.85;
+            font-weight: 500;
+            margin-left: 8px;
+        }
+
+        .ppb-main {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            transform: scale(0.9);
+            opacity: 0;
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s;
+        }
+
+        .premium-price-box.loaded .ppb-main {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .ppb-currency {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #f1f5f9;
+            margin-top: -16px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+        }
+
+        .ppb-num {
+            font-family: var(--h);
+            font-size: 5rem;
+            font-weight: 800;
+            letter-spacing: -2px;
+            line-height: 1;
+            color: #fff;
+            text-shadow: 0 4px 16px rgba(0,0,0,0.4);
+            font-variant-numeric: tabular-nums;
+            will-change: transform, color;
+            transition: color 0.4s ease, transform 0.2s ease;
+        }
+
+        .ppb-num.counting {
+            color: #cbd5e1;
+            transform: scale(1.08);
+            text-shadow: 0 0 25px rgba(255,255,255,0.2);
+        }
+
+        .ppb-num.done {
+            background: linear-gradient(180deg, #FDE68A 0%, #F59E0B 50%, #D97706 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: none;
+            filter: drop-shadow(0 4px 12px rgba(245, 158, 11, 0.4));
+            transform: scale(1);
+        }
+
+        .ppb-save {
+            position: absolute;
+            bottom: -16px;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px) scale(0.8);
+            background: linear-gradient(90deg, #10B981, #059669);
+            color: #fff;
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            box-shadow: 0 6px 16px rgba(16, 185, 129, 0.4);
+            opacity: 0;
+            pointer-events: none;
+            border: 1px solid rgba(255,255,255,0.25);
+            transition: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .ppb-save.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0) scale(1);
+            animation: pulseSave 2.5s infinite 1s;
+        }
+
+        @keyframes shineSweep {
+            0% { left: -100% }
+            20% { left: 200% }
+            100% { left: 200% }
+        }
+        
+        @keyframes pulseSave {
+            0% { box-shadow: 0 6px 16px rgba(16, 185, 129, 0.4); transform: translateX(-50%) scale(1); }
+            50% { box-shadow: 0 6px 25px rgba(16, 185, 129, 0.7); transform: translateX(-50%) scale(1.05); }
+            100% { box-shadow: 0 6px 16px rgba(16, 185, 129, 0.4); transform: translateX(-50%) scale(1); }
+        }`;
+
+let cssStart = html.indexOf('.premium-price-box {');
+let cssEnd = html.indexOf('@keyframes breatheGlow');
+if (cssStart > -1 && cssEnd > -1) {
+    let beforeCss = html.substring(0, cssStart);
+    let blockEnd = html.indexOf('}', cssEnd) + 1;
+    let afterCss = html.substring(blockEnd);
+    html = beforeCss + newCSS + afterCss;
+}
+
+// 2. Replace HTML to move savepill outside ppb-main
+const htmlTarget = `<div class="premium-price-box" id="ppbHero">
+                                <div class="ppb-top eo">Regular Price <span class="ppb-strike">₹2,499</span></div>
+                                <div class="ppb-top ko kn-font">ಸಾಮಾನ್ಯ ಬೆಲೆ <span class="ppb-strike">₹2,499</span></div>
+                                <div class="ppb-main">
+                                    <span class="ppb-currency">₹</span><span id="animatedPriceNum" class="ppb-num">2499</span>
+                                    <span class="savepill ppb-save" id="animatedSavePill" style="animation: breatheGlow 3s infinite">SAVE ₹1,700</span>
+                                </div>
+                            </div>`;
+
+const newHtml = `<div class="premium-price-box" id="ppbHero">
+                                <div class="ppb-top eo">Regular Price <span class="ppb-strike">₹2,499</span></div>
+                                <div class="ppb-top ko kn-font">ಸಾಮಾನ್ಯ ಬೆಲೆ <span class="ppb-strike">₹2,499</span></div>
+                                <div class="ppb-main">
+                                    <span class="ppb-currency">₹</span><span id="animatedPriceNum" class="ppb-num">2499</span>
+                                </div>
+                                <span class="savepill ppb-save" id="animatedSavePill">SAVE ₹1,700</span>
+                            </div>`;
+
+html = html.replace(htmlTarget, newHtml);
+
+// 3. Replace JS block
+const jsStartStr = "const pNum = document.getElementById('animatedPriceNum');";
+const jsEndStr = "observer.observe(pBox);";
+let jsStart = html.indexOf(jsStartStr);
+let jsEnd = html.indexOf(jsEndStr, jsStart);
+
+if (jsStart > -1 && jsEnd > -1) {
+    let fullJsEnd = html.indexOf('});', jsEnd) + 3;
+    let beforeJs = html.substring(0, jsStart);
+    let afterJs = html.substring(fullJsEnd);
+
+    const newJs = `const pNum = document.getElementById('animatedPriceNum');
+            const pSave = document.getElementById('animatedSavePill');
+            const pTops = document.querySelectorAll('.ppb-top');
+            const pBox = document.getElementById('ppbHero');
+            if (!pNum || !pBox) return;
+            let animatedp = false;
+            
+            // Trigger animation slightly after visibility
+            const observer = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting && !animatedp) {
+                    animatedp = true;
+                    
+                    // Initial load state
+                    pBox.classList.add('loaded');
+                    
+                    setTimeout(() => {
+                        pNum.classList.add('counting');
+                        let startPrice = 2499;
+                        const targetPrice = 799;
+                        const duration = 2200; 
+                        const startTime = performance.now();
+                        
+                        function countEngine(currentTime) {
+                            const elapsed = currentTime - startTime;
+                            const progress = Math.min(elapsed / duration, 1);
+                            
+                            // Easing logic for spinning down slots
+                            const easeOutExpo = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+                            const currentPrice = Math.floor(startPrice - (startPrice - targetPrice) * easeOutExpo);
+                            
+                            pNum.innerText = currentPrice;
+                            
+                            if (progress < 1) {
+                                requestAnimationFrame(countEngine);
+                            } else {
+                                pNum.innerText = targetPrice;
+                                pNum.classList.remove('counting');
+                                pNum.classList.add('done');
+                                pBox.classList.add('glowing');
+                                
+                                // Reveal regular price and save pill ONLY after hitting 799
+                                setTimeout(() => {
+                                    if (pTops) pTops.forEach(t => t.classList.add('show-strike'));
+                                    if (pSave) pSave.classList.add('show');
+                                }, 300);
+                            }
+                        }
+                        requestAnimationFrame(countEngine);
+                    }, 400); // Small delay to let the box fade in before rolling starts
+                }
+            }, { threshold: 0.25 });
+            observer.observe(pBox);
+        });`;
+
+    html = beforeJs + newJs + afterJs;
+}
+
+fs.writeFileSync('index - Copy.html', html);
+console.log('UI UPGRADED!');

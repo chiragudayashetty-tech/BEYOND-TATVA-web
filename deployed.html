@@ -1,0 +1,3930 @@
+<!DOCTYPE html>
+<html lang="en" id="htmlRoot" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+    <meta name="theme-color" content="#080C14" />
+    <meta name="description"
+        content="Beyond Tatva — Structured AI skills course for students in Grades 8–12. Board exam preparation, future readiness, and practical AI skills. Batch 1 — Limited to 75 Students." />
+    <title>Beyond Tatva — AI Education for Students | Grades 8–12</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800;900&family=Outfit:wght@300;400;500;600;700&family=Noto+Sans+Kannada:wght@400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <style>
+        /* ── RESET ───────────────────────────── */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        html,
+        body {
+            min-height: 100%
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            transition: background .35s, color .35s
+        }
+
+        button,
+        a {
+            cursor: pointer;
+            text-decoration: none;
+            border: none;
+            background: none;
+            font-family: inherit;
+            color: inherit
+        }
+
+        input,
+        select,
+        textarea {
+            font-family: inherit;
+            border: none;
+            outline: none
+        }
+
+        /* ── DARK THEME (default) ────────────── */
+        :root,
+        [data-theme="dark"] {
+            --bg0: #080C14;
+            --bg1: #0D1220;
+            --bg2: #111827;
+            --bg3: #1A2235;
+            --brd: #1C2840;
+            --brd2: #243450;
+            --blue: #0A5BFF;
+            --blue2: #3B82F6;
+            --teal: #27E0C4;
+            --teal2: #5EEAD4;
+            --yellow: #FACC15;
+            --red: #FB7185;
+            --purple: #A78BFA;
+            --green: #34D399;
+            --white: #F1F5F9;
+            --muted: #64748B;
+            --muted2: #94A3B8;
+            --card-bg: #0D1220;
+            --card-brd: #1C2840;
+            --h: 'Poppins', sans-serif;
+            --r: 12px;
+            --r2: 18px;
+            --shadow: 0 4px 24px rgba(0, 0, 0, .4);
+        }
+
+        /* ── LIGHT THEME ─────────────────────── */
+        [data-theme="light"] {
+            --bg0: #F7F9FC;
+            --bg1: #FFFFFF;
+            --bg2: #F0F4F8;
+            --bg3: #E1E8F0;
+            --brd: #E2E8F0;
+            --brd2: #CBD5E1;
+            --white: #1A202C;
+            --muted: #718096;
+            --muted2: #4A5568;
+            --card-bg: #FFFFFF;
+            --card-brd: #E2E8F0;
+            --shadow: 0 4px 24px rgba(0, 0, 0, .06);
+            --blue: #0A5BFF;
+            --teal: #0FA89E;
+            --teal2: #0D9488;
+            --green: #10B981;
+            --yellow: #D97706;
+            --red: #E11D48;
+            --purple: #7C3AED;
+        }
+
+        [data-theme="light"] body {
+            background: var(--bg0);
+            color: var(--muted2)
+        }
+
+        [data-theme="light"] .hero {
+            background: linear-gradient(135deg, #F0F4FF 0%, #F0FDF9 50%, #F8FAFC 100%);
+        }
+
+        [data-theme="light"] .topbar {
+            background: linear-gradient(90deg, #EEF2FF, #ECFDF5);
+            color: #475569
+        }
+
+        [data-theme="light"] .topbar strong {
+            color: #D97706
+        }
+
+        [data-theme="light"] .batch-chip {
+            background: rgba(10, 91, 255, .08);
+            border-color: rgba(10, 91, 255, .2);
+            color: #2563EB
+        }
+
+        [data-theme="light"] .bdot {
+            background: #2563EB
+        }
+
+        [data-theme="light"] .bigprice {
+            color: #D97706
+        }
+
+        [data-theme="light"] .pill {
+            background: rgba(16, 185, 129, .06);
+            border-color: rgba(16, 185, 129, .2);
+            color: #059669
+        }
+
+        [data-theme="light"] .guar {
+            background: rgba(16, 185, 129, .05);
+            border-color: rgba(16, 185, 129, .15)
+        }
+
+        [data-theme="light"] .guar p {
+            color: #047857
+        }
+
+        [data-theme="light"] .benefit-card {
+            box-shadow: 0 1px 4px rgba(0, 0, 0, .04)
+        }
+
+        [data-theme="light"] .sentiment-card {
+            box-shadow: 0 1px 4px rgba(0, 0, 0, .04)
+        }
+
+        [data-theme="light"] .aitem {
+            box-shadow: 0 1px 3px rgba(0, 0, 0, .03)
+        }
+
+        [data-theme="light"] .hero h1 
+        .hl {
+            background: linear-gradient(90deg, #27e0c4, #0a5bff, #27e0c4);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 3s linear infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+
+
+        [data-theme="dark"] body {
+            background: var(--bg0);
+            color: #CBD5E1
+        }
+
+        /* ── LOGO ────────────────────────────── */
+        .logo-img {
+            display: block;
+            object-fit: contain
+        }
+
+        /* ── LANG PICKER ─────────────────────── */
+        #langPicker {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: var(--bg0);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 28px 22px;
+            gap: 28px;
+            transition: background .35s;
+        }
+
+        .lp-logobox {
+            animation: pulse 3s ease-in-out infinite
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                filter: drop-shadow(0 0 18px rgba(10, 91, 255, .4)) drop-shadow(0 0 36px rgba(39, 224, 196, .25))
+            }
+
+            50% {
+                filter: drop-shadow(0 0 32px rgba(10, 91, 255, .7)) drop-shadow(0 0 56px rgba(39, 224, 196, .5))
+            }
+        }
+
+        .lp-brand {
+            text-align: center
+        }
+
+        .lp-name {
+            font-family: var(--h);
+            font-weight: 900;
+            font-size: 1.55rem;
+            color: var(--white);
+            letter-spacing: -.03em
+        }
+
+        .lp-tagline {
+            font-size: .68rem;
+            color: var(--muted);
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            margin-top: 4px
+        }
+
+        .lp-ask {
+            font-size: .86rem;
+            color: var(--muted2);
+            text-align: center;
+            line-height: 1.7
+        }
+
+        .lp-ask strong {
+            color: var(--white);
+            display: block;
+            font-family: 'Noto Sans Kannada', 'Outfit', sans-serif;
+            font-size: .95rem;
+            margin-top: 4px
+        }
+
+        .lp-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 11px;
+            width: 100%;
+            max-width: 310px
+        }
+
+        .lp-card {
+            width: 100%;
+            padding: 17px 18px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            cursor: pointer;
+            border: 1.5px solid var(--brd2);
+            background: var(--bg1);
+            transition: transform .18s, border-color .18s, background .18s;
+        }
+
+        .lp-card:hover {
+            transform: scale(1.02)
+        }
+
+        .lp-card:active {
+            transform: scale(.97)
+        }
+
+        .lp-card.en {
+            border-color: rgba(10, 91, 255, .4);
+            background: rgba(10, 91, 255, .07)
+        }
+
+        .lp-card.kn {
+            border-color: rgba(39, 224, 196, .35);
+            background: rgba(39, 224, 196, .06)
+        }
+
+        .lp-card-icon {
+            font-size: 1.9rem;
+            flex-shrink: 0
+        }
+
+        .lp-card-main {
+            font-family: var(--h);
+            font-weight: 700;
+            font-size: .97rem;
+            line-height: 1.2
+        }
+
+        .lp-card.en .lp-card-main {
+            color: #93C5FD
+        }
+
+        .lp-card.kn .lp-card-main {
+            color: var(--teal2);
+            font-family: 'Noto Sans Kannada', var(--h)
+        }
+
+        .lp-card-sub {
+            font-size: .69rem;
+            color: var(--muted2);
+            margin-top: 3px
+        }
+
+        .lp-hint {
+            font-size: .66rem;
+            color: var(--muted);
+            text-align: center
+        }
+
+        /* ── SPLASH ──────────────────────────── */
+        #splash {
+            position: fixed;
+            inset: 0;
+            z-index: 8000;
+            background: var(--bg0);
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            transition: opacity .5s;
+        }
+
+        #splash.on {
+            display: flex
+        }
+
+        #splash.off {
+            opacity: 0;
+            pointer-events: none
+        }
+
+        .sp-name {
+            font-family: var(--h);
+            font-weight: 900;
+            font-size: 1.2rem;
+            color: var(--white);
+            letter-spacing: -.03em;
+            text-align: center
+        }
+
+        .sp-sub {
+            font-size: .69rem;
+            color: var(--muted);
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            text-align: center
+        }
+
+        .sp-bar {
+            width: 80px;
+            height: 3px;
+            background: var(--brd2);
+            border-radius: 100px;
+            overflow: hidden;
+            margin-top: 4px
+        }
+
+        .sp-fill {
+            height: 100%;
+            border-radius: 100px;
+            background: linear-gradient(90deg, var(--blue), var(--teal));
+            animation: load 1.8s ease-out forwards
+        }
+
+        @keyframes load {
+            0% {
+                width: 0
+            }
+
+            100% {
+                width: 100%
+            }
+        }
+
+        /* ── SITE WRAPPER ────────────────────── */
+        #site {
+            display: none
+        }
+
+        /* ── LAYOUT ──────────────────────────── */
+        .wrap {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 20px
+        }
+
+        .sec {
+            padding: 52px 0
+        }
+
+        .sec-sm {
+            padding: 36px 0
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: var(--h);
+            letter-spacing: -.02em;
+            color: var(--white);
+            line-height: 1.15
+        }
+
+        p {
+            line-height: 1.65;
+            color: var(--muted2)
+        }
+
+        /* ── TOP BAR ─────────────────────────── */
+        .topbar {
+            background: linear-gradient(90deg, #07122e, #071a1a);
+            padding: 8px 18px;
+            text-align: center;
+            font-size: .73rem;
+            color: #94A3B8;
+            font-weight: 500;
+        }
+
+        [data-theme="light"] .topbar {
+            background: linear-gradient(90deg, #EEF2FF, #ECFDF5);
+            color: #475569
+        }
+
+        .topbar strong {
+            color: var(--yellow)
+        }
+
+        [data-theme="light"] .topbar strong {
+            color: #D97706
+        }
+
+        /* ── NAVBAR ──────────────────────────── */
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 200;
+            height: 58px;
+            padding: 0 14px;
+            background: rgba(8, 12, 20, .96);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--brd);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            transition: background .35s;
+        }
+
+        [data-theme="light"] .nav {
+            background: rgba(248, 250, 252, .96);
+            border-bottom-color: var(--brd)
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            cursor: pointer;
+            flex-shrink: 0
+        }
+
+        .nav-wordmark {
+            display: flex;
+            flex-direction: column
+        }
+
+        .nav-brand {
+            font-family: var(--h);
+            font-weight: 900;
+            font-size: .9rem;
+            color: var(--white);
+            letter-spacing: -.03em;
+            line-height: 1.1
+        }
+
+        .nav-sub {
+            font-size: .58rem;
+            color: var(--muted);
+            letter-spacing: .04em;
+            text-transform: uppercase
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            flex-shrink: 0
+        }
+
+        .theme-toggle {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg2);
+            border: 1px solid var(--brd2);
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all .2s;
+        }
+
+        .theme-toggle:hover {
+            background: var(--bg3)
+        }
+
+        .langbtn {
+            font-size: .69rem;
+            font-weight: 600;
+            color: var(--teal2);
+            padding: 5px 10px;
+            border-radius: 50px;
+            background: rgba(39, 224, 196, .08);
+            border: 1px solid rgba(39, 224, 196, .2);
+            cursor: pointer;
+            white-space: nowrap;
+            transition: opacity .15s;
+        }
+
+        .langbtn:active {
+            opacity: .75
+        }
+
+        .enrollbtn {
+            background: var(--yellow);
+            color: #080C14;
+            font-family: var(--h);
+            font-weight: 800;
+            font-size: .73rem;
+            padding: 9px 15px;
+            border-radius: 50px;
+            white-space: nowrap;
+            box-shadow: 0 0 14px rgba(250, 204, 21, .22);
+            transition: opacity .15s;
+            position: relative;
+        }
+
+        .enrollbtn:active {
+            opacity: .85
+        }
+
+        /* ── TABS ────────────────────────────── */
+        .tabbar {
+            background: var(--bg1);
+            border-bottom: 1px solid var(--brd);
+            display: flex;
+            overflow-x: auto;
+            scrollbar-width: none;
+            position: sticky;
+            top: 58px;
+            z-index: 150;
+            -webkit-overflow-scrolling: touch;
+            transition: background .35s;
+        }
+
+        .tabbar::-webkit-scrollbar {
+            display: none
+        }
+
+        .tab {
+            font-family: var(--h);
+            font-size: .73rem;
+            font-weight: 600;
+            color: var(--muted);
+            padding: 12px 15px;
+            white-space: nowrap;
+            border-bottom: 2px solid transparent;
+            cursor: pointer;
+            transition: all .18s;
+            flex-shrink: 0;
+        }
+
+        .tab.on {
+            color: var(--white);
+            border-bottom-color: var(--blue)
+        }
+
+        /* ── PAGES ───────────────────────────── */
+        .pg {
+            display: none
+        }
+
+        .pg.on {
+            display: block;
+            animation: fadeUpPage 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards
+        }
+
+        @keyframes fadeUpPage { 0% { opacity: 0; transform: translateY(15px) } 100% { opacity: 1; transform: translateY(0) } }
+
+        
+        @keyframes logoGlow {
+            0%, 100% { border-color: rgba(10, 91, 255, .2); box-shadow: 0 2px 16px rgba(10, 91, 255, .2), 0 0 20px rgba(39, 224, 196, .1); }
+            50% { border-color: rgba(39, 224, 196, .3); box-shadow: 0 2px 20px rgba(39, 224, 196, .25), 0 0 28px rgba(10, 91, 255, .15); }
+        }
+
+        /* ── HERO ────────────────────────────── */
+        .hero {
+            padding: 44px 20px 52px;
+            background: var(--bg0);
+            position: relative;
+            overflow: hidden
+        }
+
+        .hero-grid {
+            position: absolute;
+            inset: 0;
+            opacity: .12;
+            background-image: linear-gradient(var(--brd) 1px, transparent 1px), linear-gradient(90deg, var(--brd) 1px, transparent 1px);
+            background-size: 38px 38px;
+            mask-image: radial-gradient(ellipse at 50% 0%, black 0%, transparent 60%);
+        }
+
+        .glow-b {
+            position: absolute;
+            top: -60px;
+            left: -40px;
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(10, 91, 255, .18) 0%, transparent 70%);
+            pointer-events: none
+        }
+
+        .glow-t {
+            position: absolute;
+            bottom: -40px;
+            right: -20px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(39, 224, 196, .13) 0%, transparent 70%);
+            pointer-events: none
+        }
+
+        .hero-in {
+            position: relative;
+            z-index: 10;
+            max-width: 720px;
+            margin: 0 auto;
+            text-align: center
+        }
+
+        .hero-logobox {
+            display: inline-flex;
+            margin-bottom: 14px;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .hero-brandname {
+            font-family: var(--h);
+            font-weight: 900;
+            font-size: 1.22rem;
+            color: var(--white);
+            letter-spacing: -.03em
+        }
+
+        .hero-brandsub {
+            font-size: .65rem;
+            color: var(--muted);
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            margin-top: 3px;
+            margin-bottom: 22px
+        }
+
+        .batch-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            background: rgba(10, 91, 255, .1);
+            border: 1px solid rgba(10, 91, 255, .28);
+            color: #93C5FD;
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: .71rem;
+            font-weight: 600;
+            letter-spacing: .03em;
+            margin-bottom: 20px;
+        }
+
+        .bdot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #93C5FD;
+            flex-shrink: 0;
+            animation: blink 2s ease-in-out infinite
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1
+            }
+
+            50% {
+                opacity: .3
+            }
+        }
+
+        .hero h1 {
+            font-size: clamp(1.75rem, 5.2vw, 2.4rem);
+            font-weight: 900;
+            margin-bottom: 12px;
+            text-align: center
+        }
+
+        .hero h1 .hl {
+            background: linear-gradient(135deg, #60A5FA, var(--teal));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text
+        }
+
+        .hero-sub {
+            font-size: .89rem;
+            line-height: 1.72;
+            color: var(--muted2);
+            margin-bottom: 20px;
+            text-align: center
+        }
+
+        .hero-sub strong {
+            color: var(--teal2);
+            font-weight: 600
+        }
+
+        /* ── HERO ANIMATED SUBLINE ───────────── */
+        .hero-animated {
+            font-size: .92rem;
+            font-weight: 600;
+            color: var(--teal2);
+            text-align: center;
+            margin-bottom: 22px;
+            min-height: 1.4em;
+        }
+
+        .hero-animated .typewriter {
+            border-right: 2px solid var(--teal);
+            animation: blink-caret .75s step-end infinite;
+            padding-right: 2px;
+        }
+
+        @keyframes blink-caret {
+
+            from,
+            to {
+                border-color: transparent
+            }
+
+            50% {
+                border-color: var(--teal)
+            }
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+            .hero-animated .typewriter {
+                animation: none;
+                border-right-color: var(--teal)
+            }
+
+            .floating-logos .fl-item {
+                animation: none !important
+            }
+
+            .bdot {
+                animation: none
+            }
+
+            .lp-logobox,
+            .hero-logobox {
+                animation: none
+            }
+        }
+
+        /* ── RESULT PILLS ────────────────────── */
+        .pills {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-bottom: 20px;
+        }
+
+        .pill {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background: rgba(52, 211, 153, .07);
+            border: 1px solid rgba(52, 211, 153, .2);
+            color: var(--green);
+            font-size: .71rem;
+            font-weight: 600;
+            padding: 5px 11px;
+            border-radius: 50px;
+        }
+
+        /* ── PRICE CARD ──────────────────────── */
+        .pcard {
+            background: var(--bg1);
+            border: 1px solid var(--brd2);
+            border-radius: var(--r2);
+            padding: 17px 16px;
+            margin-bottom: 13px;
+            position: relative;
+            overflow: hidden;
+            text-align: left;
+            transition: background .35s, border-color .35s
+        }
+
+        .pcard::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--blue), var(--teal))
+        }
+
+        .batch-notice {
+            background: rgba(39, 224, 196, .07);
+            border: 1px solid rgba(39, 224, 196, .18);
+            border-radius: 8px;
+            padding: 9px 12px;
+            margin-bottom: 12px;
+            font-size: .77rem;
+            color: var(--teal2);
+            line-height: 1.55;
+            text-align: center;
+}
+
+        .batch-notice strong {
+            font-weight: 700;
+            display: block;
+            margin-bottom: 2px
+        }
+
+        .old {
+            font-size: .78rem;
+            color: var(--muted);
+            text-decoration: line-through;
+            margin-bottom: 3px
+        }
+
+        .bigprice {
+            font-family: var(--h);
+            font-weight: 900;
+            font-size: 2.3rem;
+            color: var(--yellow);
+            line-height: 1;
+            display: inline-block
+        }
+
+        .savepill {
+            background: rgba(251, 113, 133, .12);
+            color: var(--red);
+            font-family: var(--h);
+            font-weight: 700;
+            font-size: .64rem;
+            padding: 3px 8px;
+            border-radius: 50px;
+            margin-left: 8px;
+            vertical-align: middle
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 10px
+            justify-content: center;
+}
+
+        .tag {
+            background: rgba(39, 224, 196, .07);
+            border: 1px solid rgba(39, 224, 196, .17);
+            color: var(--teal2);
+            font-size: .65rem;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 50px
+        }
+
+        /* ── SEATS ───────────────────────────── */
+        .smeta {
+            display: flex;
+            justify-content: space-between;
+            font-size: .68rem;
+            margin-bottom: 5px
+        }
+
+        .sbar {
+            height: 4px;
+            background: var(--bg3);
+            border-radius: 100px;
+            overflow: hidden;
+            margin-bottom: 12px
+        }
+
+        .sfill {
+            height: 100%;
+            border-radius: 100px;
+            background: linear-gradient(90deg, var(--teal), var(--blue));
+            width: 30%;
+            transition: width .5s
+        }
+
+        /* ── BUTTONS ─────────────────────────── */
+        .btn-y {
+            width: 100%;
+            background: var(--yellow);
+            color: #080C14;
+            font-family: var(--h);
+            font-weight: 800;
+            font-size: .94rem;
+            padding: 15px;
+            border-radius: var(--r);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 2px 16px rgba(10, 91, 255, .25), 0 0 24px rgba(39, 224, 196, .15), inset 0 1px 1px rgba(255, 255, 255, .15);
+            transition: opacity .15s, transform .15s;
+            position: relative;
+        }
+
+        .btn-y:hover {
+            transform: translateY(-1px)
+        }
+
+        .btn-y:active {
+            opacity: .85;
+            transform: translateY(0)
+        }
+
+        .btn-b {
+            width: 100%;
+            background: linear-gradient(135deg, var(--blue), #1a6fff);
+            color: #fff;
+            font-family: var(--h);
+            font-weight: 800;
+            font-size: .94rem;
+            padding: 15px;
+            border-radius: var(--r);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 4px 18px rgba(10, 91, 255, .28);
+            transition: opacity .15s, transform .15s
+        }
+
+        .btn-b:hover {
+            transform: translateY(-1px)
+        }
+
+        .btn-b:active {
+            opacity: .88;
+            transform: translateY(0)
+        }
+
+        .btn-s {
+            width: 100%;
+            background: transparent;
+            border: 1px solid var(--brd2);
+            color: var(--muted2);
+            font-family: var(--h);
+            font-weight: 600;
+            font-size: .82rem;
+            padding: 12px;
+            border-radius: var(--r);
+            transition: background .15s;
+            margin-top: 8px
+        }
+
+        .btn-s:active {
+            background: var(--bg2)
+        }
+
+        /* ── GUARANTEE ───────────────────────── */
+        .guar {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            margin-top: 12px;
+            background: rgba(52, 211, 153, .05);
+            border: 1px solid rgba(52, 211, 153, .14);
+            border-radius: 10px;
+            padding: 11px 12px;
+            text-align: center;
+            justify-content: center
+        }
+
+        .guar span:first-child {
+            font-size: 1.15rem;
+            flex-shrink: 0
+        }
+
+        .guar p {
+            font-size: .73rem;
+            color: var(--green);
+            line-height: 1.45;
+            margin: 0
+        }
+
+        .guar strong {
+            font-weight: 700;
+            display: block
+        }
+
+        /* ── FLOATING TOOL LOGOS ─────────────── */
+        .floating-logos {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0
+        }
+
+        .fl-item {
+            position: absolute;
+            z-index: 1;
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at 35% 35%, rgba(255, 255, 255, .12) 0%, rgba(255, 255, 255, .03) 50%, rgba(0, 0, 0, .15) 100%);
+            border: 1.5px solid rgba(10, 91, 255, .25);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, .3), 0 0 20px rgba(10, 91, 255, .08), inset 0 1px 1px rgba(255, 255, 255, .12);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            opacity: .92;
+        }
+
+        .fl-item::before {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 8px;
+            width: 50%;
+            height: 30%;
+            background: linear-gradient(180deg, rgba(255, 255, 255, .25) 0%, transparent 100%);
+            border-radius: 50%;
+        }
+
+        .fl-item img {
+            display: block;
+            width: 22px;
+            height: 22px;
+            filter: brightness(1.2) drop-shadow(0 1px 2px rgba(0, 0, 0, .3));
+        }
+
+        [data-theme="light"] .fl-item {
+            background: radial-gradient(circle at 35% 35%, rgba(255, 255, 255, .9) 0%, rgba(255, 255, 255, .6) 50%, rgba(200, 210, 230, .4) 100%);
+            border-color: rgba(0, 0, 0, .06);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, .06), 0 0 20px rgba(10, 91, 255, .04), inset 0 1px 1px rgba(255, 255, 255, .8);
+            opacity: .85;
+        }
+
+        [data-theme="light"] .fl-item::before {
+            background: linear-gradient(180deg, rgba(255, 255, 255, .6) 0%, transparent 100%);
+        }
+
+        [data-theme="light"] .fl-item img {
+            filter: brightness(1) drop-shadow(0 1px 2px rgba(0, 0, 0, .08));
+        }
+
+        .fl-item:nth-child(1) {
+            top: 8%;
+            left: 2%;
+            animation: float1 9s ease-in-out infinite;
+            width: 44px; height: 44px;
+        }
+
+        .fl-item:nth-child(2) {
+            top: 6%;
+            right: 3%;
+            animation: float2 11s ease-in-out infinite;
+            width: 44px; height: 44px;
+        }
+
+        .fl-item:nth-child(3) {
+            top: 22%;
+            left: 1%;
+            animation: float3 10s ease-in-out infinite;
+            width: 40px; height: 40px;
+        }
+
+        .fl-item:nth-child(4) {
+            top: 20%;
+            right: 2%;
+            animation: float1 12s ease-in-out infinite 1s;
+            width: 40px; height: 40px;
+        }
+
+        .fl-item:nth-child(5) {
+            top: 35%;
+            right: 4%;
+            animation: float2 9s ease-in-out infinite 0.5s;
+            width: 38px; height: 38px;
+        }
+
+        .fl-item:nth-child(6) {
+            top: 34%;
+            left: 3%;
+            animation: float3 11s ease-in-out infinite 1.5s;
+            width: 38px; height: 38px;
+        }
+
+        @keyframes float1 {
+
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(0deg)
+            }
+
+            50% {
+                transform: translate(-10px, -20px) rotate(5deg)
+            }
+        }
+
+        @keyframes float2 {
+
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(0deg)
+            }
+
+            50% {
+                transform: translate(15px, 20px) rotate(-5deg)
+            }
+        }
+
+        @keyframes float3 {
+
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(0deg)
+            }
+
+            50% {
+                transform: translate(-15px, -15px) rotate(4deg)
+            }
+        }
+
+        /* ── TICKER ──────────────────────────── */
+        .ticker-wrap {
+            background: var(--bg1);
+            border-top: 1px solid var(--brd);
+            border-bottom: 1px solid var(--brd);
+            padding: 10px 0;
+            overflow: hidden;
+            transition: background .35s
+        }
+
+        .ticker {
+            display: flex;
+            gap: 34px;
+            animation: tick 26s linear infinite;
+            width: max-content
+        }
+
+        @keyframes tick {
+            0% {
+                transform: translateX(0)
+            }
+
+            100% {
+                transform: translateX(-50%)
+            }
+        }
+
+        .ti {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: .73rem;
+            color: var(--muted2);
+            white-space: nowrap;
+            font-weight: 500
+        }
+
+        .tdot {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--teal);
+            flex-shrink: 0
+        }
+
+        /* ── LABELS ──────────────────────────── */
+        .lbl {
+            font-size: .64rem;
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 8px
+        }
+
+        .lbl-t {
+            color: var(--teal)
+        }
+
+        .lbl-y {
+            color: var(--yellow)
+        }
+
+        .lbl-g {
+            color: var(--green)
+        }
+
+        .lbl-p {
+            color: var(--purple)
+        }
+
+        .lbl-b {
+            color: var(--blue2)
+        }
+
+        /* ── BENEFITS GRID ───────────────────── */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px
+        }
+
+        @media(min-width:600px) {
+            .benefits-grid {
+                grid-template-columns: 1fr 1fr 1fr
+            }
+        }
+
+        .benefit-card {
+            background: var(--bg1);
+            border: 1px solid var(--brd);
+            border-radius: var(--r2);
+            padding: 16px 14px;
+            text-align: left;
+            transition: transform .2s, border-color .2s, background .35s;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--brd2)
+        }
+
+        .benefit-ico {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            display: block
+        }
+
+        .benefit-t {
+            font-family: var(--h);
+            font-weight: 700;
+            font-size: .82rem;
+            color: var(--white);
+            margin-bottom: 4px;
+            line-height: 1.25
+        }
+
+        .benefit-d {
+            font-size: .72rem;
+            color: var(--muted);
+            line-height: 1.5
+        }
+
+        /* ── ASSURANCE ───────────────────────── */
+        .aitem {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            padding: 13px 14px;
+            background: var(--bg1);
+            border: 1px solid var(--brd);
+            border-radius: var(--r);
+            margin-bottom: 8px;
+            transition: background .35s
+        }
+
+        .aico {
+            font-size: 1.35rem;
+            flex-shrink: 0;
+            margin-top: 2px
+        }
+
+        .atitle {
+            font-family: var(--h);
+            font-weight: 700;
+            font-size: .85rem;
+            color: var(--white);
+            margin-bottom: 3px
+        }
+
+        .adesc {
+            font-size: .77rem;
+            color: var(--muted2);
+            line-height: 1.55
+        }
+
+        /* ── SENTIMENT CARDS ─────────────────── */
+        .sentiment-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px
+        }
+
+        .sentiment-card {
+            background: var(--bg1);
+            border: 1px solid var(--brd);
+            border-radius: var(--r2);
+            padding: 16px;
+            position: relative;
+            transition: transform .2s, background .35s;
+        }
+
+        .sentiment-card:hover {
+            transform: translateY(-2px)
+        }
+
+        .sentiment-card::before {
+            content: '"';
+            position: absolute;
+            top: 8px;
+            right: 14px;
+            font-size: 2rem;
+            font-family: Georgia, serif;
+            color: var(--brd2);
+            line-height: 1
+        }
+
+        .sentiment-q {
+            font-size: .82rem;
+            font-weight: 600;
+            color: var(--white);
+            line-height: 1.55;
+            font-style: italic
+        }
+
+        .sentiment-tag {
+            display: inline-block;
+            margin-top: 8px;
+            font-size: .6rem;
+            font-weight: 700;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            color: var(--muted);
+            background: var(--bg2);
+            padding: 2px 7px;
+            border-radius: 50px
+        }
+
+        /* ── CARDS ───────────────────────────── */
+        .card {
+            background: var(--bg1);
+            border: 1px solid var(--brd);
+            border-radius: var(--r2);
+            padding: 17px 16px;
+            margin-bottom: 11px;
+            transition: background .35s
+        }
+
+        .card-t {
+            border-left: 3px solid var(--teal)
+        }
+
+        .card-b {
+            border-left: 3px solid var(--blue)
+        }
+
+        .card-y {
+            border-left: 3px solid var(--yellow)
+        }
+
+        .card-g {
+            border-left: 3px solid var(--green)
+        }
+
+        .card-p {
+            border-left: 3px solid var(--purple)
+        }
+
+        /* ── MODULES ─────────────────────────── */
+        .mlist {
+            background: var(--bg1);
+            border: 1px solid var(--brd);
+            border-radius: var(--r2);
+            overflow: hidden;
+            transition: background .35s
+        }
+
+        .mod {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 15px;
+            border-bottom: 1px solid var(--brd);
+            transition: background .2s
+        }
+
+        .mod:last-child {
+            border-bottom: none
+        }
+
+        .mod:hover {
+            background: var(--bg2)
+        }
+
+        .mnum {
+            width: 31px;
+            height: 31px;
+            border-radius: 9px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--h);
+            font-weight: 800;
+            font-size: .74rem;
+            flex-shrink: 0
+        }
+
+        .mtitle {
+            font-family: var(--h);
+            font-weight: 700;
+            font-size: .83rem;
+            color: var(--white);
+            margin-bottom: 2px
+        }
+
+        .msub {
+            font-size: .7rem;
+            color: var(--muted);
+            line-height: 1.4
+        }
+
+        .mbadge {
+            font-size: .61rem;
+            font-weight: 700;
+            padding: 2px 7px;
+            border-radius: 50px;
+            white-space: nowrap;
+            flex-shrink: 0
+        }
+
+        /* ── RESOURCE LIBRARY ────────────────── */
+        .res-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px
+        }
+
+        @media(min-width:600px) {
+            .res-grid {
+                grid-template-columns: 1fr 1fr 1fr
+            }
+        }
+
+        .res-item {
+            background: var(--bg1);
+            border: 1px solid var(--brd);
+            border-radius: var(--r);
+            padding: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            transition: background .35s;
+        }
+
+        .res-ico {
+            font-size: 1.1rem;
+            flex-shrink: 0
+        }
+
+        .res-t {
+            font-family: var(--h);
+            font-weight: 600;
+            font-size: .76rem;
+            color: var(--white);
+            line-height: 1.3
+        }
+
+        .res-highlight {
+            background: linear-gradient(135deg, rgba(10, 91, 255, .1), rgba(39, 224, 196, .1));
+            border: 1.5px solid rgba(10, 91, 255, .3);
+            border-radius: var(--r2);
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .res-big {
+            font-family: var(--h);
+            font-weight: 900;
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, #60A5FA, var(--teal));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1
+        }
+
+        .res-biglbl {
+            font-size: .78rem;
+            color: var(--muted2);
+            margin-top: 4px;
+            font-weight: 600
+        }
+
+        /* ── HACKATHON ───────────────────────── */
+        .hack-card {
+            background: linear-gradient(135deg, rgba(167, 139, 250, .06), rgba(10, 91, 255, .06));
+            border: 1px solid rgba(167, 139, 250, .2);
+            border-radius: var(--r2);
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hack-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--purple), var(--blue))
+        }
+
+        .hack-items {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-top: 10px
+        }
+
+        .hack-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: .8rem;
+            color: var(--muted2)
+        }
+
+        .hack-item span:first-child {
+            font-size: 1rem
+        }
+
+        /* ── FAQ ─────────────────────────────── */
+        .faq-item {
+            border-bottom: 1px solid var(--brd)
+        }
+
+        .faq-q {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 0;
+            cursor: pointer;
+            gap: 10px;
+            font-family: var(--h);
+            font-weight: 600;
+            font-size: .86rem;
+            color: var(--white)
+        }
+
+        .faq-ico {
+            font-size: .95rem;
+            color: var(--muted);
+            transition: transform .2s, color .2s;
+            flex-shrink: 0;
+            font-style: normal
+        }
+
+        .faq-a {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .3s ease;
+            font-size: .8rem;
+            line-height: 1.7;
+            color: var(--muted2)
+        }
+
+        .faq-a.open {
+            max-height: 280px;
+            padding-bottom: 12px
+        }
+
+        .faq-ico.rot {
+            transform: rotate(45deg);
+            color: var(--yellow)
+        }
+
+        /* ── COMPARE ─────────────────────────── */
+        .cmp {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 9px
+        }
+
+        .cc {
+            background: var(--bg1);
+            border: 1px solid var(--brd);
+            border-radius: var(--r2);
+            padding: 13px 12px;
+            transition: background .35s
+        }
+
+        .cc.win {
+            border-color: rgba(10, 91, 255, .3)
+        }
+
+        .ch {
+            font-family: var(--h);
+            font-weight: 700;
+            font-size: .75rem;
+            margin-bottom: 9px;
+            padding-bottom: 7px;
+            border-bottom: 1px solid var(--brd)
+        }
+
+        .crow {
+            display: flex;
+            align-items: flex-start;
+            gap: 4px;
+            font-size: .71rem;
+            line-height: 1.5;
+            margin-bottom: 6px;
+            color: var(--muted2)
+        }
+
+        .cn {
+            color: var(--red);
+            font-weight: 800;
+            flex-shrink: 0
+        }
+
+        .cy {
+            color: var(--teal);
+            font-weight: 800;
+            flex-shrink: 0
+        }
+
+        /* ── FORM ────────────────────────────── */
+        .flabel {
+            font-size: .74rem;
+            font-weight: 600;
+            color: var(--muted2);
+            display: block;
+            margin-bottom: 5px
+        }
+
+        .field {
+            width: 100%;
+            background: var(--bg2);
+            border: 1.5px solid var(--brd2);
+            border-radius: 9px;
+            padding: 12px 13px;
+            color: var(--white);
+            font-size: .87rem;
+            transition: border-color .2s, background .35s;
+            caret-color: var(--teal)
+        }
+
+        .field::placeholder {
+            color: var(--muted)
+        }
+
+        .field:focus {
+            border-color: var(--blue)
+        }
+
+        .fg {
+            margin-bottom: 12px
+        }
+
+        .fsuccess {
+            background: rgba(52, 211, 153, .07);
+            border: 1px solid rgba(52, 211, 153, .2);
+            border-radius: var(--r);
+            padding: 13px;
+            color: var(--green);
+            font-weight: 600;
+            text-align: center;
+            display: none;
+            font-size: .84rem
+        }
+
+        /* ── STAGE TIMELINE ──────────────────── */
+        .sitem {
+            display: flex;
+            gap: 12px;
+            padding-bottom: 20px;
+            position: relative
+        }
+
+        .sitem::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 32px;
+            bottom: 0;
+            width: 1px;
+            background: linear-gradient(to bottom, var(--brd2), transparent)
+        }
+
+        .sitem:last-child::before {
+            display: none
+        }
+
+        .snum {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--h);
+            font-weight: 800;
+            font-size: .74rem;
+            flex-shrink: 0;
+            border: 1.5px solid
+        }
+
+        .sbody {
+            flex: 1;
+            padding-top: 4px
+        }
+
+        .stitle {
+            font-family: var(--h);
+            font-weight: 700;
+            font-size: .86rem;
+            color: var(--white);
+            margin-bottom: 3px
+        }
+
+        .sdesc {
+            font-size: .77rem;
+            color: var(--muted2);
+            line-height: 1.6
+        }
+
+        .spill {
+            display: inline-block;
+            font-size: .6rem;
+            font-weight: 700;
+            padding: 2px 7px;
+            border-radius: 50px;
+            margin-top: 4px;
+            letter-spacing: .04em
+        }
+
+        /* ── FOUNDER (About page only) ───────── */
+        .founder {
+            background: var(--bg1);
+            border: 1px solid var(--brd2);
+            border-radius: var(--r2);
+            padding: 20px 18px;
+            position: relative;
+            overflow: hidden;
+            transition: background .35s
+        }
+
+        .founder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--blue), var(--teal))
+        }
+
+        .f-name {
+            font-family: var(--h);
+            font-weight: 700;
+            font-size: .9rem;
+            color: var(--white);
+            margin-bottom: 2px
+        }
+
+        .f-role {
+            font-size: .7rem;
+            color: var(--muted);
+            margin-bottom: 12px
+        }
+
+        .f-quote {
+            font-size: .82rem;
+            line-height: 1.72;
+            color: var(--muted2)
+        }
+
+        .f-quote em {
+            color: var(--teal2);
+            font-style: normal;
+            font-weight: 600
+        }
+
+        /* ── BONUS (What You Get) ─────────────── */
+        .bonus {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            padding: 11px 13px;
+            background: var(--bg1);
+            border: 1px solid var(--brd);
+            border-radius: var(--r);
+            margin-bottom: 8px
+        }
+
+        .bico {
+            font-size: 1.25rem;
+            flex-shrink: 0;
+            margin-top: 1px
+        }
+
+        .btitle {
+            font-family: var(--h);
+            font-weight: 700;
+            font-size: .83rem;
+            color: var(--white);
+            margin-bottom: 2px
+        }
+
+        .bdesc {
+            font-size: .74rem;
+            color: var(--muted);
+            line-height: 1.5
+        }
+
+        .bval {
+            font-size: .66rem;
+            font-weight: 700;
+            color: var(--yellow);
+            margin-top: 2px
+        }
+
+        /* ── WORKSHOP STEPS ──────────────────── */
+        .wstep {
+            display: flex;
+            gap: 10px;
+            padding: 12px 13px;
+            background: var(--bg1);
+            border: 1px solid var(--brd);
+            border-radius: var(--r);
+            margin-bottom: 8px
+        }
+
+        .wtime {
+            background: rgba(10, 91, 255, .13);
+            color: #93C5FD;
+            font-family: var(--h);
+            font-weight: 800;
+            font-size: .63rem;
+            padding: 3px 8px;
+            border-radius: 50px;
+            flex-shrink: 0;
+            align-self: flex-start;
+            margin-top: 2px;
+            white-space: nowrap
+        }
+
+        .wtitle {
+            font-family: var(--h);
+            font-weight: 700;
+            font-size: .83rem;
+            color: var(--white);
+            margin-bottom: 3px
+        }
+
+        .wdesc {
+            font-size: .76rem;
+            color: var(--muted);
+            line-height: 1.55
+        }
+
+        /* ── COUNTDOWN ───────────────────────── */
+        .cdwrap {
+            background: var(--bg1);
+            border-top: 1px solid var(--brd);
+            border-bottom: 1px solid var(--brd);
+            padding: 17px;
+            text-align: center;
+            transition: background .35s
+        }
+
+        .cdlabel {
+            font-size: .67rem;
+            font-weight: 700;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--muted2);
+            margin-bottom: 10px
+        }
+
+        .cdunits {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px
+        }
+
+        .cdunit {
+            text-align: center;
+            min-width: 48px
+        }
+
+        .cdbox {
+            background: var(--bg2);
+            border: 1px solid var(--brd2);
+            border-radius: 9px;
+            padding: 7px 4px;
+            margin-bottom: 4px;
+            transition: background .35s
+        }
+
+        .cdnum {
+            font-family: var(--h);
+            font-weight: 900;
+            font-size: 1.45rem;
+            color: var(--yellow);
+            line-height: 1
+        }
+
+        .cdlbl {
+            font-size: .56rem;
+            color: var(--muted);
+            letter-spacing: .08em;
+            text-transform: uppercase
+        }
+
+        .cdcolon {
+            font-family: var(--h);
+            font-size: 1.2rem;
+            color: var(--yellow);
+            opacity: .4;
+            padding-bottom: 11px;
+            font-weight: 900
+        }
+
+        .cdnote {
+            font-size: .71rem;
+            color: var(--muted);
+            margin-top: 8px
+        }
+
+        .cdnote strong {
+            color: var(--red)
+        }
+
+        /* ── WORKSHOP STEPS ──────────────────── */
+        .wstep {
+            display: flex;
+            gap: 10px;
+            padding: 12px 13px;
+            background: var(--bg1);
+            border: 1px solid var(--brd);
+            border-radius: var(--r);
+            margin-bottom: 8px;
+            transition: background .35s
+        }
+
+        .wtime {
+            background: rgba(10, 91, 255, .13);
+            color: #93C5FD;
+            font-family: var(--h);
+            font-weight: 800;
+            font-size: .63rem;
+            padding: 3px 8px;
+            border-radius: 50px;
+            flex-shrink: 0;
+            align-self: flex-start;
+            margin-top: 2px;
+            white-space: nowrap
+        }
+
+        .wtitle {
+            font-family: var(--h);
+            font-weight: 700;
+            font-size: .83rem;
+            color: var(--white);
+            margin-bottom: 3px
+        }
+
+        .wdesc {
+            font-size: .76rem;
+            color: var(--muted);
+            line-height: 1.55
+        }
+
+        /* ── STICKY BAR ──────────────────────── */
+        .sticky {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 500;
+            background: rgba(8, 12, 20, .97);
+            border-top: 1px solid var(--brd2);
+            padding: 10px 15px max(10px, env(safe-area-inset-bottom));
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            transform: translateY(100%);
+            transition: transform .3s cubic-bezier(.16, 1, .3, 1), background .35s;
+        }
+
+        [data-theme="light"] .sticky {
+            background: rgba(248, 250, 252, .97)
+        }
+
+        .sticky.up {
+            transform: translateY(0)
+        }
+
+        .si {
+            flex: 1;
+            min-width: 0
+        }
+
+        .sname {
+            font-family: var(--h);
+            font-weight: 700;
+            font-size: .78rem;
+            color: var(--white);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap
+        }
+
+        .sprow {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 1px
+        }
+
+        .sold {
+            font-size: .62rem;
+            color: var(--muted);
+            text-decoration: line-through
+        }
+
+        .snew {
+            font-family: var(--h);
+            font-weight: 800;
+            font-size: .9rem;
+            color: var(--yellow)
+        }
+
+        .ssave {
+            font-size: .6rem;
+            font-weight: 700;
+            color: var(--red);
+            background: rgba(251, 113, 133, .1);
+            padding: 2px 6px;
+            border-radius: 50px
+        }
+
+        .stimer {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            font-family: var(--h);
+            font-weight: 700;
+            font-size: .67rem;
+            background: rgba(250, 204, 21, .07);
+            border: 1px solid rgba(250, 204, 21, .17);
+            border-radius: 6px;
+            padding: 4px 8px;
+            color: var(--yellow);
+            flex-shrink: 0;
+            white-space: nowrap
+        }
+
+        .sbtn {
+            background: var(--yellow);
+            color: #080C14;
+            font-family: var(--h);
+            font-weight: 800;
+            font-size: .77rem;
+            padding: 10px 15px;
+            border-radius: 10px;
+            white-space: nowrap;
+            flex-shrink: 0;
+            transition: opacity .15s;
+            position: relative;
+        }
+
+        .sbtn:active {
+            opacity: .85
+        }
+        @keyframes btnSignalWave {
+            0% {
+                top: 0; left: 0; right: 0; bottom: 0;
+                opacity: 0.8;
+                border: 2px solid var(--yellow);
+            }
+            100% {
+                top: -12px; left: -12px; right: -12px; bottom: -12px;
+                opacity: 0;
+                border: 1px solid var(--yellow);
+            }
+        }
+
+        .btn-y::before, .btn-y::after,
+        .enrollbtn::before, .enrollbtn::after,
+        .sbtn::before, .sbtn::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: inherit;
+            pointer-events: none;
+            animation: btnSignalWave 2.2s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+        }
+
+        .btn-y::after, .enrollbtn::after, .sbtn::after {
+            animation-delay: 1.1s;
+        }
+
+
+
+        .pb {
+            height: max(68px, calc(68px + env(safe-area-inset-bottom)))
+        }
+
+        /* ── FOOTER ──────────────────────────── */
+        .footer {
+            background: var(--bg1);
+            border-top: 1px solid var(--brd);
+            padding: 30px 18px 22px;
+            transition: background .35s
+        }
+
+        .flogo {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            margin-bottom: 10px
+        }
+
+        .fname {
+            font-family: var(--h);
+            font-weight: 800;
+            color: var(--white);
+            font-size: .87rem
+        }
+
+        .flinks {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 13px 0 11px
+        }
+
+        .flink {
+            font-size: .76rem;
+            color: var(--muted);
+            font-weight: 500;
+            cursor: pointer;
+            transition: color .15s
+        }
+
+        .flink:hover {
+            color: var(--white)
+        }
+
+        .fcopy {
+            font-size: .68rem;
+            color: var(--muted);
+            margin-top: 11px;
+            padding-top: 11px;
+            border-top: 1px solid var(--brd)
+        }
+
+        /* ── UTILS ───────────────────────────── */
+        .div {
+            height: 1px;
+            background: var(--brd);
+            margin: 0 18px
+        }
+
+        .mt4 {
+            margin-top: 16px
+        }
+
+        .mt6 {
+            margin-top: 24px
+        }
+
+        .mb3 {
+            margin-bottom: 12px
+        }
+
+        .quote {
+            border-left: 3px solid var(--blue);
+            padding: 12px 14px;
+            background: var(--bg1);
+            border-radius: 0 var(--r) var(--r) 0;
+            transition: background .35s
+        }
+
+        .quote p {
+            font-style: italic;
+            font-size: .86rem;
+            color: var(--white);
+            line-height: 1.7;
+            margin: 0
+        }
+
+        /* ── LANGUAGE SWITCH ─────────────────── */
+        [data-lang="kn"] .eo {
+            display: none !important
+        }
+
+        [data-lang="en"] .ko {
+            display: none !important
+        }
+
+        .kn-font {
+            font-family: 'Noto Sans Kannada', 'Outfit', sans-serif
+        }
+
+        /* ── DESKTOP IMPROVEMENTS ────────────── */
+        @media(min-width:768px) {
+            .wrap {
+                max-width: 720px;
+                padding: 0 32px
+            }
+
+            .hero-in {
+                max-width: 720px
+            }
+
+            .hero h1 {
+                font-size: 2.4rem
+            }
+
+            .sentiment-grid {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .benefits-grid {
+                grid-template-columns: repeat(3, 1fr)
+            }
+
+            .lp-cards {
+                flex-direction: row;
+                max-width: 480px
+            }
+        }
+
+        @media(min-width:1024px) {
+            .wrap {
+                max-width: 860px
+            }
+
+            .hero-in {
+                max-width: 860px
+            }
+
+            .benefits-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 14px
+            }
+
+            .res-grid {
+                grid-template-columns: repeat(3, 1fr)
+            }
+        }
+    
+        /* ── SCROLL REVEAL ANIMATIONS ────────── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-d1 { transition-delay: 0.08s; }
+        .reveal-d2 { transition-delay: 0.16s; }
+        .reveal-d3 { transition-delay: 0.24s; }
+        .reveal-d4 { transition-delay: 0.32s; }
+        .reveal-d5 { transition-delay: 0.40s; }
+
+        /* ── VALUE STACK ─────────────────────── */
+        .value-stack {
+            background: var(--bg1);
+            border: 1px solid var(--brd);
+            border-radius: var(--r2);
+            padding: 20px 16px;
+            margin-bottom: 16px;
+            transition: background .35s;
+        }
+        .value-stack h3 {
+            font-family: var(--h);
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: var(--white);
+            margin-bottom: 14px;
+            text-align: center;
+        }
+        .vs-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 9px 0;
+            border-bottom: 1px solid var(--brd);
+            font-size: .82rem;
+        }
+        .vs-item:last-child { border-bottom: none; }
+        .vs-name { color: var(--white); font-weight: 500; }
+        .vs-val { color: var(--muted); text-decoration: line-through; font-size: .78rem; }
+        .vs-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0 4px;
+            border-top: 2px solid var(--brd2);
+            margin-top: 4px;
+        }
+        .vs-total-label {
+            font-family: var(--h);
+            font-weight: 800;
+            font-size: .95rem;
+            color: var(--white);
+        }
+        .vs-total-val {
+            font-family: var(--h);
+            font-weight: 800;
+            font-size: 1.05rem;
+            color: var(--muted);
+            text-decoration: line-through;
+        }
+        .vs-final {
+            text-align: center;
+            margin-top: 14px;
+            padding: 14px;
+            background: linear-gradient(135deg, rgba(10,91,255,.08), rgba(39,224,196,.08));
+            border-radius: var(--r);
+            border: 1px solid rgba(39,224,196,.15);
+        }
+        .vs-final-price {
+            font-family: var(--h);
+            font-weight: 900;
+            font-size: 2rem;
+            color: var(--teal);
+        }
+        .vs-final-sub {
+            font-size: .78rem;
+            color: var(--muted2);
+            margin-top: 2px;
+        }
+        .vs-perday {
+            font-size: .72rem;
+            color: var(--yellow);
+            font-weight: 600;
+            margin-top: 6px;
+        }
+        .vs-save {
+            display: inline-block;
+            background: rgba(251,113,133,.12);
+            color: var(--red);
+            font-family: var(--h);
+            font-weight: 800;
+            font-size: .78rem;
+            padding: 3px 10px;
+            border-radius: 50px;
+            margin-top: 6px;
+        }
+
+        /* ── URGENCY BAR ─────────────────────── */
+        .urgency-bar {
+            background: linear-gradient(135deg, rgba(250,204,21,.06), rgba(251,113,133,.06));
+            border: 1px solid rgba(250,204,21,.15);
+            border-radius: var(--r);
+            padding: 12px 14px;
+            margin-top: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .urgency-bar .ub-icon { font-size: 1.2rem; flex-shrink: 0; }
+        .urgency-bar .ub-text {
+            font-size: .78rem;
+            color: var(--yellow);
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+    
+        /* ── MOBILE FLOATING LOGO FIX ────────── */
+        @media (max-width: 480px) {
+            .fl-item {
+                width: 36px !important;
+                height: 36px !important;
+                opacity: 0.35 !important;
+                pointer-events: none;
+            }
+            .fl-item img {
+                width: 18px !important;
+                height: 18px !important;
+            }
+            .fl-item:nth-child(1) { top: 1% !important; left: -8px !important; }
+            .fl-item:nth-child(2) { top: 1% !important; right: -8px !important; left: auto !important; }
+            .fl-item:nth-child(3) { top: 30% !important; left: -10px !important; }
+            .fl-item:nth-child(4) { top: 28% !important; right: -10px !important; left: auto !important; }
+            .fl-item:nth-child(5) { top: 55% !important; right: -6px !important; left: auto !important; }
+            .fl-item:nth-child(6) { top: 52% !important; left: -6px !important; }
+        }
+
+        @media (min-width: 481px) and (max-width: 767px) {
+            .fl-item {
+                width: 42px !important;
+                height: 42px !important;
+                opacity: 0.55 !important;
+            }
+            .fl-item img {
+                width: 20px !important;
+                height: 20px !important;
+            }
+        }
+
+    </style>
+
+    <meta property="og:title" content="Beyond Tatva — AI Education for Students | Grades 8–12" />
+    <meta property="og:description" content="Structured AI skills course for students in Grades 8–12. Board exam preparation, future readiness, real projects. Founding Batch — Limited to 75 Students at ₹799." />
+    <meta property="og:type" content="website" />
+    <meta name="robots" content="index, follow" />
+    <meta name="keywords" content="AI course for students, AI education India, board exam AI, grades 8-12 AI course, student AI skills, Beyond Tatva" />
+</head>
+
+<body>
+
+    <!-- LANGUAGE PICKER -->
+    <div id="langPicker">
+        <div class="lp-logobox">
+            <img src="https://files.catbox.moe/nov2sj.svg" alt="Beyond Tatva" width="150" height="auto" class="logo-img"
+                style="border-radius:12px" />
+        </div>
+        <div class="lp-brand">
+            <div class="lp-name">BEYOND TATVA</div>
+            <div class="lp-tagline">AI Education · India</div>
+        </div>
+        <p class="lp-ask">Choose your language<strong>ನಿಮ್ಮ ಭಾಷೆ ಆರಿಸಿ</strong></p>
+        <div class="lp-cards">
+            <button class="lp-card en" onclick="chooseLang('en')">
+                <span class="lp-card-icon">🇮🇳</span>
+                <div>
+                    <div class="lp-card-main">English</div>
+                    <div class="lp-card-sub">View site in English</div>
+                </div>
+            </button>
+            <button class="lp-card kn" onclick="chooseLang('kn')">
+                <span class="lp-card-icon">🌿</span>
+                <div>
+                    <div class="lp-card-main">ಕನ್ನಡ</div>
+                    <div class="lp-card-sub" style="font-family:'Noto Sans Kannada','Outfit',sans-serif">ತಂದೆ–ತಾಯಿಗೆ
+                        ಸುಲಭ ಆಗುವ ಭಾಷೆ</div>
+                </div>
+            </button>
+        </div>
+        <p class="lp-hint">You can switch anytime · ಯಾವಾಗಲೂ ಬದಲಾಯಿಸಬಹುದು</p>
+    </div>
+
+    <!-- SPLASH -->
+    <div id="splash">
+        <div style="animation:pulse 3s ease-in-out infinite">
+            <img src="https://files.catbox.moe/nov2sj.svg" alt="Beyond Tatva" width="180" class="logo-img"
+                style="height:auto; border-radius:10px" />
+        </div>
+        <div>
+            <div class="sp-name">BEYOND TATVA</div>
+            <div class="sp-sub eo">AI Education</div>
+            <div class="sp-sub ko kn-font">AI ಶಿಕ್ಷಣ</div>
+        </div>
+        <div class="sp-bar">
+            <div class="sp-fill"></div>
+        </div>
+    </div>
+
+    <!-- MAIN SITE -->
+    <div id="site">
+
+        <!-- TOP BAR -->
+        <div class="topbar">
+            <span class="eo">Batch 1 · Pilot Batch · <strong>Limited to 75 Students</strong></span>
+            <span class="ko kn-font">Batch 1 · Pilot Batch · <strong>75 ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಮಾತ್ರ</strong></span>
+        </div>
+
+        <!-- NAVBAR -->
+        <nav class="nav">
+            <div class="nav-left" onclick="goTab('home')">
+                <img src="https://files.catbox.moe/nov2sj.svg" alt="BT" width="60" class="logo-img"
+                    style="height:auto; border-radius:6px" />
+                <div class="nav-wordmark">
+                    <span class="nav-brand">BEYOND TATVA</span>
+                    <span class="nav-sub eo">AI Education</span>
+                    <span class="nav-sub ko kn-font">AI ಶಿಕ್ಷಣ</span>
+                </div>
+            </div>
+            <div class="nav-right">
+                <button class="theme-toggle" id="themeBtn" onclick="toggleTheme()" aria-label="Toggle theme">🌙</button>
+                <button class="langbtn" id="langToggleBtn" onclick="toggleLang()">ಕನ್ನಡ</button>
+                <button class="enrollbtn" onclick="goTab('course')">Enroll ₹799</button>
+            </div>
+        </nav>
+
+        <!-- TABS -->
+        <div class="tabbar">
+            <div class="tab on" data-tab="home" onclick="goTab('home')"><span class="eo">Home</span><span
+                    class="ko kn-font">ಮುಖಪುಟ</span></div>
+            <div class="tab" data-tab="course" onclick="goTab('course')"><span class="eo">Course</span><span
+                    class="ko kn-font">ಕೋರ್ಸ್</span></div>
+            <div class="tab" data-tab="schools" onclick="goTab('schools')"><span class="eo">For Schools</span><span
+                    class="ko kn-font">ಶಾಲೆಗಳಿಗೆ</span></div>
+            <div class="tab" data-tab="about" onclick="goTab('about')"><span class="eo">About Us</span><span
+                    class="ko kn-font">ನಮ್ಮ ಬಗ್ಗೆ</span></div>
+            <div class="tab" data-tab="contact" onclick="goTab('contact')"><span class="eo">Contact</span><span
+                    class="ko kn-font">ಸಂಪರ್ಕ</span></div>
+        </div>
+
+        <!-- ═══════════ HOME ═══════════ -->
+        <div id="tab-home" class="pg on">
+
+            <section class="hero">
+                <div class="hero-grid"></div>
+                <div class="glow-b"></div>
+                <div class="glow-t"></div>
+                <!-- Floating Tool Logos -->
+                <div class="floating-logos">
+                    <div class="fl-item"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHNoYXBlLXJlbmRlcmluZz0iZ2VvbWV0cmljUHJlY2lzaW9uIiB0ZXh0LXJlbmRlcmluZz0iZ2VvbWV0cmljUHJlY2lzaW9uIiBpbWFnZS1yZW5kZXJpbmc9Im9wdGltaXplUXVhbGl0eSIgZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIHZpZXdCb3g9IjAgMCA1MTIgNTA5LjYzOSI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTExNS42MTIgMGgyODAuNzc1QzQ1OS45NzQgMCA1MTIgNTIuMDI2IDUxMiAxMTUuNjEydjI3OC40MTVjMCA2My41ODctNTIuMDI2IDExNS42MTMtMTE1LjYxMyAxMTUuNjEzSDExNS42MTJDNTIuMDI2IDUwOS42NCAwIDQ1Ny42MTQgMCAzOTQuMDI3VjExNS42MTJDMCA1Mi4wMjYgNTIuMDI2IDAgMTE1LjYxMiAweiIvPjxwYXRoIGZpbGwtcnVsZT0ibm9uemVybyIgZD0iTTQxMi4wMzcgMjIxLjc2NGE5MC44MzQgOTAuODM0IDAgMDA0LjY0OC0yOC42NyA5MC43OSA5MC43OSAwIDAwLTEyLjQ0My00NS44N2MtMTYuMzctMjguNDk2LTQ2LjczOC00Ni4wODktNzkuNjA1LTQ2LjA4OS02LjQ2NiAwLTEyLjk0My42ODMtMTkuMjY0IDIuMDRhOTAuNzY1IDkwLjc2NSAwIDAwLTY3Ljg4MS0zMC41MTVoLS41NzZjLS4wNTkuMDAyLS4xNDkuMDAyLS4yMTYuMDAyLTM5LjgwNyAwLTc1LjEwOCAyNS42ODYtODcuMzQ2IDYzLjU1NC0yNS42MjYgNS4yMzktNDcuNzQ4IDIxLjMxLTYwLjY4MiA0NC4wM2E5MS44NzMgOTEuODczIDAgMDAtMTIuNDA3IDQ2LjA3NyA5MS44MzMgOTEuODMzIDAgMDAyMy42OTQgNjEuNTUzIDkwLjgwMiA5MC44MDIgMCAwMC00LjY0OSAyOC42NyA5MC44MDQgOTAuODA0IDAgMDAxMi40NDIgNDUuODdjMTYuMzY5IDI4LjUwNCA0Ni43NCA0Ni4wODcgNzkuNjEgNDYuMDg3YTkxLjgxIDkxLjgxIDAgMDAxOS4yNTMtMi4wNCA5MC43ODMgOTAuNzgzIDAgMDA2Ny44ODcgMzAuNTE2aC41NzZsLjIzNC0uMDAxYzM5LjgyOSAwIDc1LjExOS0yNS42ODYgODcuMzU3LTYzLjU4OCAyNS42MjYtNS4yNDIgNDcuNzQ4LTIxLjMxMiA2MC42ODItNDQuMDMzYTkxLjcxOCA5MS43MTggMCAwMDEyLjM4My00Ni4wMzUgOTEuODMgOTEuODMgMCAwMC0yMy42OTMtNjEuNTUzbC0uMDA0LS4wMDV6TTI3NS4xMDIgNDEzLjE2MWgtLjA5NGE2OC4xNDYgNjguMTQ2IDAgMDEtNDMuNjExLTE1LjggNTYuOTM2IDU2LjkzNiAwIDAwMi4xNTUtMS4yMjFsNzIuNTQtNDEuOTAxYTExLjc5OSAxMS43OTkgMCAwMDUuOTYyLTEwLjI1MVYyNDEuNjUxbDMwLjY2MSAxNy43MDRjLjMyNi4xNjMuNTUuNDc5LjU5Ni44NHY4NC42OTNjLS4wNDIgMzcuNjUzLTMwLjU1NCA2OC4xOTgtNjguMjEgNjguMjczaC4wMDF6bS0xNDYuNjg5LTYyLjY0OWE2OC4xMjggNjguMTI4IDAgMDEtOS4xNTItMzQuMDg1YzAtMy45MDQuMzQxLTcuODE3IDEuMDA1LTExLjY2My41MzkuMzIzIDEuNDguODk3IDIuMTU1IDEuMjg1bDcyLjU0IDQxLjkwMWExMS44MzIgMTEuODMyIDAgMDAxMS45MTgtLjAwMmw4OC41NjMtNTEuMTM3djM1LjQwOGExLjEgMS4xIDAgMDEtLjQzOC45NGwtNzMuMzMgNDIuMzM5YTY4LjQzIDY4LjQzIDAgMDEtMzQuMTEgOS4xMiA2OC4zNTkgNjguMzU5IDAgMDEtNTkuMTUtMzQuMTFsLS4wMDEuMDA0em0tMTkuMDgzLTE1OC4zNmE2OC4wNDQgNjguMDQ0IDAgMDEzNS41MzgtMjkuOTM0YzAgLjYyNS0uMDM2IDEuNzMxLS4wMzYgMi41djgzLjgwMWwtLjAwMS4wN2ExMS43OSAxMS43OSAwIDAwNS45NTQgMTAuMjQybDg4LjU2NCA1MS4xMy0zMC42NjEgMTcuNzA0YTEuMDk2IDEuMDk2IDAgMDEtMS4wMzQuMDkzbC03My4zMzctNDIuMzc1YTY4LjM2IDY4LjM2IDAgMDEtMzQuMDk1LTU5LjE0MyA2OC40MTIgNjguNDEyIDAgMDE5LjExMi0zNC4wODVsLS4wMDQtLjAwM3ptMjUxLjkwNyA1OC42MjFsLTg4LjU2My01MS4xMzcgMzAuNjYxLTE3LjY5N2ExLjA5NyAxLjA5NyAwIDAxMS4wMzQtLjA5NGw3My4zMzcgNDIuMzM5YzIxLjEwOSAxMi4xOTUgMzQuMTMyIDM0Ljc0NiAzNC4xMzIgNTkuMTMyIDAgMjguNjA0LTE3Ljg0OSA1NC4xOTktNDQuNjg2IDY0LjA3OHYtODYuMzA4Yy4wMDQtLjAzMi4wMDQtLjA2NS4wMDQtLjA5NiAwLTQuMjE5LTIuMjYxLTguMTE5LTUuOTE5LTEwLjIxN3ptMzAuNTE4LTQ1LjkzYy0uNTM5LS4zMzEtMS40OC0uODk4LTIuMTU1LTEuMjg2bC03Mi41NC00MS45MDFhMTEuODQyIDExLjg0MiAwIDAwLTUuOTU4LTEuNjExYy0yLjA5MiAwLTQuMTUuNTU4LTUuOTU3IDEuNjExbC04OC41NjQgNTEuMTM3di0zNS40MDhsLS4wMDEtLjA2MWExLjEgMS4xIDAgMDEuNDQtLjg4bDczLjMzLTQyLjMwM2E2OC4zMDEgNjguMzAxIDAgMDEzNC4xMDgtOS4xMjljMzcuNzA0IDAgNjguMjgxIDMwLjU3NyA2OC4yODEgNjguMjgxYTY4LjY5IDY4LjY5IDAgMDEtLjk4NCAxMS41NDV2LjAwNXptLTE5MS44NDMgNjMuMTA5bC0zMC42NjgtMTcuNzA0YTEuMDkgMS4wOSAwIDAxLS41OTYtLjg0di04NC42OTJjLjAxNi0zNy42ODUgMzAuNTkzLTY4LjIzNiA2OC4yODEtNjguMjM2YTY4LjMzMiA2OC4zMzIgMCAwMTQzLjY4OSAxNS44MDQgNjMuMDkgNjMuMDkgMCAwMC0yLjE1NSAxLjIyMmwtNzIuNTQgNDEuOWExMS43OTQgMTEuNzk0IDAgMDAtNS45NjEgMTAuMjQ4di4wNjhsLS4wNSAxMDIuMjN6bTE2LjY1NS0zNS45MWwzOS40NDUtMjIuNzgyIDM5LjQ0NCAyMi43Njd2NDUuNTVsLTM5LjQ0NCAyMi43NjctMzkuNDQ1LTIyLjc2N3YtNDUuNTM1eiIvPjwvc3ZnPg==" alt="ChatGPT" width="28"
+                            height="28" /></div>
+                    <div class="fl-item"><img src="data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NSA2NSI+PG1hc2sgaWQ9Im1hc2ttZSIgc3R5bGU9Im1hc2stdHlwZTphbHBoYSIgbWFza1VuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeD0iMCIgeT0iMCIgd2lkdGg9IjY1IiBoZWlnaHQ9IjY1Ij48cGF0aCBkPSJNMzIuNDQ3IDBjLjY4IDAgMS4yNzMuNDY1IDEuNDM5IDEuMTI1YTM4LjkwNCAzOC45MDQgMCAwMDEuOTk5IDUuOTA1YzIuMTUyIDUgNS4xMDUgOS4zNzYgOC44NTQgMTMuMTI1IDMuNzUxIDMuNzUgOC4xMjYgNi43MDMgMTMuMTI1IDguODU1YTM4Ljk4IDM4Ljk4IDAgMDA1LjkwNiAxLjk5OWMuNjYuMTY2IDEuMTI0Ljc1OCAxLjEyNCAxLjQzOCAwIC42OC0uNDY0IDEuMjczLTEuMTI1IDEuNDM5YTM4LjkwMiAzOC45MDIgMCAwMC01LjkwNSAxLjk5OWMtNSAyLjE1Mi05LjM3NSA1LjEwNS0xMy4xMjUgOC44NTQtMy43NDkgMy43NTEtNi43MDIgOC4xMjYtOC44NTQgMTMuMTI1YTM4Ljk3MyAzOC45NzMgMCAwMC0yIDUuOTA2IDEuNDg1IDEuNDg1IDAgMDEtMS40MzggMS4xMjRjLS42OCAwLTEuMjcyLS40NjQtMS40MzgtMS4xMjVhMzguOTEzIDM4LjkxMyAwIDAwLTItNS45MDVjLTIuMTUxLTUtNS4xMDMtOS4zNzUtOC44NTQtMTMuMTI1LTMuNzUtMy43NDktOC4xMjUtNi43MDItMTMuMTI1LTguODU0YTM4Ljk3MyAzOC45NzMgMCAwMC01LjkwNS0yQTEuNDg1IDEuNDg1IDAgMDEwIDMyLjQ0OGMwLS42OC40NjUtMS4yNzIgMS4xMjUtMS40MzhhMzguOTAzIDM4LjkwMyAwIDAwNS45MDUtMmM1LTIuMTUxIDkuMzc2LTUuMTA0IDEzLjEyNS04Ljg1NCAzLjc1LTMuNzQ5IDYuNzAzLTguMTI1IDguODU1LTEzLjEyNWEzOC45NzIgMzguOTcyIDAgMDAxLjk5OS01LjkwNUExLjQ4NSAxLjQ4NSAwIDAxMzIuNDQ3IDB6IiBmaWxsPSIjMDAwIi8+PHBhdGggZD0iTTMyLjQ0NyAwYy42OCAwIDEuMjczLjQ2NSAxLjQzOSAxLjEyNWEzOC45MDQgMzguOTA0IDAgMDAxLjk5OSA1LjkwNWMyLjE1MiA1IDUuMTA1IDkuMzc2IDguODU0IDEzLjEyNSAzLjc1MSAzLjc1IDguMTI2IDYuNzAzIDEzLjEyNSA4Ljg1NWEzOC45OCAzOC45OCAwIDAwNS45MDYgMS45OTljLjY2LjE2NiAxLjEyNC43NTggMS4xMjQgMS40MzggMCAuNjgtLjQ2NCAxLjI3My0xLjEyNSAxLjQzOWEzOC45MDIgMzguOTAyIDAgMDAtNS45MDUgMS45OTljLTUgMi4xNTItOS4zNzUgNS4xMDUtMTMuMTI1IDguODU0LTMuNzQ5IDMuNzUxLTYuNzAyIDguMTI2LTguODU0IDEzLjEyNWEzOC45NzMgMzguOTczIDAgMDAtMiA1LjkwNiAxLjQ4NSAxLjQ4NSAwIDAxLTEuNDM4IDEuMTI0Yy0uNjggMC0xLjI3Mi0uNDY0LTEuNDM4LTEuMTI1YTM4LjkxMyAzOC45MTMgMCAwMC0yLTUuOTA1Yy0yLjE1MS01LTUuMTAzLTkuMzc1LTguODU0LTEzLjEyNS0zLjc1LTMuNzQ5LTguMTI1LTYuNzAyLTEzLjEyNS04Ljg1NGEzOC45NzMgMzguOTczIDAgMDAtNS45MDUtMkExLjQ4NSAxLjQ4NSAwIDAxMCAzMi40NDhjMC0uNjguNDY1LTEuMjcyIDEuMTI1LTEuNDM4YTM4LjkwMyAzOC45MDMgMCAwMDUuOTA1LTJjNS0yLjE1MSA5LjM3Ni01LjEwNCAxMy4xMjUtOC44NTQgMy43NS0zLjc0OSA2LjcwMy04LjEyNSA4Ljg1NS0xMy4xMjVhMzguOTcyIDM4Ljk3MiAwIDAwMS45OTktNS45MDVBMS40ODUgMS40ODUgMCAwMTMyLjQ0NyAweiIgZmlsbD0idXJsKCNwcmVmaXhfX3BhaW50MF9saW5lYXJfMjAwMV82NykiLz48L21hc2s+PGcgbWFzaz0idXJsKCNtYXNrbWUpIj48ZyBmaWx0ZXI9InVybCgjcHJlZml4X19maWx0ZXIwX2ZfMjAwMV82NykiPjxwYXRoIGQ9Ik0tNS44NTkgNTAuNzM0YzcuNDk4IDIuNjYzIDE2LjExNi0yLjMzIDE5LjI0OS0xMS4xNTIgMy4xMzMtOC44MjEtLjQwNi0xOC4xMzEtNy45MDQtMjAuNzk0LTcuNDk4LTIuNjYzLTE2LjExNiAyLjMzLTE5LjI1IDExLjE1MS0zLjEzMiA4LjgyMi40MDcgMTguMTMyIDcuOTA1IDIwLjc5NXoiIGZpbGw9IiNGRkU0MzIiLz48L2c+PGcgZmlsdGVyPSJ1cmwoI3ByZWZpeF9fZmlsdGVyMV9mXzIwMDFfNjcpIj48cGF0aCBkPSJNMjcuNDMzIDIxLjY0OWMxMC4zIDAgMTguNjUxLTguNTM1IDE4LjY1MS0xOS4wNjIgMC0xMC41MjgtOC4zNS0xOS4wNjItMTguNjUxLTE5LjA2MlM4Ljc4LTcuOTQgOC43OCAyLjU4N2MwIDEwLjUyNyA4LjM1IDE5LjA2MiAxOC42NTIgMTkuMDYyeiIgZmlsbD0iI0ZDNDEzRCIvPjwvZz48ZyBmaWx0ZXI9InVybCgjcHJlZml4X19maWx0ZXIyX2ZfMjAwMV82NykiPjxwYXRoIGQ9Ik0yMC4xODQgODIuNjA4YzEwLjc1My0uNTI1IDE4LjkxOC0xMi4yNDQgMTguMjM3LTI2LjE3NC0uNjgtMTMuOTMtOS45NS0yNC43OTctMjAuNzAzLTI0LjI3MUM2Ljk2NSAzMi42ODktMS4yIDQ0LjQwNy0uNTE5IDU4LjMzN2MuNjgxIDEzLjkzIDkuOTUgMjQuNzk3IDIwLjcwMyAyNC4yNzF6IiBmaWxsPSIjMDBCOTVDIi8+PC9nPjxnIGZpbHRlcj0idXJsKCNwcmVmaXhfX2ZpbHRlcjNfZl8yMDAxXzY3KSI+PHBhdGggZD0iTTIwLjE4NCA4Mi42MDhjMTAuNzUzLS41MjUgMTguOTE4LTEyLjI0NCAxOC4yMzctMjYuMTc0LS42OC0xMy45My05Ljk1LTI0Ljc5Ny0yMC43MDMtMjQuMjcxQzYuOTY1IDMyLjY4OS0xLjIgNDQuNDA3LS41MTkgNTguMzM3Yy42ODEgMTMuOTMgOS45NSAyNC43OTcgMjAuNzAzIDI0LjI3MXoiIGZpbGw9IiMwMEI5NUMiLz48L2c+PGcgZmlsdGVyPSJ1cmwoI3ByZWZpeF9fZmlsdGVyNF9mXzIwMDFfNjcpIj48cGF0aCBkPSJNMzAuOTU0IDc0LjE4MWM5LjAxNC01LjQ4NSAxMS40MjctMTcuOTc2IDUuMzg5LTI3LjktNi4wMzgtOS45MjUtMTguMjQxLTEzLjUyNC0yNy4yNTYtOC4wNC05LjAxNSA1LjQ4Ni0xMS40MjggMTcuOTc3LTUuMzkgMjcuOTAyIDYuMDQgOS45MjQgMTguMjQyIDEzLjUyMyAyNy4yNTcgOC4wMzh6IiBmaWxsPSIjMDBCOTVDIi8+PC9nPjxnIGZpbHRlcj0idXJsKCNwcmVmaXhfX2ZpbHRlcjVfZl8yMDAxXzY3KSI+PHBhdGggZD0iTTY3LjM5MSA0Mi45OTNjMTAuMTMyIDAgMTguMzQ2LTcuOTEgMTguMzQ2LTE3LjY2NiAwLTkuNzU3LTguMjE0LTE3LjY2Ny0xOC4zNDYtMTcuNjY3cy0xOC4zNDYgNy45MS0xOC4zNDYgMTcuNjY3YzAgOS43NTcgOC4yMTQgMTcuNjY2IDE4LjM0NiAxNy42NjZ6IiBmaWxsPSIjMzE4NkZGIi8+PC9nPjxnIGZpbHRlcj0idXJsKCNwcmVmaXhfX2ZpbHRlcjZfZl8yMDAxXzY3KSI+PHBhdGggZD0iTS0xMy4wNjUgNDAuOTQ0YzkuMzMgNy4wOTQgMjIuOTU5IDQuODY5IDMwLjQ0Mi00Ljk3MiA3LjQ4My05Ljg0IDUuOTg3LTIzLjU2OS0zLjM0My0zMC42NjNDNC43MDQtMS43ODYtOC45MjQuNDM5LTE2LjQwOCAxMC4yOGMtNy40ODMgOS44NC01Ljk4NiAyMy41NyAzLjM0MyAzMC42NjR6IiBmaWxsPSIjRkJCQzA0Ii8+PC9nPjxnIGZpbHRlcj0idXJsKCNwcmVmaXhfX2ZpbHRlcjdfZl8yMDAxXzY3KSI+PHBhdGggZD0iTTM0Ljc0IDUxLjQzYzExLjEzNSA3LjY1NiAyNS44OTYgNS41MjQgMzIuOTY4LTQuNzY0IDcuMDczLTEwLjI4NyAzLjc3OS0yNC44MzItNy4zNTctMzIuNDg4QzQ5LjIxNSA2LjUyIDM0LjQ1NSA4LjY1NCAyNy4zODIgMTguOTRjLTcuMDcyIDEwLjI4OC0zLjc3OSAyNC44MzMgNy4zNTcgMzIuNDl6IiBmaWxsPSIjMzE4NkZGIi8+PC9nPjxnIGZpbHRlcj0idXJsKCNwcmVmaXhfX2ZpbHRlcjhfZl8yMDAxXzY3KSI+PHBhdGggZD0iTTU0Ljk4NC0yLjMzNmMyLjgzMyAzLjg1Mi0uODA4IDExLjM0LTguMTMxIDE2LjcyNy03LjMyNCA1LjM4Ny0xNS41NTcgNi42MzEtMTguMzkgMi43OC0yLjgzMy0zLjg1My44MDctMTEuMzQyIDguMTMtMTYuNzI4IDcuMzI0LTUuMzg3IDE1LjU1OC02LjYzMSAxOC4zOS0yLjc4eiIgZmlsbD0iIzc0OUJGRiIvPjwvZz48ZyBmaWx0ZXI9InVybCgjcHJlZml4X19maWx0ZXI5X2ZfMjAwMV82NykiPjxwYXRoIGQ9Ik0zMS43MjcgMTYuMTA0QzQzLjA1MyA1LjU5OCA0Ni45NC04LjYyNiA0MC40MS0xNS42NjZjLTYuNTMtNy4wNC0yMS4wMDYtNC4yMzItMzIuMzMyIDYuMjc0cy0xNS4yMTQgMjQuNzMtOC42ODMgMzEuNzdjNi41MyA3LjA0IDIxLjAwNiA0LjIzMiAzMi4zMzItNi4yNzR6IiBmaWxsPSIjRkM0MTNEIi8+PC9nPjxnIGZpbHRlcj0idXJsKCNwcmVmaXhfX2ZpbHRlcjEwX2ZfMjAwMV82NykiPjxwYXRoIGQ9Ik04LjUxIDUzLjgzOGM2LjczMiA0LjgxOCAxNC40NiA1LjU1IDE3LjI2MiAxLjYzNiAyLjgwMi0zLjkxNS0uMzg0LTEwLjk5NC03LjExNi0xNS44MTItNi43MzEtNC44MTgtMTQuNDYtNS41NS0xNy4yNjEtMS42MzYtMi44MDIgMy45MTUuMzgzIDEwLjk5NCA3LjExNSAxNS44MTJ6IiBmaWxsPSIjRkZFRTQ4Ii8+PC9nPjwvZz48ZGVmcz48ZmlsdGVyIGlkPSJwcmVmaXhfX2ZpbHRlcjBfZl8yMDAxXzY3IiB4PSItMTkuODI0IiB5PSIxMy4xNTIiIHdpZHRoPSIzOS4yNzQiIGhlaWdodD0iNDMuMjE3IiBmaWx0ZXJVbml0cz0idXNlclNwYWNlT25Vc2UiIGNvbG9yLWludGVycG9sYXRpb24tZmlsdGVycz0ic1JHQiI+PGZlRmxvb2QgZmxvb2Qtb3BhY2l0eT0iMCIgcmVzdWx0PSJCYWNrZ3JvdW5kSW1hZ2VGaXgiLz48ZmVCbGVuZCBpbj0iU291cmNlR3JhcGhpYyIgaW4yPSJCYWNrZ3JvdW5kSW1hZ2VGaXgiIHJlc3VsdD0ic2hhcGUiLz48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSIyLjQ2IiByZXN1bHQ9ImVmZmVjdDFfZm9yZWdyb3VuZEJsdXJfMjAwMV82NyIvPjwvZmlsdGVyPjxmaWx0ZXIgaWQ9InByZWZpeF9fZmlsdGVyMV9mXzIwMDFfNjciIHg9Ii0xNS4wMDEiIHk9Ii00MC4yNTciIHdpZHRoPSI4NC44NjgiIGhlaWdodD0iODUuNjg4IiBmaWx0ZXJVbml0cz0idXNlclNwYWNlT25Vc2UiIGNvbG9yLWludGVycG9sYXRpb24tZmlsdGVycz0ic1JHQiI+PGZlRmxvb2QgZmxvb2Qtb3BhY2l0eT0iMCIgcmVzdWx0PSJCYWNrZ3JvdW5kSW1hZ2VGaXgiLz48ZmVCbGVuZCBpbj0iU291cmNlR3JhcGhpYyIgaW4yPSJCYWNrZ3JvdW5kSW1hZ2VGaXgiIHJlc3VsdD0ic2hhcGUiLz48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSIxMS44OTEiIHJlc3VsdD0iZWZmZWN0MV9mb3JlZ3JvdW5kQmx1cl8yMDAxXzY3Ii8+PC9maWx0ZXI+PGZpbHRlciBpZD0icHJlZml4X19maWx0ZXIyX2ZfMjAwMV82NyIgeD0iLTIwLjc3NiIgeT0iMTEuOTI3IiB3aWR0aD0iNzkuNDU0IiBoZWlnaHQ9IjkwLjkxNiIgZmlsdGVyVW5pdHM9InVzZXJTcGFjZU9uVXNlIiBjb2xvci1pbnRlcnBvbGF0aW9uLWZpbHRlcnM9InNSR0IiPjxmZUZsb29kIGZsb29kLW9wYWNpdHk9IjAiIHJlc3VsdD0iQmFja2dyb3VuZEltYWdlRml4Ii8+PGZlQmxlbmQgaW49IlNvdXJjZUdyYXBoaWMiIGluMj0iQmFja2dyb3VuZEltYWdlRml4IiByZXN1bHQ9InNoYXBlIi8+PGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iMTAuMTA5IiByZXN1bHQ9ImVmZmVjdDFfZm9yZWdyb3VuZEJsdXJfMjAwMV82NyIvPjwvZmlsdGVyPjxmaWx0ZXIgaWQ9InByZWZpeF9fZmlsdGVyM19mXzIwMDFfNjciIHg9Ii0yMC43NzYiIHk9IjExLjkyNyIgd2lkdGg9Ijc5LjQ1NCIgaGVpZ2h0PSI5MC45MTYiIGZpbHRlclVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY29sb3ItaW50ZXJwb2xhdGlvbi1maWx0ZXJzPSJzUkdCIj48ZmVGbG9vZCBmbG9vZC1vcGFjaXR5PSIwIiByZXN1bHQ9IkJhY2tncm91bmRJbWFnZUZpeCIvPjxmZUJsZW5kIGluPSJTb3VyY2VHcmFwaGljIiBpbjI9IkJhY2tncm91bmRJbWFnZUZpeCIgcmVzdWx0PSJzaGFwZSIvPjxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249IjEwLjEwOSIgcmVzdWx0PSJlZmZlY3QxX2ZvcmVncm91bmRCbHVyXzIwMDFfNjciLz48L2ZpbHRlcj48ZmlsdGVyIGlkPSJwcmVmaXhfX2ZpbHRlcjRfZl8yMDAxXzY3IiB4PSItMTkuODQ1IiB5PSIxNS40NTkiIHdpZHRoPSI3OS43MzEiIGhlaWdodD0iODEuNTA1IiBmaWx0ZXJVbml0cz0idXNlclNwYWNlT25Vc2UiIGNvbG9yLWludGVycG9sYXRpb24tZmlsdGVycz0ic1JHQiI+PGZlRmxvb2QgZmxvb2Qtb3BhY2l0eT0iMCIgcmVzdWx0PSJCYWNrZ3JvdW5kSW1hZ2VGaXgiLz48ZmVCbGVuZCBpbj0iU291cmNlR3JhcGhpYyIgaW4yPSJCYWNrZ3JvdW5kSW1hZ2VGaXgiIHJlc3VsdD0ic2hhcGUiLz48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSIxMC4xMDkiIHJlc3VsdD0iZWZmZWN0MV9mb3JlZ3JvdW5kQmx1cl8yMDAxXzY3Ii8+PC9maWx0ZXI+PGZpbHRlciBpZD0icHJlZml4X19maWx0ZXI1X2ZfMjAwMV82NyIgeD0iMjkuODMyIiB5PSItMTEuNTUyIiB3aWR0aD0iNzUuMTE3IiBoZWlnaHQ9IjczLjc1OCIgZmlsdGVyVW5pdHM9InVzZXJTcGFjZU9uVXNlIiBjb2xvci1pbnRlcnBvbGF0aW9uLWZpbHRlcnM9InNSR0IiPjxmZUZsb29kIGZsb29kLW9wYWNpdHk9IjAiIHJlc3VsdD0iQmFja2dyb3VuZEltYWdlRml4Ii8+PGZlQmxlbmQgaW49IlNvdXJjZUdyYXBoaWMiIGluMj0iQmFja2dyb3VuZEltYWdlRml4IiByZXN1bHQ9InNoYXBlIi8+PGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iOS42MDYiIHJlc3VsdD0iZWZmZWN0MV9mb3JlZ3JvdW5kQmx1cl8yMDAxXzY3Ii8+PC9maWx0ZXI+PGZpbHRlciBpZD0icHJlZml4X19maWx0ZXI2X2ZfMjAwMV82NyIgeD0iLTM4LjU4MyIgeT0iLTE2LjI1MyIgd2lkdGg9Ijc4LjEzNSIgaGVpZ2h0PSI3OC43NTgiIGZpbHRlclVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY29sb3ItaW50ZXJwb2xhdGlvbi1maWx0ZXJzPSJzUkdCIj48ZmVGbG9vZCBmbG9vZC1vcGFjaXR5PSIwIiByZXN1bHQ9IkJhY2tncm91bmRJbWFnZUZpeCIvPjxmZUJsZW5kIGluPSJTb3VyY2VHcmFwaGljIiBpbjI9IkJhY2tncm91bmRJbWFnZUZpeCIgcmVzdWx0PSJzaGFwZSIvPjxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249IjguNzA2IiByZXN1bHQ9ImVmZmVjdDFfZm9yZWdyb3VuZEJsdXJfMjAwMV82NyIvPjwvZmlsdGVyPjxmaWx0ZXIgaWQ9InByZWZpeF9fZmlsdGVyN19mXzIwMDFfNjciIHg9IjguMTA3IiB5PSItNS45NjYiIHdpZHRoPSI3OC44NzciIGhlaWdodD0iNzcuNTM5IiBmaWx0ZXJVbml0cz0idXNlclNwYWNlT25Vc2UiIGNvbG9yLWludGVycG9sYXRpb24tZmlsdGVycz0ic1JHQiI+PGZlRmxvb2QgZmxvb2Qtb3BhY2l0eT0iMCIgcmVzdWx0PSJCYWNrZ3JvdW5kSW1hZ2VGaXgiLz48ZmVCbGVuZCBpbj0iU291cmNlR3JhcGhpYyIgaW4yPSJCYWNrZ3JvdW5kSW1hZ2VGaXgiIHJlc3VsdD0ic2hhcGUiLz48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSI3Ljc3NSIgcmVzdWx0PSJlZmZlY3QxX2ZvcmVncm91bmRCbHVyXzIwMDFfNjciLz48L2ZpbHRlcj48ZmlsdGVyIGlkPSJwcmVmaXhfX2ZpbHRlcjhfZl8yMDAxXzY3IiB4PSIxMy41ODciIHk9Ii0xOC40ODgiIHdpZHRoPSI1Ni4yNzIiIGhlaWdodD0iNTEuODEiIGZpbHRlclVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY29sb3ItaW50ZXJwb2xhdGlvbi1maWx0ZXJzPSJzUkdCIj48ZmVGbG9vZCBmbG9vZC1vcGFjaXR5PSIwIiByZXN1bHQ9IkJhY2tncm91bmRJbWFnZUZpeCIvPjxmZUJsZW5kIGluPSJTb3VyY2VHcmFwaGljIiBpbjI9IkJhY2tncm91bmRJbWFnZUZpeCIgcmVzdWx0PSJzaGFwZSIvPjxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249IjYuOTU3IiByZXN1bHQ9ImVmZmVjdDFfZm9yZWdyb3VuZEJsdXJfMjAwMV82NyIvPjwvZmlsdGVyPjxmaWx0ZXIgaWQ9InByZWZpeF9fZmlsdGVyOV9mXzIwMDFfNjciIHg9Ii0xNS41MjYiIHk9Ii0zMS4yOTciIHdpZHRoPSI3MC44NTYiIGhlaWdodD0iNjkuMzA2IiBmaWx0ZXJVbml0cz0idXNlclNwYWNlT25Vc2UiIGNvbG9yLWludGVycG9sYXRpb24tZmlsdGVycz0ic1JHQiI+PGZlRmxvb2QgZmxvb2Qtb3BhY2l0eT0iMCIgcmVzdWx0PSJCYWNrZ3JvdW5kSW1hZ2VGaXgiLz48ZmVCbGVuZCBpbj0iU291cmNlR3JhcGhpYyIgaW4yPSJCYWNrZ3JvdW5kSW1hZ2VGaXgiIHJlc3VsdD0ic2hhcGUiLz48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSI1Ljg3NiIgcmVzdWx0PSJlZmZlY3QxX2ZvcmVncm91bmRCbHVyXzIwMDFfNjciLz48L2ZpbHRlcj48ZmlsdGVyIGlkPSJwcmVmaXhfX2ZpbHRlcjEwX2ZfMjAwMV82NyIgeD0iLTE0LjE2OCIgeT0iMjAuOTY0IiB3aWR0aD0iNTUuNTAxIiBoZWlnaHQ9IjUxLjU3MSIgZmlsdGVyVW5pdHM9InVzZXJTcGFjZU9uVXNlIiBjb2xvci1pbnRlcnBvbGF0aW9uLWZpbHRlcnM9InNSR0IiPjxmZUZsb29kIGZsb29kLW9wYWNpdHk9IjAiIHJlc3VsdD0iQmFja2dyb3VuZEltYWdlRml4Ii8+PGZlQmxlbmQgaW49IlNvdXJjZUdyYXBoaWMiIGluMj0iQmFja2dyb3VuZEltYWdlRml4IiByZXN1bHQ9InNoYXBlIi8+PGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iNy4yNzMiIHJlc3VsdD0iZWZmZWN0MV9mb3JlZ3JvdW5kQmx1cl8yMDAxXzY3Ii8+PC9maWx0ZXI+PGxpbmVhckdyYWRpZW50IGlkPSJwcmVmaXhfX3BhaW50MF9saW5lYXJfMjAwMV82NyIgeDE9IjE4LjQ0NyIgeTE9IjQzLjQyIiB4Mj0iNTIuMTUzIiB5Mj0iMTUuMDA0IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHN0b3Agc3RvcC1jb2xvcj0iIzQ4OTNGQyIvPjxzdG9wIG9mZnNldD0iLjI3IiBzdG9wLWNvbG9yPSIjNDg5M0ZDIi8+PHN0b3Agb2Zmc2V0PSIuNzc3IiBzdG9wLWNvbG9yPSIjOTY5REZGIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjQkQ5OUZFIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PC9zdmc+" alt="Gemini"
+                            width="28" height="28" /></div>
+                    <div class="fl-item"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHNoYXBlLXJlbmRlcmluZz0iZ2VvbWV0cmljUHJlY2lzaW9uIiB0ZXh0LXJlbmRlcmluZz0iZ2VvbWV0cmljUHJlY2lzaW9uIiBpbWFnZS1yZW5kZXJpbmc9Im9wdGltaXplUXVhbGl0eSIgZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIHZpZXdCb3g9IjAgMCA1MTIgNTA5LjY0Ij48cGF0aCBmaWxsPSIjRDc3NjU1IiBkPSJNMTE1LjYxMiAwaDI4MC43NzVDNDU5Ljk3NCAwIDUxMiA1Mi4wMjYgNTEyIDExNS42MTJ2Mjc4LjQxNWMwIDYzLjU4Ny01Mi4wMjYgMTE1LjYxMi0xMTUuNjEzIDExNS42MTJIMTE1LjYxMkM1Mi4wMjYgNTA5LjYzOSAwIDQ1Ny42MTQgMCAzOTQuMDI3VjExNS42MTJDMCA1Mi4wMjYgNTIuMDI2IDAgMTE1LjYxMiAweiIvPjxwYXRoIGZpbGw9IiNGQ0YyRUUiIGZpbGwtcnVsZT0ibm9uemVybyIgZD0iTTE0Mi4yNyAzMTYuNjE5bDczLjY1NS00MS4zMjYgMS4yMzgtMy41ODktMS4yMzgtMS45OTYtMy41ODktLjAwMS0xMi4zMS0uNzU5LTQyLjA4NC0xLjEzOC0zNi40OTgtMS41MTYtMzUuMzYxLTEuODk2LTguODk3LTEuODk1LTguMzQtMTAuOTk1Ljg1OS01LjQ4NCA3LjQ4Mi01LjAzIDEwLjcxNy45MzUgMjMuNjgzIDEuNjE3IDM1LjUzNyAyLjQ1MiAyNS43ODIgMS41MTcgMzguMTkzIDMuOTY4aDYuMDY0bC44Ni0yLjQ1MS0yLjA3My0xLjUxNy0xLjYxOC0xLjUxNy0zNi43NzYtMjQuOTIyLTM5LjgxLTI2LjMzOC0yMC44NTItMTUuMTY2LTExLjI3My03LjY4My01LjY4Ny03LjIwNC0yLjQ1MS0xNS43MjEgMTAuMjM3LTExLjI3MyAxMy43NS45MzUgMy41MTMuOTM2IDEzLjkyOCAxMC43MTYgMjkuNzQ5IDIzLjAyNyAzOC44NDggMjguNjEyIDUuNjg3IDQuNzI3IDIuMjc1LTEuNjE3LjI3OC0xLjEzOC0yLjU1My00LjI3MS0yMS4xMy0zOC4xOTMtMjIuNTQ2LTM4Ljg0OC0xMC4wMzUtMTYuMTAxLTIuNjU0LTkuNjU1Yy0uOTM1LTMuOTY4LTEuNjE3LTcuMzA0LTEuNjE3LTExLjM3NGwxMS42NTItMTUuODIzIDYuNDQ1LTIuMDczIDE1LjU0NSAyLjA3MyA2LjU0NyA1LjY4NyA5LjY1NSAyMi4wOTIgMTUuNjQ2IDM0Ljc4IDI0LjI2NSA0Ny4yOTEgNy4xMDMgMTQuMDI4IDMuNzkxIDEyLjk5MiAxLjQxNiAzLjk2OCAyLjQ0OS0uMDAxdi0yLjI3NWwxLjk5Ny0yNi42NDEgMy42OS0zMi43MDcgMy41ODktNDIuMDg0IDEuMjM5LTExLjg1NCA1Ljg2My0xNC4yMDYgMTEuNjUyLTcuNjgzIDkuMDk5IDQuMzQ4IDcuNDgyIDEwLjcxNi0xLjAzNiA2LjkyNi00LjQ0OSAyOC45MTUtOC43MiA0NS4yOTQtNS42ODcgMzAuMzMxaDMuMzEzbDMuNzkyLTMuNzkxIDE1LjM0Mi0yMC4zNzIgMjUuNzgyLTMyLjIyNyAxMS4zNzQtMTIuNzg5IDEzLjI3LTE0LjEyOSA4LjUxNy02LjcyNCAxNi4xLS4wMDEgMTEuODU0IDE3LjYxNy01LjMwNyAxOC4xOTktMTYuNTgxIDIxLjAyOS0xMy43NSAxNy44MTktMTkuNzE2IDI2LjU0LTEyLjMwOSAyMS4yMzEgMS4xMzggMS42OTQgMi45MzItLjI3OCA0NC41MzYtOS40NzkgMjQuMDYyLTQuMzQ3IDI4LjcxNC00LjkyOCAxMi45OTIgNi4wNjYgMS40MTYgNi4xNjctNS4xMDYgMTIuNjEzLTMwLjcxIDcuNTgzLTM2LjAxOCA3LjIwNC01My42MzYgMTIuNjg5LS42NTcuNDguNzU4LjkzNSAyNC4xNjQgMi4yNzUgMTAuMzM3LjU1NmgyNS4zMDFsNDcuMTE0IDMuNTE0IDEyLjMwOSA4LjEzOSA3LjM4MSA5Ljk1OS0xLjIzOCA3LjU4My0xOC45NTcgOS42NTUtMjUuNTc5LTYuMDY2LTU5LjcwMi0xNC4yMDUtMjAuNDc0LTUuMTA2LTIuODMtLjAwMXYxLjY5NGwxNy4wNjEgMTYuNjgyIDMxLjI2NiAyOC4yMzMgMzkuMTUyIDM2LjM5NyAxLjk5NyA4Ljk5OS01LjAzIDcuMTAyLTUuMzA3LS43NTgtMzQuNDAxLTI1Ljg4My0xMy4yNy0xMS42NTEtMzAuMDUzLTI1LjMwMi0xLjk5Ni0uMDAxdjIuNjU0bDYuOTI2IDEwLjEzNiAzNi41NzQgNTQuOTc1IDEuODk1IDE2Ljg1OS0yLjY1MyA1LjQ4NS05LjQ3OSAzLjMxMS0xMC40MTQtMS44OTUtMjEuNDA4LTMwLjA1NC0yMi4wOTItMzMuODQ0LTE3LjgxOS0zMC4zMzEtMi4xNzMgMS4yMzgtMTAuNTE1IDExMy4yNjEtNC45MjkgNS43ODgtMTEuMzc0IDQuMzQ4LTkuNDc4LTcuMjA0LTUuMDMtMTEuNjUyIDUuMDMtMjMuMDI3IDYuMDY2LTMwLjA1MiA0LjkyOC0yMy44ODYgNC40NDktMjkuNjc0IDIuNjU0LTkuODU4LS4xNzctLjY1Ny0yLjE3My4yNzgtMjIuMzcgMzAuNzEtMzQuMDIxIDQ1Ljk3Ny0yNi45MTkgMjguODE1LTYuNDQ1IDIuNTUzLTExLjE3My01Ljc4OSAxLjAzNy0xMC4zMzcgNi4yNDMtOS4yIDM3LjI1Ny00Ny4zOTIgMjIuNDctMjkuMzcxIDE0LjUwOC0xNi45NjEtLjEwMS0yLjQ1MWgtLjg1OWwtOTguOTU0IDY0LjI1MS0xNy42MTggMi4yNzUtNy41ODMtNy4xMDMuOTM2LTExLjY1MiAzLjU4OS0zLjc5MSAyOS43NDktMjAuNDc0LS4xMDEuMTAyLjAyNC4xMDF6Ii8+PC9zdmc+" alt="Claude" width="28"
+                            height="28" /></div>
+                    <div class="fl-item"><img src="data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAxMTExIDE5MiIgc3R5bGU9ImZpbGw6dmFyKC0tY2hha3JhLWNvbG9ycy1icmFuZC1kZWVwb2NlYW4pIj48cGF0aCBmaWxsPSIjMDAyMjUzIiBkPSJNNDcuMiwxNC40Yy0xNC40LDguMi0yNiwxOS42LTM0LjQsMzMuNkM0LjMsNjIuMSwwLDc3LjcsMCw5NC4zczQuMywzMi4yLDEyLjcsNDYuM2M4LjUsMTQuMSwyMCwyNS40LDM0LjQsMzMuNiwxNC40LDguMiwzMC40LDEyLjQsNDcuNywxMi40aDY5Ljh2LTExMi41aC04MXYzOS4xaDM4LjJ2MzEuOGgtMjUuNmMtOS4xLDAtMTcuNi0yLjMtMjUuMi02LjktNy42LTQuNi0xMy44LTEwLjgtMTguMy0xOC40LTQuNS03LjctNi43LTE2LjItNi43LTI1LjNzMi4zLTE3LjcsNi43LTI1LjNjNC41LTcuNywxMC42LTEzLjksMTguMy0xOC40LDcuNi00LjYsMTYuMS02LjksMjUuMi02LjloNjguNVYyaC02OS44Yy0xNy4zLDAtMzMuMyw0LjItNDcuNywxMi40aDBaIj48L3BhdGg+PHBhdGggZmlsbD0iIzAwMjI1MyIgZD0iTTI2Ny42LjJjLTQyLjcsMC03Ny40LDM0LjgtNzcuNCw3Ny42djEwOC44aDQydi01NC42aDcwLjh2NTQuNmg0MnYtMTA4LjhjMC00Mi44LTM0LjctNzcuNi03Ny40LTc3LjZaTTMwMyw5M2gtNzAuOHYtMTUuM2MwLTE5LjYsMTUuOS0zNS41LDM1LjQtMzUuNXMzNS40LDE1LjksMzUuNCwzNS41djE1LjNaIj48L3BhdGg+PHBhdGggZmlsbD0iIzAwMjI1MyIgZD0iTTU3Ni40LDBjLTMyLjEsMC01OC4yLDI2LjItNTguMiw1OC40djc0LjJjMCw4LjctNywxNS43LTE1LjcsMTUuN3MtMTUuNy03LTE1LjctMTUuN1Y1OC41YzAtMzIuMi0yNi4xLTU4LjQtNTguMi01OC40cy01OC4yLDI2LjItNTguMiw1OC40djEyOC4yaDQyLjZWNTguNWMwLTguNyw3LTE1LjcsMTUuNy0xNS43czE1LjcsNywxNS43LDE1Ljd2NzQuMWMwLDMyLjIsMjYuMSw1OC40LDU4LjIsNTguNHM1OC4yLTI2LjIsNTguMi01OC40VjU4LjRjMC04LjcsNy0xNS43LDE1LjctMTUuN3MxNS43LDcsMTUuNywxNS43djEyOC4zaDQyLjZWNTguNGMwLTMyLjItMjYuMS01OC40LTU4LjItNTguNGgwWiI+PC9wYXRoPjxwYXRoIGZpbGw9IiMwMDIyNTMiIGQ9Ik0xMDMzLjEuM2MtNDIuNywwLTc3LjQsMzQuOC03Ny40LDc3LjZ2MTA4LjhoNDJ2LTU0LjZoNzAuOHY1NC42aDQydi0xMDguOGMwLTQyLjgtMzQuNy03Ny42LTc3LjQtNzcuNlpNMTA2OC41LDkzLjJoLTcwLjh2LTE1LjNjMC0xOS42LDE1LjktMzUuNSwzNS40LTM1LjVzMzUuNCwxNS45LDM1LjQsMzUuNXYxNS4zWiI+PC9wYXRoPjxwYXRoIGZpbGw9IiMwMDIyNTMiIGQ9Ik04NzIsMGMtMzIuMSwwLTU4LjIsMjYuMi01OC4yLDU4LjR2NzQuMmMwLDguNy03LDE1LjctMTUuNywxNS43cy0xNS43LTctMTUuNy0xNS43VjU4LjRjMC0zMi4yLTI2LjEtNTguNC01OC4yLTU4LjRzLTU4LjIsMjYuMi01OC4yLDU4LjR2MTI4LjNoNDIuNlY1OC40YzAtOC43LDctMTUuNywxNS43LTE1LjdzMTUuNyw3LDE1LjcsMTUuN3Y3NC4yYzAsMzIuMiwyNi4xLDU4LjQsNTguMiw1OC40czU4LjItMjYuMiw1OC4yLTU4LjRWNTguNGMwLTguNyw3LTE1LjcsMTUuNy0xNS43czE1LjcsNywxNS43LDE1Ljd2MTI4LjNoNDIuNlY1OC40YzAtMzIuMi0yNi4xLTU4LjQtNTguMi01OC40WiI+PC9wYXRoPjwvc3ZnPg==" alt="Gamma"
+                            width="28" height="28" /></div>
+                    <div class="fl-item"><img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjg4IiBoZWlnaHQ9IjQzMiIgdmlld0JveD0iMCAwIDI4OCA0MzIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogPHJlY3Qgd2lkdGg9Ijk1LjAyMjYiIGhlaWdodD0iMTQyLjUzNCIgZmlsbD0iYmxhY2siIGZpbGwtb3BhY2l0eT0iMCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMS40NjYwMyAyLjE5OTQ2KSBzY2FsZSgzKSI+CiA8L3JlY3Q+CiA8cGF0aCBkPSJNMTQ0IDIxNkMxNDQgMTc2LjY0MSAxNzUuOTA3IDE0NC43MzMgMjE1LjI2NyAxNDQuNzMzVjE0NC43MzNDMjU0LjYyNiAxNDQuNzMzIDI4Ni41MzQgMTc2LjY0MSAyODYuNTM0IDIxNlYyMTZDMjg2LjUzNCAyNTUuMzYgMjU0LjYyNiAyODcuMjY3IDIxNS4yNjcgMjg3LjI2N1YyODcuMjY3QzE3NS45MDcgMjg3LjI2NyAxNDQgMjU1LjM2IDE0NCAyMTZWMjE2WiIgZmlsbD0iIzFBQkNGRSI+CiA8L3BhdGg+CiA8cGF0aCBkPSJNMS40NjYwMyAzNTguNTM0QzEuNDY2MDMgMzE5LjE3NSAzMy4zNzMzIDI4Ny4yNjcgNzIuNzMzIDI4Ny4yNjdIMTQ0VjM1OC41MzRDMTQ0IDM5Ny44OTQgMTEyLjA5MyA0MjkuODAxIDcyLjczMyA0MjkuODAxVjQyOS44MDFDMzMuMzczMyA0MjkuODAxIDEuNDY2MDMgMzk3Ljg5NCAxLjQ2NjAzIDM1OC41MzRWMzU4LjUzNFoiIGZpbGw9IiMwQUNGODMiPgogPC9wYXRoPgogPHBhdGggZD0iTTE0NCAyLjE5OTQ2VjE0NC43MzNIMjE1LjI2N0MyNTQuNjI3IDE0NC43MzMgMjg2LjUzNCAxMTIuODI2IDI4Ni41MzQgNzMuNDY2NFY3My40NjY0QzI4Ni41MzQgMzQuMTA2OCAyNTQuNjI3IDIuMTk5NDYgMjE1LjI2NyAyLjE5OTQ2TDE0NCAyLjE5OTQ2WiIgZmlsbD0iI0ZGNzI2MiI+CiA8L3BhdGg+CiA8cGF0aCBkPSJNMS40NjYwMyA3My40NjY0QzEuNDY2MDMgMTEyLjgyNiAzMy4zNzMzIDE0NC43MzMgNzIuNzMzIDE0NC43MzNMMTQ0IDE0NC43MzNMMTQ0IDIuMTk5NDFMNzIuNzMzIDIuMTk5NDFDMzMuMzczMyAyLjE5OTQxIDEuNDY2MDMgMzQuMTA2NyAxLjQ2NjAzIDczLjQ2NjRWNzMuNDY2NFoiIGZpbGw9IiNGMjRFMUUiPgogPC9wYXRoPgogPHBhdGggZD0iTTEuNDY2MDMgMjE2QzEuNDY2MDMgMjU1LjM2IDMzLjM3MzMgMjg3LjI2NyA3Mi43MzMgMjg3LjI2N0gxNDRMMTQ0IDE0NC43MzNMNzIuNzMzIDE0NC43MzNDMzMuMzczMyAxNDQuNzMzIDEuNDY2MDMgMTc2LjY0MSAxLjQ2NjAzIDIxNlYyMTZaIiBmaWxsPSIjQTI1OUZGIj4KIDwvcGF0aD4KPC9zdmc+" alt="Figma" width="28"
+                            height="28" /></div>
+                    <div class="fl-item"><img src="data:image/svg+xml;base64,//48AHMAdgBnACAAeABtAGwAbgBzAD0AIgBoAHQAdABwADoALwAvAHcAdwB3AC4AdwAzAC4AbwByAGcALwAyADAAMAAwAC8AcwB2AGcAIgAgAHMAaABhAHAAZQAtAHIAZQBuAGQAZQByAGkAbgBnAD0AIgBnAGUAbwBtAGUAdAByAGkAYwBQAHIAZQBjAGkAcwBpAG8AbgAiACAAdABlAHgAdAAtAHIAZQBuAGQAZQByAGkAbgBnAD0AIgBnAGUAbwBtAGUAdAByAGkAYwBQAHIAZQBjAGkAcwBpAG8AbgAiACAAaQBtAGEAZwBlAC0AcgBlAG4AZABlAHIAaQBuAGcAPQAiAG8AcAB0AGkAbQBpAHoAZQBRAHUAYQBsAGkAdAB5ACIAIABmAGkAbABsAC0AcgB1AGwAZQA9ACIAZQB2AGUAbgBvAGQAZAAiACAAYwBsAGkAcAAtAHIAdQBsAGUAPQAiAGUAdgBlAG4AbwBkAGQAIgAgAHYAaQBlAHcAQgBvAHgAPQAiADAAIAAwACAANQAxADIAIAA1ADAAOQAuADYANAAiAD4APABwAGEAdABoACAAZgBpAGwAbAA9ACIAIwAxAEYAMQBGADEARgAiACAAZAA9ACIATQAxADEANQAuADYAMQAzACAAMABoADIAOAAwAC4ANwA3ADQAQwA0ADUAOQAuADkANwA0ACAAMAAgADUAMQAyACAANQAyAC4AMAAyADUAIAA1ADEAMgAgADEAMQA1AC4ANgAxADIAdgAyADcAOAAuADQAMQA1AGMAMAAgADYAMwAuADUAOAA3AC0ANQAyAC4AMAAyADYAIAAxADEANQAuADYAMQAzAC0AMQAxADUALgA2ADEAMwAgADEAMQA1AC4ANgAxADMASAAxADEANQAuADYAMQAzAEMANQAyAC4AMAAyADYAIAA1ADAAOQAuADYANAAgADAAIAA0ADUANwAuADYAMQA0ACAAMAAgADMAOQA0AC4AMAAyADcAVgAxADEANQAuADYAMQAyAEMAMAAgADUAMgAuADAAMgA1ACAANQAyAC4AMAAyADYAIAAwACAAMQAxADUALgA2ADEAMwAgADAAegAiAC8APgA8AHAAYQB0AGgAIABmAGkAbABsAD0AIgAjAGYAZgBmACIAIABmAGkAbABsAC0AcgB1AGwAZQA9ACIAbgBvAG4AegBlAHIAbwAiACAAZAA9ACIATQAzADQAOAAuADgANQAxACAAMQAyADgALgAwADYAMwBsAC0ANgA4AC4AOQA0ADYAIAA1ADgALgAzADAAMgBoADYAOAAuADkANAA2AHYALQA1ADgALgAzADAAMgB6AG0ALQA4ADMALgA5ADAAOAAgADQAOAAuADcAMAA5AGwAMQAwADAALgA5ADMAMQAtADgANQAuADMANAA5AHYAOQA0AC4AOQA0ADIAaAAzADIALgAyADQANAB2ADEANAAzAC4ANAAyADEAaAAtADMAOAAuADcAMwAxAHYAOQAwAC4AMAAwADQAbAAtADkANAAuADQANAAyAC0AOAA2AC4ANgA2ADIAdgA4ADMALgA5ADQANgBoAC0AMQA3AC4AMAAyADMAdgAtADgAMwAuADkAMAA2AGwALQA5ADYALgA1ADkANgAgADgANgAuADIANAA2AHYALQA4ADkALgA2ADIAOABoAC0AMwA3AC4ANAA0ADUAVgAxADgANgAuADMANgA1AGgAMwA4AC4ANwAzADIAVgA5ADAALgA3ADYAOABsADkANQAuADMAMAA5ACAAOAA0AC4AOQA1ADgAdgAtADgAMwAuADEANgBoADEANwAuADAAMgAzAGwALQAuADAAMAAyACAAOAA0AC4AMgAwADYAegBtAC0AMgA5AC4AMgAwADkAIAAyADYALgA2ADEANgBjAC0AMwA0AC4AOQA1ADUALgAwADIALQA2ADkALgA4ADkAMwAgADAALQAxADAANAAuADgAMwAgADAAdgAxADAAOQAuADMANwA1AGgAMgAwAC4ANAAxADUAdgAtADIANwAuADEAMgAxAGwAOAA0AC4ANAAxADUALQA4ADIALgAyADUANAB6AG0ANAAxAC4ANAA0ADUAIAAwAGwAOAAyAC4AMgAwADgAIAA4ADIALgAzADIANAB2ADIANwAuADAANQAxAGgAMgAxAC4ANwAwADgAVgAyADAAMwAuADMAOAA4AGMALQAzADQALgA2ADEANwAgADAALQA2ADkALgAyADcANAAuADAAMgAtADEAMAAzAC4AOQAxADYAIAAwAHoAbQAtADQAMgAuADgANwA0AC0AMQA3AC4AMAAyADMAbAAtADYANAAuADYANgA5AC0ANQA3AC4ANgA0ADYAdgA1ADcALgA2ADQANgBoADYANAAuADYANgA5AHoAbQAxADMALgA2ADEANwAgADEAMgA0AC4AMAA3ADYAdgAtADkANQAuADIAbAAtADcAOQAuADUANwAzACAANwA3AC4ANQAxADYAdgA4ADgALgA3ADMAMQBsADcAOQAuADUANwAzAC0ANwAxAC4AMAA0ADcAegBtADEANwAuADIANQAyAC0AOQA1AC4AMAAyADIAdgA5ADQALgA4ADYAMwBsADcANwAuADEAOQAgADcAMAAuADgAMwBjADAALQAyADkALgA0ADgANQAtAC4AMAAxADIALQA1ADgALgA5ADQAMwAtAC4AMAAxADIALQA4ADgALgA0ADIANQBsAC0ANwA3AC4AMQA3ADgALQA3ADcALgAyADYAOAB6ACIALwA+ADwALwBzAHYAZwA+AA==" alt="Perplexity"
+                            width="28" height="28" /></div>
+                </div>
+                <div class="hero-in">
+                    
+
+                    <div class="batch-chip"><span class="bdot"></span>
+                        <span class="eo">BATCH 1 · PILOT · LIMITED TO 75 STUDENTS</span>
+                        <span class="ko kn-font">ಬ್ಯಾಚ್ 1 · 75 ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಮಾತ್ರ</span>
+                    </div>
+
+                    <div style="text-align:center">
+                        <!-- EN headline -->
+                        <h1 class="eo">Better board scores.<br /><span class="hl">AI skills for a future-ready
+                                career.</span></h1>
+                        <!-- KN headline -->
+                        <h1 class="ko kn-font">ಬೋರ್ಡ್ ಪರೀಕ್ಷೆಗಳಲ್ಲಿ ಉತ್ತಮ ಅಂಕ.<br /><span class="hl">AI ಕೌಶಲ್ಯ.
+                                ಭವಿಷ್ಯಕ್ಕೆ
+                                ಸಿದ್ಧ.</span></h1>
+
+                        <!-- Animated subline -->
+                        <div class="hero-animated">
+                            <span class="eo"><span id="typedEN" class="typewriter"></span></span>
+                            <span class="ko kn-font"><span id="typedKN" class="typewriter"></span></span>
+                        </div>
+
+                        <p class="hero-sub eo">A structured AI skills course for students in Grades 8–12. Students apply
+                            what they learn directly to board exam preparation. <strong>5 modules. Real projects.
+                                Verified certificate.</strong></p>
+                        <p class="hero-sub ko kn-font">8–12ನೇ ತರಗತಿ ವಿದ್ಯಾರ್ಥಿಗಳಿಗಾಗಿ AI ಕೌಶಲ್ಯ ಕೋರ್ಸ್. ಬೋರ್ಡ್ ಪರೀಕ್ಷೆ
+                            ತಯಾರಿಗೆ ನೇರ ಉಪಯೋಗ. <strong>5 ಮಾಡ್ಯೂಲ್‌ಗಳು. ನಿಜವಾದ ಪ್ರಾಜೆಕ್ಟ್‌ಗಳು. ಪರಿಶೀಲಿಸಿದ
+                                ಪ್ರಮಾಣಪತ್ರ.</strong></p>
+
+                        <div class="pills">
+                            <span class="pill">✓ <span class="eo">Board-aligned preparation</span><span
+                                    class="ko kn-font">ಬೋರ್ಡ್ ಪರೀಕ್ಷೆ ತಯಾರಿ</span></span>
+                            <span class="pill">✓ <span class="eo">Future-ready AI skills</span><span
+                                    class="ko kn-font">ಭವಿಷ್ಯಕ್ಕೆ ಸಿದ್ಧ AI ಕೌಶಲ್ಯ</span></span>
+                            <span class="pill">✓ <span class="eo">Career clarity</span><span class="ko kn-font">ವೃತ್ತಿ
+                                    ಮಾರ್ಗದರ್ಶನ</span></span>
+                        </div>
+
+                        <div class="pcard">
+                            <div class="batch-notice">
+                                <span class="eo"><strong>Batch 1 — Limited to 75 students</strong>A serious pilot batch.
+                                    Small by design so every student gets real attention.</span>
+                                <span class="ko kn-font"><strong>ಬ್ಯಾಚ್ 1 — 75 ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಮಾತ್ರ</strong>ಪ್ರತಿ
+                                    ವಿದ್ಯಾರ್ಥಿಗೆ ಸರಿಯಾದ ಗಮನ ಕೊಡಲು ಬ್ಯಾಚ್ ಚಿಕ್ಕದಾಗಿ ಇಟ್ಟಿದ್ದೇವೆ.</span>
+                            </div>
+                            <div class="old eo">Regular price ₹2,499</div>
+                            <div class="old ko kn-font">ಸಾಮಾನ್ಯ ಬೆಲೆ ₹2,499</div>
+                            <div><span class="bigprice">₹799</span><span class="savepill">SAVE ₹1,700</span></div>
+                            <div class="tags">
+                                <span class="tag">✓ 5 Modules</span>
+                                <span class="tag">✓ Certificate</span>
+                                <span class="tag eo">✓ Lifetime Access</span>
+                                <span class="tag ko kn-font">✓ ಜೀವಮಾನದ ಪ್ರವೇಶ</span>
+                                <span class="tag eo">✓ 250+ Prompts</span>
+                                <span class="tag ko kn-font">✓ 250+ ಪ್ರಾಂಪ್ಟ್ಗಳು</span>
+                            </div>
+                        </div>
+
+                        <button class="btn-y" onclick="goTab('course')">
+                            <span class="eo">Explore the Course →</span>
+                            <span class="ko kn-font">ಕೋರ್ಸ್ ನೋಡಿ →</span>
+                        </button>
+
+                        <div class="guar"><span>🛡️</span>
+                            <p>
+                                <span class="eo"><strong>7-Day Money-Back Guarantee</strong>Not the right fit? Full
+                                    refund, no questions asked.</span>
+                                <span class="ko kn-font"><strong>7-ದಿನ ಹಣ ವಾಪಸ್ ಖಾತ್ರಿ</strong>ಸಂತೋಷ ಆಗಲಿಲ್ಲವೇ? ಪೂರ್ಣ
+                                    ಹಣ ವಾಪಸ್, ಯಾವ ಪ್ರಶ್ನೆಯಿಲ್ಲ.</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TICKER -->
+            <div class="ticker-wrap">
+                <div class="ticker">
+                    <div class="ti"><span class="tdot"></span><span class="eo">Batch 1 · Pilot</span><span
+                            class="ko kn-font">ಬ್ಯಾಚ್ 1 · ಪೈಲಟ್ ಬ್ಯಾಚ್</span></div>
+                    <div class="ti"><span class="tdot"></span><span class="eo">Limited to 75 Students</span><span
+                            class="ko kn-font">75 ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಮಾತ್ರ</span></div>
+                    <div class="ti"><span class="tdot"></span><span class="eo">Board Exam Focused</span><span
+                            class="ko kn-font">ಬೋರ್ಡ್ ಪರೀಕ್ಷೆ ಗಮನ</span></div>
+                    <div class="ti"><span class="tdot"></span><span class="eo">AI Future Readiness</span><span
+                            class="ko kn-font">AI ಭವಿಷ್ಯದ ಸಿದ್ಧತೆ</span></div>
+                    <div class="ti"><span class="tdot"></span><span class="eo">250+ AI Prompts Included</span><span
+                            class="ko kn-font">250+ AI ಪ್ರಾಂಪ್ಟ್ಗಳು</span></div>
+                    <div class="ti"><span class="tdot"></span><span class="eo">Verified Certificate</span><span
+                            class="ko kn-font">ಪರಿಶೀಲಿಸಿದ ಪ್ರಮಾಣಪತ್ರ</span></div>
+                    <div class="ti"><span class="tdot"></span><span class="eo">Batch 1 · Pilot</span><span
+                            class="ko kn-font">ಬ್ಯಾಚ್ 1 · ಪೈಲಟ್ ಬ್ಯಾಚ್</span></div>
+                    <div class="ti"><span class="tdot"></span><span class="eo">Limited to 75 Students</span><span
+                            class="ko kn-font">75 ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಮಾತ್ರ</span></div>
+                    <div class="ti"><span class="tdot"></span><span class="eo">Board Exam Focused</span><span
+                            class="ko kn-font">ಬೋರ್ಡ್ ಪರೀಕ್ಷೆ ಗಮನ</span></div>
+                    <div class="ti"><span class="tdot"></span><span class="eo">AI Future Readiness</span><span
+                            class="ko kn-font">AI ಭವಿಷ್ಯದ ಸಿದ್ಧತೆ</span></div>
+                    <div class="ti"><span class="tdot"></span><span class="eo">250+ AI Prompts Included</span><span
+                            class="ko kn-font">250+ AI ಪ್ರಾಂಪ್ಟ್ಗಳು</span></div>
+                    <div class="ti"><span class="tdot"></span><span class="eo">Verified Certificate</span><span
+                            class="ko kn-font">ಪರಿಶೀಲಿಸಿದ ಪ್ರಮಾಣಪತ್ರ</span></div>
+                </div>
+            </div>
+
+            <!-- CLEAR BENEFITS -->
+            <section class="sec">
+                <div class="wrap">
+                    <span class="lbl reveal lbl-b eo">What Students Gain</span>
+                    <span class="lbl reveal lbl-b ko kn-font">ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಏನು ಸಿಗುತ್ತದೆ</span>
+                    <h2 style="font-size:1.35rem;margin-bottom:6px" class="eo reveal">Real skills. Real outcomes.</h2>
+                    <h2 style="font-size:1.35rem;margin-bottom:6px" class="ko kn-font reveal">ನಿಜವಾದ ಕೌಶಲ್ಯ. ನಿಜವಾದ ಫಲಿತಾಂಶ.
+                    </h2>
+                    <p style="font-size:.82rem;margin-bottom:18px" class="eo">Everything your child walks away with
+                        after completing this course.</p>
+                    <p style="font-size:.82rem;margin-bottom:18px" class="ko kn-font">ಕೋರ್ಸ್ ಮುಗಿದ ಮೇಲೆ ನಿಮ್ಮ ಮಗುವಿಗೆ
+                        ಸಿಗುವ ಎಲ್ಲ ಕೌಶಲ್ಯಗಳು.</p>
+                    <div class="benefits-grid">
+                        <div class="benefit-card reveal"><span class="benefit-ico">📚</span>
+                            <div class="benefit-t eo">Board Exam Preparation</div>
+                            <div class="benefit-t ko kn-font">ಬೋರ್ಡ್ ಪರೀಕ್ಷೆ ತಯಾರಿ</div>
+                            <div class="benefit-d eo">AI Study Buddy for stronger revision and conceptual clarity</div>
+                            <div class="benefit-d ko kn-font">AI Study Buddy ಮೂಲಕ ಉತ್ತಮ ಪರಿಷ್ಕರಣೆ ಮತ್ತು ಸ್ಪಷ್ಟ ತಿಳುವಳಿಕೆ
+                            </div>
+                        </div>
+                        <div class="benefit-card reveal reveal-d1"><span class="benefit-ico">⚡</span>
+                            <div class="benefit-t eo">Faster Revision Systems</div>
+                            <div class="benefit-t ko kn-font">ವೇಗವಾದ ಪರಿಷ್ಕರಣೆ</div>
+                            <div class="benefit-d eo">AI-powered flashcards, summaries, and practice questions</div>
+                            <div class="benefit-d ko kn-font">AI ಫ್ಲ್ಯಾಶ್‌ಕಾರ್ಡ್‌ಗಳು, ಸಾರಾಂಶಗಳು, ಮತ್ತು ಅಭ್ಯಾಸ ಪ್ರಶ್ನೆಗಳು
+                            </div>
+                        </div>
+                        <div class="benefit-card reveal reveal-d2"><span class="benefit-ico">🎨</span>
+                            <div class="benefit-t eo">Creative Image Generation</div>
+                            <div class="benefit-t ko kn-font">AI ಚಿತ್ರ ರಚನೆ</div>
+                            <div class="benefit-d eo">Create professional visuals, posters, and presentations</div>
+                            <div class="benefit-d ko kn-font">ವೃತ್ತಿಪರ ಚಿತ್ರಗಳು, ಪೋಸ್ಟರ್‌ಗಳನ್ನು ತಯಾರಿಸಿ</div>
+                        </div>
+                        <div class="benefit-card reveal reveal-d3"><span class="benefit-ico">🎬</span>
+                            <div class="benefit-t eo">Short Film Creation</div>
+                            <div class="benefit-t ko kn-font">ಕಿರುಚಿತ್ರ ತಯಾರಿ</div>
+                            <div class="benefit-d eo">Script, produce, and edit AI-assisted short films</div>
+                            <div class="benefit-d ko kn-font">AI ಸಹಾಯದಿಂದ ಕಿರುಚಿತ್ರಗಳನ್ನು ಮಾಡಿ</div>
+                        </div>
+                        <div class="benefit-card reveal reveal-d4"><span class="benefit-ico">🧠</span>
+                            <div class="benefit-t eo">15+ AI Life Hacks</div>
+                            <div class="benefit-t ko kn-font">15+ AI ಲೈಫ್ ಹ್ಯಾಕ್ಸ್</div>
+                            <div class="benefit-d eo">School, productivity, crisis handling, basic finance literacy
+                            </div>
+                            <div class="benefit-d ko kn-font">ಶಾಲೆ, ಉತ್ಪಾದಕತೆ, ಬಿಕ್ಕಟ್ಟು ನಿರ್ವಹಣೆ, ಹಣಕಾಸು ಸಾಕ್ಷರತೆ</div>
+                        </div>
+                        <div class="benefit-card reveal reveal-d5"><span class="benefit-ico">💻</span>
+                            <div class="benefit-t eo">Build Websites & Apps</div>
+                            <div class="benefit-t ko kn-font">ವೆಬ್‌ಸೈಟ್‌ಗಳು ಮತ್ತು ಅಪ್ಲಿಕೇಶನ್‌ಗಳನ್ನು ಮಾಡಿ</div>
+                            <div class="benefit-d eo">Websites, apps, games — AI software engineering foundations</div>
+                            <div class="benefit-d ko kn-font">ವೆಬ್‌ಸೈಟ್‌ಗಳು, ಅಪ್ಲಿಕೇಶನ್‌ಗಳು, ಗೇಮ್‌ಗಳು — AI ಎಂಜಿನಿಯರಿಂಗ್
+                                ಅಡಿಪಾಯ</div>
+                        </div>
+                        <div class="benefit-card reveal"><span class="benefit-ico">🎮</span>
+                            <div class="benefit-t eo">Build Games</div>
+                            <div class="benefit-t ko kn-font">ಗೇಮ್‌ಗಳನ್ನು ಮಾಡಿ</div>
+                            <div class="benefit-d eo">Create interactive games using AI tools</div>
+                            <div class="benefit-d ko kn-font">AI ಉಪಕರಣಗಳನ್ನು ಬಳಸಿ ಸಂವಾದಾತ್ಮಕ ಗೇಮ್‌ಗಳನ್ನು ತಯಾರಿಸಿ</div>
+                        </div>
+                        <div class="benefit-card reveal reveal-d1"><span class="benefit-ico">💰</span>
+                            <div class="benefit-t eo">Earn Using AI Skills</div>
+                            <div class="benefit-t ko kn-font">AI ಕೌಶಲ್ಯದಿಂದ ಹಣ ಗಳಿಸಿ</div>
+                            <div class="benefit-d eo">Monetization foundations and real-world earning paths</div>
+                            <div class="benefit-d ko kn-font">ನಿಜ ಜೀವನದಲ್ಲಿ ಹಣ ಗಳಿಸಲು ಅಡಿಪಾಯ</div>
+                        </div>
+                        <div class="benefit-card reveal reveal-d2"><span class="benefit-ico">🧭</span>
+                            <div class="benefit-t eo">Conceptual Clarity</div>
+                            <div class="benefit-t ko kn-font">ಸ್ಪಷ್ಟ ಪರಿಕಲ್ಪನೆ</div>
+                            <div class="benefit-d eo">Deeper understanding of subjects, not just memorization</div>
+                            <div class="benefit-d ko kn-font">ಕೇವಲ ಬಾಯಿಪಾಠ ಅಲ್ಲ, ಆಳವಾದ ಅರ್ಥಗ್ರಹಣ</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="div"></div>
+
+            <!-- PARENT ASSURANCE -->
+            <section class="sec">
+                <div class="wrap">
+                    <span class="lbl reveal lbl-g eo">Parent Assurance</span>
+                    <span class="lbl reveal lbl-g ko kn-font">ಪೋಷಕರಿಗೆ ಖಾತ್ರಿ</span>
+                    <h2 style="font-size:1.32rem;margin-bottom:8px" class="eo reveal">Safe. Structured. Supervised.</h2>
+                    <h2 style="font-size:1.32rem;margin-bottom:8px" class="ko kn-font reveal">ಸುರಕ್ಷಿತ. ವ್ಯವಸ್ಥಿತ. Supervised.
+                    </h2>
+                    <p style="font-size:.85rem;margin-bottom:18px" class="eo">Common parent concerns — answered
+                        directly.</p>
+                    <p style="font-size:.85rem;margin-bottom:18px" class="ko kn-font">ಪೋಷಕರ ಸಾಮಾನ್ಯ ಚಿಂತೆಗಳಿಗೆ ನೇರ
+                        ಉತ್ತರ.</p>
+                    <div class="aitem reveal reveal-d1">
+                        <div class="aico">📚</div>
+                        <div>
+                            <div class="atitle eo">Board syllabus aligned</div>
+                            <div class="atitle ko kn-font">ಬೋರ್ಡ್ ಪಠ್ಯಕ್ರಮ ಆಧಾರಿತ</div>
+                            <div class="adesc eo">Every example and practice question is drawn from NCERT and board
+                                textbooks — matched to what your child is already studying.</div>
+                            <div class="adesc ko kn-font">ಪ್ರತಿ ಉದಾಹರಣೆ NCERT ಮತ್ತು ಬೋರ್ಡ್ ಪಠ್ಯಪುಸ್ತಕದಿಂದ — ನಿಮ್ಮ ಮಗು
+                                ಓದುತ್ತಿರುವ ಪಠ್ಯಕ್ರಮಕ್ಕೆ ನೇರ ಸಂಬಂಧ.</div>
+                        </div>
+                    </div>
+                    <div class="aitem reveal reveal-d2">
+                        <div class="aico">⚖️</div>
+                        <div>
+                            <div class="atitle eo">Ethics is a core part of the course</div>
+                            <div class="atitle ko kn-font">ನೈತಿಕತೆ ಮುಖ್ಯ ಭಾಗ</div>
+                            <div class="adesc eo">Your child will learn exactly when NOT to use AI — during exams, in
+                                independent work. Responsible usage is taught throughout every module.</div>
+                            <div class="adesc ko kn-font">AI ಯಾವಾಗ ಉಪಯೋಗಿಸಬೇಕು, ಯಾವಾಗ ಬೇಡ — ಪ್ರತಿ ಮಾಡ್ಯೂಲ್‌ನಲ್ಲಿ
+                                ಸ್ಪಷ್ಟವಾಗಿ ಕಲಿಸುತ್ತೇವೆ.</div>
+                        </div>
+                    </div>
+                    <div class="aitem reveal reveal-d3">
+                        <div class="aico">👁️</div>
+                        <div>
+                            <div class="atitle eo">Safe, curated tools only</div>
+                            <div class="atitle ko kn-font">ಸುರಕ್ಷಿತ, ಆಯ್ದ ಉಪಕರಣಗಳು ಮಾತ್ರ</div>
+                            <div class="adesc eo">The course uses specific AI tools — not open internet browsing. All
+                                tools are ad-free and age-appropriate.</div>
+                            <div class="adesc ko kn-font">ಕೋರ್ಸ್ ನಿರ್ದಿಷ್ಟ AI ಉಪಕರಣಗಳನ್ನು ಮಾತ್ರ ಉಪಯೋಗಿಸುತ್ತದೆ. ಎಲ್ಲ
+                                ಉಪಕರಣಗಳು
+                                ಸುರಕ್ಷಿತ, ವಯಸ್ಸಿಗೆ ಸೂಕ್ತವಾದವು.</div>
+                        </div>
+                    </div>
+                    <div class="aitem reveal reveal-d3">
+                        <div class="aico">💬</div>
+                        <div>
+                            <div class="atitle eo">WhatsApp support for parents</div>
+                            <div class="atitle ko kn-font">ಪೋಷಕರಿಗೆ ವಾಟ್ಸಾಪ್ ಬೆಂಬಲ</div>
+                            <div class="adesc eo">Message us directly — not a chatbot. We respond personally within the
+                                day.</div>
+                            <div class="adesc ko kn-font">ನೇರವಾಗಿ ಸಂದೇಶ ಮಾಡಿ — ಚಾಟ್‌ಬಾಟ್ ಅಲ್ಲ. ದಿನದೊಳಗೆ ಖುದ್ದಾಗಿ
+                                ಉತ್ತರ.</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="div"></div>
+
+            <!-- PARENT SENTIMENT CARDS -->
+            <section class="sec">
+                <div class="wrap">
+                    <span class="lbl reveal lbl-t eo">Parent Perspectives</span>
+                    <span class="lbl reveal lbl-t ko kn-font">ಪೋಷಕರ ಯೋಚನೆ</span>
+                    <h2 style="font-size:1.28rem;margin-bottom:6px" class="eo reveal">What Parents Across India Are Thinking
+                        About AI Today</h2>
+                    <h2 style="font-size:1.28rem;margin-bottom:6px" class="ko kn-font reveal">AI ಬಗ್ಗೆ ಭಾರತದಾದ್ಯಂತ ಪೋಷಕರು ಏನು
+                        ಯೋಚಿಸುತ್ತಿದ್ದಾರೆ</h2>
+                    <p style="font-size:.8rem;margin-bottom:16px" class="eo">These are the real concerns driving parents
+                        to act.</p>
+                    <p style="font-size:.8rem;margin-bottom:16px" class="ko kn-font">ಪೋಷಕರನ್ನು ಕ್ರಿಯೆಗೆ ಪ್ರೇರೇಪಿಸುವ
+                        ನಿಜವಾದ ಚಿಂತೆಗಳು.</p>
+                    <div class="sentiment-grid">
+                        <div class="sentiment-card reveal reveal-d2">
+                            <div class="sentiment-q eo">"Will my child fall behind without AI skills?"</div>
+                            <div class="sentiment-q ko kn-font">"AI ಕೌಶಲ್ಯ ಇಲ್ಲದೆ ನನ್ನ ಮಗು ಹಿಂದೆ ಬೀಳುತ್ತಾನಾ?"</div>
+                            <span class="sentiment-tag eo">Future concern</span><span
+                                class="sentiment-tag ko kn-font">ಭವಿಷ್ಯದ ಚಿಂತೆ</span>
+                        </div>
+                        <div class="sentiment-card reveal reveal-d1">
+                            <div class="sentiment-q eo">"Schools are not teaching practical AI."</div>
+                            <div class="sentiment-q ko kn-font">"ಶಾಲೆಗಳಲ್ಲಿ ಪ್ರಾಯೋಗಿಕ AI ಕಲಿಸುತ್ತಿಲ್ಲ."</div>
+                            <span class="sentiment-tag eo">Education gap</span><span
+                                class="sentiment-tag ko kn-font">ಶಿಕ್ಷಣ ಕೊರತೆ</span>
+                        </div>
+                        <div class="sentiment-card reveal reveal-d2">
+                            <div class="sentiment-q eo">"Board exams matter, but future skills matter too."</div>
+                            <div class="sentiment-q ko kn-font">"ಬೋರ್ಡ್ ಪರೀಕ್ಷೆಗಳು ಮುಖ್ಯ, ಆದರೆ ಭವಿಷ್ಯದ ಕೌಶಲ್ಯಗಳು ಕೂಡ
+                                ಮುಖ್ಯ."</div>
+                            <span class="sentiment-tag eo">Balance</span><span
+                                class="sentiment-tag ko kn-font">ಸಮತೋಲನ</span>
+                        </div>
+                        <div class="sentiment-card reveal reveal-d1">
+                            <div class="sentiment-q eo">"I want responsible AI learning for my child."</div>
+                            <div class="sentiment-q ko kn-font">"ನನ್ನ ಮಗುವಿಗೆ ಜವಾಬ್ದಾರಿಯುತ AI ಕಲಿಕೆ ಬೇಕು."</div>
+                            <span class="sentiment-tag eo">Trust</span><span
+                                class="sentiment-tag ko kn-font">ನಂಬಿಕೆ</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="div"></div>
+
+            <!-- FAQ -->
+            <section class="sec">
+                <div class="wrap">
+                    <span class="lbl reveal lbl-t eo">Questions</span>
+                    <span class="lbl reveal lbl-t ko kn-font">ಪ್ರಶ್ನೆಗಳು</span>
+                    <h2 style="font-size:1.28rem;margin-bottom:17px" class="eo reveal">Things parents ask</h2>
+                    <h2 style="font-size:1.28rem;margin-bottom:17px" class="ko kn-font reveal">ಪೋಷಕರ ಸಾಮಾನ್ಯ ಪ್ರಶ್ನೆಗಳು</h2>
+                    <div id="fqH">
+                        <div class="faq-item reveal reveal-d1">
+                            <div class="faq-q" onclick="faq(this,'fqH')"><span class="eo">Useful for board exam
+                                    preparation?</span><span class="ko kn-font">ಬೋರ್ಡ್ ಪರೀಕ್ಷೆ ತಯಾರಿಗೆ ಉಪಯೋಗವಾ?</span><i
+                                    class="faq-ico">+</i></div>
+                            <div class="faq-a"><span class="eo">Yes — this is the primary focus. Module 1 teaches
+                                    AI-generated revision notes, flashcards, and practice questions aligned with board
+                                    syllabi. Students apply this directly to their exam preparation.</span><span
+                                    class="ko kn-font">ಹೌದು — ಇದು ಮುಖ್ಯ ಉದ್ದೇಶ. ಮಾಡ್ಯೂಲ್ 1 ರಲ್ಲಿ ಬೋರ್ಡ್ ಪಠ್ಯಕ್ರಮ ಆಧಾರಿತ
+                                    ಪರಿಷ್ಕರಣೆ ಟಿಪ್ಪಣಿಗಳು, ಫ್ಲ್ಯಾಶ್‌ಕಾರ್ಡ್‌ಗಳು, ಅಭ್ಯಾಸ ಪ್ರಶ್ನೆಗಳು ಕಲಿಸುತ್ತೇವೆ. ನೇರವಾಗಿ
+                                    ಪರೀಕ್ಷೆ ತಯಾರಿಗೆ
+                                    ಉಪಯೋಗ.</span></div>
+                        </div>
+                        <div class="faq-item reveal reveal-d1">
+                            <div class="faq-q" onclick="faq(this,'fqH')"><span class="eo">Is this cheating?</span><span
+                                    class="ko kn-font">ಇದು ಮೋಸ ಅಲ್ಲವಾ?</span><i class="faq-ico">+</i></div>
+                            <div class="faq-a"><span class="eo">Using AI to understand a chapter faster is like using a
+                                    better textbook. We dedicate significant time to teaching when NOT to use AI.
+                                    Responsible usage is a core part of every module.</span><span class="ko kn-font">AI
+                                    ಉಪಯೋಗಿಸಿ ಅಧ್ಯಾಯವನ್ನು ಬೇಗ ಅರ್ಥ ಮಾಡಿಕೊಳ್ಳುವುದು ಉತ್ತಮ ಪಠ್ಯಪುಸ್ತಕವನ್ನು ಬಳಸಿದ ಹಾಗೆ. AI
+                                    ಯಾವಾಗ ಬೇಡ
+                                    ಎಂದು ಸ್ಪಷ್ಟವಾಗಿ ಕಲಿಸುತ್ತೇವೆ.</span></div>
+                        </div>
+                        <div class="faq-item reveal reveal-d1">
+                            <div class="faq-q" onclick="faq(this,'fqH')"><span class="eo">My child isn't
+                                    tech-savvy?</span><span class="ko kn-font">ನನ್ನ ಮಗುವಿಗೆ ತಂತ್ರಜ್ಞಾನ
+                                    ಗೊತ್ತಿಲ್ಲ?</span><i class="faq-ico">+</i></div>
+                            <div class="faq-a"><span class="eo">No coding, no prior knowledge needed — just a phone or
+                                    laptop. If your child uses WhatsApp or YouTube, they can do this course. We start
+                                    from absolute scratch.</span><span class="ko kn-font">ಕೋಡಿಂಗ್ ಬೇಡ, ಪೂರ್ವ ಜ್ಞಾನ
+                                    ಬೇಡ — ಫೋನ್ ಅಥವಾ ಲ್ಯಾಪ್‌ಟಾಪ್ ಮಾತ್ರ ಸಾಕು. WhatsApp ಅಥವಾ YouTube ಉಪಯೋಗಿಸಿದರೆ ಸಾಕು. ತೀರಾ
+                                    ಮೂಲದಿಂದ ಶುರು.</span></div>
+                        </div>
+                        <div class="faq-item reveal reveal-d1">
+                            <div class="faq-q" onclick="faq(this,'fqH')"><span class="eo">What if they don't finish in
+                                    time?</span><span class="ko kn-font">ಸಮಯಕ್ಕೆ ಮುಗಿಸದಿದ್ದರೆ?</span><i
+                                    class="faq-ico">+</i></div>
+                            <div class="faq-a"><span class="eo">Lifetime access — no deadline. Most students finish in
+                                    1–2 weeks. The certificate is earned by completing all modules, not by a fixed
+                                    date.</span><span class="ko kn-font">ಜೀವಮಾನದ ಪ್ರವೇಶ — ಗಡುವು ಇಲ್ಲ. ಬಹುತೇಕ
+                                    ವಿದ್ಯಾರ್ಥಿಗಳು 1–2 ವಾರದಲ್ಲಿ ಮುಗಿಸುತ್ತಾರೆ. ಪ್ರಮಾಣಪತ್ರ ಎಲ್ಲ ಮಾಡ್ಯೂಲ್‌ಗಳು ಮುಗಿದ
+                                    ಮೇಲೆ.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div><!-- /home -->
+
+        <!-- ═══════════ COURSE ═══════════ -->
+        <div id="tab-course" class="pg">
+            <!-- ENROLL CTA -->
+            <section class="sec">
+                <div class="wrap">
+                    <div class="pcard">
+                        <div class="batch-notice"><span class="eo"><strong>Batch 1 — Limited to 75 students</strong>
+                                Small by design so every student gets real attention.</span><span
+                                class="ko kn-font"><strong>Batch 1 — 75 ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಮಾತ್ರ</strong> ಪ್ರತಿ
+                                ವಿದ್ಯಾರ್ಥಿಗೆ ಸರಿಯಾದ ಗಮನ.</span></div>
+                        <div class="old eo">Regular price ₹2,499</div>
+                        <div class="old ko kn-font">ಸಾಮಾನ್ಯ ಬೆಲೆ ₹2,499</div>
+                        <div><span class="bigprice">₹799</span><span class="savepill">SAVE ₹1,700</span></div>
+                        <div class="smeta" style="margin-top:12px"><span class="eo">Seats left</span><span
+                                class="ko kn-font">ಉಳಿದ ಸೀಟುಗಳು</span><span id="seatsTxt2">—</span></div>
+                        <div class="sbar">
+                            <div class="sfill" id="seatBar2"></div>
+                        </div>
+                        
+                    <div class="value-stack reveal">
+                        <h3 class="eo">What You Get — Total Value</h3>
+                        <h3 class="ko kn-font">ನೀವು ಪಡೆಯುವುದು — ಒಟ್ಟು ಮೌಲ್ಯ</h3>
+                        <div class="vs-item reveal reveal-d1"><span class="vs-name"><span class="eo">5 AI Skill Modules</span><span class="ko kn-font">5 AI ಕೌಶಲ್ಯ ಮಾಡ್ಯೂಲ್‌ಗಳು</span></span><span class="vs-val">₹2,999</span></div>
+                        <div class="vs-item reveal reveal-d2"><span class="vs-name"><span class="eo">5 Prompt Mastery PDF Packs</span><span class="ko kn-font">5 ಪ್ರಾಂಪ್ಟ್ ಮಾಸ್ಟರಿ PDF ಪ್ಯಾಕ್‌ಗಳು</span></span><span class="vs-val">₹999</span></div>
+                        <div class="vs-item reveal reveal-d3"><span class="vs-name"><span class="eo">AI Verified Certification</span><span class="ko kn-font">AI ಪರಿಶೀಲಿಸಿದ ಪ್ರಮಾಣಪತ್ರ</span></span><span class="vs-val">₹999</span></div>
+                        <div class="vs-item reveal reveal-d4"><span class="vs-name"><span class="eo">Lifetime Community Access</span><span class="ko kn-font">ಜೀವಮಾನದ ಸಮುದಾಯ ಪ್ರವೇಶ</span></span><span class="vs-val">₹1,499</span></div>
+                        <div class="vs-item reveal reveal-d5"><span class="vs-name"><span class="eo">Future Hackathon & Competition Entry</span><span class="ko kn-font">ಭವಿಷ್ಯದ ಹ್ಯಾಕಥಾನ್ ಮತ್ತು ಸ್ಪರ್ಧೆ ಪ್ರವೇಶ</span></span><span class="vs-val">₹999</span></div>
+                        <div class="vs-item reveal reveal-d1"><span class="vs-name"><span class="eo">Priority Access to Advanced Courses</span><span class="ko kn-font">ಮುಂದುವರಿದ ಕೋರ್ಸ್‌ಗಳಿಗೆ ಆದ್ಯತೆ ಪ್ರವೇಶ</span></span><span class="vs-val">₹999</span></div>
+                        <div class="vs-item reveal reveal-d2"><span class="vs-name"><span class="eo">AI Learning Newsletter</span><span class="ko kn-font">AI ಕಲಿಕೆ ಸುದ್ದಿಪತ್ರ</span></span><span class="vs-val">₹499</span></div>
+                        <div class="vs-total">
+                            <span class="vs-total-label"><span class="eo">Total Program Value</span><span class="ko kn-font">ಒಟ್ಟು ಕಾರ್ಯಕ್ರಮ ಮೌಲ್ಯ</span></span>
+                            <span class="vs-total-val">₹8,993</span>
+                        </div>
+                        <div class="vs-final">
+                            <div><span class="eo" style="font-size:.82rem;color:var(--muted2)">Founding Batch Price</span><span class="ko kn-font" style="font-size:.82rem;color:var(--muted2)">ಸ್ಥಾಪಕ ಬ್ಯಾಚ್ ಬೆಲೆ</span></div>
+                            <div class="vs-final-price">₹799</div>
+                            <div class="vs-save">SAVE ₹8,194</div>
+                            <div class="vs-perday"><span class="eo">Less than ₹27 per day for one month</span><span class="ko kn-font">ಒಂದು ತಿಂಗಳಿಗೆ ದಿನಕ್ಕೆ ₹27 ಕ್ಕಿಂತ ಕಡಿಮೆ</span></div>
+                        </div>
+                        <div class="urgency-bar">
+                            <span class="ub-icon">🔥</span>
+                            <span class="ub-text"><span class="eo">Founding Batch — Only 75 seats. Once filled, price increases to ₹2,499.</span><span class="ko kn-font">ಸ್ಥಾಪಕ ಬ್ಯಾಚ್ — ಕೇವಲ 75 ಸೀಟುಗಳು. ಭರ್ತಿಯಾದ ನಂತರ ಬೆಲೆ ₹2,499 ಆಗುತ್ತದೆ.</span></span>
+                        </div>
+                    </div>
+
+                    <button class="btn-y" onclick="window.open('https://rzp.io/rzp/beyondtatva','_blank')"><span
+                                class="eo">Enroll Now — ₹799 →</span><span class="ko kn-font">ಈಗ Enroll ಮಾಡಿ — ₹799
+                                →</span></button>
+                        <div class="guar" style="margin-top:10px"><span>🛡️</span>
+                            <p><span class="eo"><strong>7-Day Money-Back Guarantee</strong> Full refund, no questions
+                                    asked.</span><span class="ko kn-font"><strong>7-ದಿನ ಹಣ ವಾಪಸ್ ಖಾತ್ರಿ</strong> ಪೂರ್ಣ
+                                    refund.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="sec">
+                <div class="wrap">
+                    <span class="lbl reveal lbl-b eo">Program Structure</span>
+                    <span class="lbl reveal lbl-b ko kn-font">ಕೋರ್ಸ್ ರಚನೆ</span>
+                    <h2 style="font-size:1.32rem;margin-bottom:5px" class="eo reveal">5 Modules. Build real projects in each.
+                    </h2>
+                    <h2 style="font-size:1.32rem;margin-bottom:5px" class="ko kn-font reveal">5 ಮಾಡ್ಯೂಲ್‌ಗಳು. ಪ್ರತಿಯೊಂದರಲ್ಲೂ
+                        ಪ್ರಾಜೆಕ್ಟ್‌ಗಳು.</h2>
+                    <div class="mlist">
+                        <div class="mod reveal reveal-d1">
+                            <div class="mnum"
+                                style="background:rgba(10,91,255,.12);color:#93C5FD;border:1.5px solid rgba(10,91,255,.3)">
+                                1</div>
+                            <div style="flex:1">
+                                <div class="mtitle eo">AI Study Buddy</div>
+                                <div class="mtitle ko kn-font">AI ಸ್ಟಡಿ ಬಡ್ಡಿ</div>
+                                <div class="msub eo">Revision notes · Flashcards · Practice questions · Board-aligned
+                                </div>
+                                <div class="msub ko kn-font">ಪರಿಷ್ಕರಣೆ ಟಿಪ್ಪಣಿಗಳು · ಫ್ಲ್ಯಾಶ್‌ಕಾರ್ಡ್‌ಗಳು · ಬೋರ್ಡ್
+                                    ಪರೀಕ್ಷೆಗೆ ಸಹಾಯ</div>
+                            </div><span class="mbadge"
+                                style="background:rgba(10,91,255,.1);color:#93C5FD;border:1px solid rgba(10,91,255,.25)">Core</span>
+                        </div>
+                        <div class="mod reveal reveal-d2">
+                            <div class="mnum"
+                                style="background:rgba(39,224,196,.1);color:var(--teal2);border:1.5px solid rgba(39,224,196,.3)">
+                                2</div>
+                            <div style="flex:1">
+                                <div class="mtitle eo">AI Creator — Part 1: Image Generation</div>
+                                <div class="mtitle ko kn-font">AI ಕ್ರಿಯೇಟರ್ — ಭಾಗ 1: ಚಿತ್ರ ರಚನೆ</div>
+                                <div class="msub eo">AI image creation · Poster design · Presentations · Visual
+                                    storytelling</div>
+                                <div class="msub ko kn-font">AI ಚಿತ್ರ ರಚನೆ · ಪೋಸ್ಟರ್ ವಿನ್ಯಾಸ · ಪ್ರಸ್ತುತಿಗಳು</div>
+                            </div><span class="mbadge"
+                                style="background:rgba(39,224,196,.08);color:var(--teal2);border:1px solid rgba(39,224,196,.2)">Creative</span>
+                        </div>
+                        <div class="mod reveal reveal-d3">
+                            <div class="mnum"
+                                style="background:rgba(167,139,250,.1);color:var(--purple);border:1.5px solid rgba(167,139,250,.3)">
+                                3</div>
+                            <div style="flex:1">
+                                <div class="mtitle eo">AI Creator — Part 2: Short Videos</div>
+                                <div class="mtitle ko kn-font">AI ಕ್ರಿಯೇಟರ್ — ಭಾಗ 2: ಕಿರು ವೀಡಿಯೊಗಳು</div>
+                                <div class="msub eo">AI-powered short films · Reels · Video editing · Content creation
+                                </div>
+                                <div class="msub ko kn-font">AI ಕಿರುಚಿತ್ರಗಳು · ರೀಲ್ಸ್ · ವೀಡಿಯೊ ಎಡಿಟಿಂಗ್</div>
+                            </div><span class="mbadge"
+                                style="background:rgba(167,139,250,.08);color:var(--purple);border:1px solid rgba(167,139,250,.2)">Creative</span>
+                        </div>
+                        <div class="mod reveal reveal-d3">
+                            <div class="mnum"
+                                style="background:rgba(250,204,21,.1);color:var(--yellow);border:1.5px solid rgba(250,204,21,.3)">
+                                4</div>
+                            <div style="flex:1">
+                                <div class="mtitle eo">AI Life Hacks</div>
+                                <div class="mtitle ko kn-font">AI ಲೈಫ್ ಹ್ಯಾಕ್ಸ್</div>
+                                <div class="msub eo">15+ life hacks · Productivity · Crisis handling · Finance literacy
+                                </div>
+                                <div class="msub ko kn-font">15+ ಲೈಫ್ ಹ್ಯಾಕ್ಸ್ · ಉತ್ಪಾದಕತೆ · ಹಣಕಾಸು ಸಾಕ್ಷರತೆ</div>
+                            </div><span class="mbadge"
+                                style="background:rgba(250,204,21,.08);color:var(--yellow);border:1px solid rgba(250,204,21,.2)">Practical</span>
+                        </div>
+                        <div class="mod reveal reveal-d3">
+                            <div class="mnum"
+                                style="background:rgba(52,211,153,.1);color:var(--green);border:1.5px solid rgba(52,211,153,.3)">
+                                5</div>
+                            <div style="flex:1">
+                                <div class="mtitle eo">AI Software Engineer + Bonus: Earn Using AI</div>
+                                <div class="mtitle ko kn-font">AI ಸಾಫ್ಟ್‌ವೇರ್ ಎಂಜಿನಿಯರ್ + ಬೋನಸ್: AI ಬಳಸಿ ಹಣ ಗಳಿಸಿ</div>
+                                <div class="msub eo">Build websites · Apps · Games · AI engineering foundations ·
+                                    Freelancing tips</div>
+                                <div class="msub ko kn-font">ವೆಬ್‌ಸೈಟ್‌ಗಳು · ಅಪ್ಲಿಕೇಶನ್‌ಗಳು · ಗೇಮ್ಸ್ · AI ಎಂಜಿನಿಯರಿಂಗ್ ·
+                                    ಫ್ರೀಲ್ಯಾನ್ಸಿಂಗ್ ಸಲಹೆಗಳು</div>
+                            </div><span class="mbadge"
+                                style="background:rgba(52,211,153,.08);color:var(--green);border:1px solid rgba(52,211,153,.2)">Advanced
+                                + Bonus</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="div"></div>
+            <!-- AI RESOURCE LIBRARY -->
+            <section class="sec">
+                <div class="wrap">
+                    <span class="lbl reveal lbl-p eo">Included Free</span>
+                    <span class="lbl reveal lbl-p ko kn-font">ಉಚಿತವಾಗಿ ಒಳಗೊಂಡಿದೆ</span>
+                    <h2 style="font-size:1.32rem;margin-bottom:5px" class="eo reveal">Complete AI Resource Library Included
+                    </h2>
+                    <h2 style="font-size:1.32rem;margin-bottom:5px" class="ko kn-font reveal">ಸಂಪೂರ್ಣ AI ಸಂಪನ್ಮೂಲ ಗ್ರಂಥಾಲಯ</h2>
+                    <div class="res-highlight">
+                        <div class="res-big">250+</div>
+                        <div class="res-biglbl eo">Curated AI Prompts</div>
+                        <div class="res-biglbl ko kn-font">ಆಯ್ದ AI ಪ್ರಾಂಪ್ಟ್ಗಳು</div>
+                    </div>
+                    <div class="res-grid">
+                        <div class="res-item"><span class="res-ico">📝</span>
+                            <div>
+                                <div class="res-t eo">Study & Revision Prompts</div>
+                                <div class="res-t ko kn-font">ಓದು ಮತ್ತು ಪರಿಷ್ಕರಣೆ ಪ್ರಾಂಪ್ಟ್ಗಳು</div>
+                            </div>
+                        </div>
+                        <div class="res-item"><span class="res-ico">🎨</span>
+                            <div>
+                                <div class="res-t eo">Image Generation Templates</div>
+                                <div class="res-t ko kn-font">ಚಿತ್ರ ರಚನೆ ಟೆಂಪ್ಲೇಟ್‌ಗಳು</div>
+                            </div>
+                        </div>
+                        <div class="res-item"><span class="res-ico">🎬</span>
+                            <div>
+                                <div class="res-t eo">Video Creation Workflows</div>
+                                <div class="res-t ko kn-font">ವೀಡಿಯೊ ರಚನೆ ವರ್ಕ್‌ಫ್ಲೋಗಳು</div>
+                            </div>
+                        </div>
+                        <div class="res-item"><span class="res-ico">💻</span>
+                            <div>
+                                <div class="res-t eo">Coding Starter Templates</div>
+                                <div class="res-t ko kn-font">ಕೋಡಿಂಗ್ ಆರಂಭಿಕ ಟೆಂಪ್ಲೇಟ್‌ಗಳು</div>
+                            </div>
+                        </div>
+                        <div class="res-item"><span class="res-ico">🧠</span>
+                            <div>
+                                <div class="res-t eo">Life Hack Prompt Sets</div>
+                                <div class="res-t ko kn-font">ಲೈಫ್ ಹ್ಯಾಕ್ಸ್ ಪ್ರಾಂಪ್ಟ್ಗಳು</div>
+                            </div>
+                        </div>
+                        <div class="res-item"><span class="res-ico">📊</span>
+                            <div>
+                                <div class="res-t eo">Presentation Templates</div>
+                                <div class="res-t ko kn-font">ಪ್ರಸ್ತುತಿ ಟೆಂಪ್ಲೇಟ್‌ಗಳು</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="div"></div>
+            <!-- HACKATHON ACCESS -->
+            <section class="sec-sm">
+                <div class="wrap">
+                    <div class="hack-card">
+                        <span class="lbl reveal lbl-p" style="margin-bottom:0">Coming Soon</span>
+                        <h2 style="font-size:1.18rem;margin-top:8px" class="eo reveal">Hackathon & Competition Access</h2>
+                        <h2 style="font-size:1.18rem;margin-top:8px" class="ko kn-font reveal">ಹ್ಯಾಕಥಾನ್ ಮತ್ತು ಸ್ಪರ್ಧೆಗಳ ಪ್ರವೇಶ
+                        </h2>
+                        <p style="font-size:.82rem;margin-top:4px" class="eo">Batch 1 students get priority access to
+                            future events.</p>
+                        <div class="hack-items">
+                            <div class="hack-item"><span>🏆</span><span class="eo">AI Project Hackathons</span><span
+                                    class="ko kn-font">AI ಪ್ರಾಜೆಕ್ಟ್ ಹ್ಯಾಕಥಾನ್ಗಳು</span></div>
+                            <div class="hack-item"><span>🎯</span><span class="eo">Inter-school AI
+                                    Competitions</span><span class="ko kn-font">ಅಂತರ-ಶಾಲಾ AI ಸ್ಪರ್ಧೆಗಳು</span></div>
+                            <div class="hack-item"><span>🌟</span><span class="eo">Portfolio Building
+                                    Opportunities</span><span class="ko kn-font">ಪೋರ್ಟ್‌ಫೋಲಿಯೋ ಕಟ್ಟುವ ಅವಕಾಶಗಳು</span>
+                            </div>
+                            <div class="hack-item"><span>📜</span><span class="eo">Special Certificates for
+                                    Winners</span><span class="ko kn-font">ವಿಜೇತರಿಗೆ ವಿಶೇಷ ಪ್ರಮಾಣಪತ್ರಗಳು</span></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="div"></div>
+            <!-- COMPARE -->
+            <section class="sec">
+                <div class="wrap">
+                    <span class="lbl reveal lbl-y eo">Comparison</span>
+                    <h2 style="font-size:1.22rem;margin-bottom:14px" class="eo reveal">Why Beyond Tatva?</h2>
+                    <h2 style="font-size:1.22rem;margin-bottom:14px" class="ko kn-font reveal">ಈ ಕೋರ್ಸ್ ಏಕೆ?</h2>
+                    <div class="cmp">
+                        <div class="cc">
+                            <div class="ch" style="color:var(--muted)">YouTube / Free</div>
+                            <div class="crow"><span class="cn">✗</span> <span class="eo">Scattered, no
+                                    structure</span><span class="ko kn-font">ಚದುರಿದ, ಯಾವುದೇ ವ್ಯವಸ್ಥೆ ಇಲ್ಲ</span></div>
+                            <div class="crow"><span class="cn">✗</span> <span class="eo">No board alignment</span><span
+                                    class="ko kn-font">ಬೋರ್ಡ್ ಪರೀಕ್ಷೆಗೆ ಸಂಬಂಧವಿಲ್ಲ</span></div>
+                            <div class="crow"><span class="cn">✗</span> <span class="eo">No certificate</span><span
+                                    class="ko kn-font">ಯಾವುದೇ ಪ್ರಮಾಣಪತ್ರ ಇಲ್ಲ</span></div>
+                            <div class="crow"><span class="cn">✗</span> <span class="eo">No mentor support</span><span
+                                    class="ko kn-font">ಮೆಂಟರ್ ಬೆಂಬಲವಿಲ್ಲ</span></div>
+                        </div>
+                        <div class="cc win">
+                            <div class="ch" style="color:var(--blue2)">Beyond Tatva</div>
+                            <div class="crow"><span class="cy">✓</span> <span class="eo">5 structured
+                                    modules</span><span class="ko kn-font">5 ವ್ಯವಸ್ಥಿತ ಮಾಡ್ಯೂಲ್‌ಗಳು</span></div>
+                            <div class="crow"><span class="cy">✓</span> <span class="eo">Board-aligned
+                                    content</span><span class="ko kn-font">ಬೋರ್ಡ್ ಪಠ್ಯಕ್ರಮ ಆಧಾರಿತ</span></div>
+                            <div class="crow"><span class="cy">✓</span> <span class="eo">Verified
+                                    certificate</span><span class="ko kn-font">ಪರಿಶೀಲಿಸಿದ ಪ್ರಮಾಣಪತ್ರ</span></div>
+                            <div class="crow"><span class="cy">✓</span> <span class="eo">Direct mentor
+                                    access</span><span class="ko kn-font">ನೇರ ಮೆಂಟರ್ ಪ್ರವೇಶ</span></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="div"></div>
+            <!-- WHAT YOU GET -->
+            <section class="sec">
+                <div class="wrap">
+                    <span class="lbl reveal lbl-y eo">Everything Included</span><span class="lbl reveal lbl-y ko kn-font">ಎಲ್ಲವೂ
+                        ಒಳಗೊಂಡಿದೆ</span>
+                    <h2 style="font-size:1.32rem;margin-bottom:5px" class="eo reveal">What you get at ₹799</h2>
+                    <h2 style="font-size:1.32rem;margin-bottom:5px" class="ko kn-font reveal">₹799 ಕ್ಕೆ ನಿಮಗೆ ಏನೆಲ್ಲ ಸಿಗುತ್ತದೆ
+                    </h2>
+                    <p style="font-size:.82rem;margin-bottom:15px" class="eo">No hidden costs. One payment. Lifetime
+                        access.</p>
+                    <p style="font-size:.82rem;margin-bottom:15px" class="ko kn-font">ಯಾವುದೇ ಗುಪ್ತ ಶುಲ್ಕಗಳಿಲ್ಲ. ಒಂದೇ
+                        ಪಾವತಿ. ಜೀವಮಾನ ಪ್ರವೇಶ.</p>
+                    <div class="bonus">
+                        <div class="bico">📦</div>
+                        <div>
+                            <div class="btitle eo">250+ Prompt Templates</div>
+                            <div class="btitle ko kn-font">250+ ಪ್ರಾಂಪ್ಟ್ ಟೆಂಪ್ಲೇಟ್‌ಗಳು</div>
+                            <div class="bdesc eo">Pre-written prompts for every subject — use from Day 1</div>
+                            <div class="bdesc ko kn-font">ಪ್ರತಿ ವಿಷಯಕ್ಕೆ ಸಿದ್ಧ ಪ್ರಾಂಪ್ಟ್ಗಳು — ದಿನ 1 ರಿಂದಲೇ ಬಳಸಿ</div>
+                            <div class="bval">₹499 value · Free</div>
+                        </div>
+                    </div>
+                    <div class="bonus">
+                        <div class="bico">📋</div>
+                        <div>
+                            <div class="btitle eo">NCERT AI Study Pack</div>
+                            <div class="btitle ko kn-font">NCERT AI ಅಧ್ಯಯನ ಪ್ಯಾಕ್</div>
+                            <div class="bdesc eo">AI shortcuts for Class 8–12 Science, Maths, Social Studies, English
+                            </div>
+                            <div class="bdesc ko kn-font">8–12ನೇ ತರಗತಿ ವಿಜ್ಞಾನ, ಗಣಿತ, ಸಮಾಜ ವಿಜ್ಞಾನಕ್ಕೆ AI ಶಾರ್ಟ್‌ಕಟ್‌ಗಳು
+                                —
+                                ಓದು ಸುಲಭ ಮಾಡುತ್ತದೆ</div>
+                            <div class="bval">₹699 value · Free</div>
+                        </div>
+                    </div>
+                    <div class="bonus">
+                        <div class="bico">📬</div>
+                        <div>
+                            <div class="btitle eo">Monthly Newsletter (1 Year)</div>
+                            <div class="btitle ko kn-font">ಮಾಸಿಕ ಸುದ್ದಿಪತ್ರ (1 ವರ್ಷ)</div>
+                            <div class="bdesc eo">New tools, tips, what's changing — keeps you current after the course
+                            </div>
+                            <div class="bdesc ko kn-font">ಹೊಸ AI ಉಪಕರಣಗಳು, ಸುಳಿವುಗಳು, ಬದಲಾವಣೆಗಳು — ಕೋರ್ಸ್ ಮುಗಿದ ನಂತರವೂ
+                                ನಿಮ್ಮನ್ನು
+                                ನವೀಕೃತವಾಗಿ ಇಡುತ್ತದೆ</div>
+                            <div class="bval">Free · 1 year</div>
+                        </div>
+                    </div>
+                    <div class="bonus">
+                        <div class="bico">💬</div>
+                        <div>
+                            <div class="btitle eo">Private Community Access</div>
+                            <div class="btitle ko kn-font">ಖಾಸಗಿ ಸಮುದಾಯ ಪ್ರವೇಶ</div>
+                            <div class="bdesc eo">Connect with other students — share projects, ask questions, stay
+                                motivated</div>
+                            <div class="bdesc ko kn-font">ಇತರ ವಿದ್ಯಾರ್ಥಿಗಳೊಂದಿಗೆ ಸಂಪರ್ಕ — ಪ್ರಾಜೆಕ್ಟ್‌ಗಳನ್ನು ಹಂಚಿಕೊಳ್ಳಿ,
+                                ಪ್ರಶ್ನೆ
+                                ಕೇಳಿ, ಪ್ರೇರಣೆ ಪಡೆಯಿರಿ</div>
+                            <div class="bval">Ongoing · Free</div>
+                        </div>
+                    </div>
+                    <div class="bonus">
+                        <div class="bico">🏅</div>
+                        <div>
+                            <div class="btitle eo">Verified Certificate</div>
+                            <div class="btitle ko kn-font">ಪರಿಶೀಲಿತ ಪ್ರಮಾಣಪತ್ರ</div>
+                            <div class="bdesc eo">QR-verified, printable, shareable for school or college use</div>
+                            <div class="bdesc ko kn-font">QR-verified, print ಮಾಡಬಹುದು, ಶಾಲೆ/ಕಾಲೇಜು ಅರ್ಜಿಗಳಿಗೆ
+                                ಬಳಸಬಹುದು</div>
+                            <div class="bval">Included</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="div"></div>
+            <!-- COUNTDOWN -->
+            <div class="cdwrap">
+                <div class="cdlabel eo">Batch 1 — Enrollment closes in</div>
+                <div class="cdlabel ko kn-font">Batch 1 — Enrollment ಮುಗಿಯಲು</div>
+                <div class="cdunits" id="cdBox">
+                    <div class="cdunit">
+                        <div class="cdbox">
+                            <div class="cdnum" id="cdD">00</div>
+                        </div>
+                        <div class="cdlbl">Days</div>
+                    </div><span class="cdcolon">:</span>
+                    <div class="cdunit">
+                        <div class="cdbox">
+                            <div class="cdnum" id="cdH">00</div>
+                        </div>
+                        <div class="cdlbl">Hrs</div>
+                    </div><span class="cdcolon">:</span>
+                    <div class="cdunit">
+                        <div class="cdbox">
+                            <div class="cdnum" id="cdM">00</div>
+                        </div>
+                        <div class="cdlbl">Min</div>
+                    </div><span class="cdcolon">:</span>
+                    <div class="cdunit">
+                        <div class="cdbox">
+                            <div class="cdnum" id="cdS">00</div>
+                        </div>
+                        <div class="cdlbl">Sec</div>
+                    </div>
+                </div>
+                <p class="cdnote eo">After this, price returns to <strong>₹2,499</strong></p>
+                <p class="cdnote ko kn-font">ಇದರ ನಂತರ ಬೆಲೆ <strong>₹2,499</strong> ಆಗುತ್ತದೆ</p>
+            </div>
+        </div><!-- /course -->
+
+        <!-- ═══════════ SCHOOLS ═══════════ -->
+        <div id="tab-schools" class="pg">
+            <section class="sec">
+                <div class="wrap">
+                    <span class="lbl reveal lbl-t eo">For Principals & Teachers</span><span
+                        class="lbl reveal lbl-t ko kn-font">Principals ಮತ್ತು Teachers ಗೆ</span>
+                    <h2 style="font-size:1.42rem;margin-bottom:10px" class="eo reveal">A 70-minute workshop that changes how
+                        students think.</h2>
+                    <h2 style="font-size:1.42rem;margin-bottom:10px" class="ko kn-font reveal">ವಿದ್ಯಾರ್ಥಿಗಳ ಯೋಚನೆಯನ್ನೇ
+                        ಬದಲಾಯಿಸುವ 70-ನಿಮಿಷದ workshop.</h2>
+                    <p style="font-size:.85rem;margin-bottom:18px" class="eo">We come to your school. We handle
+                        everything — session, demos, printed handouts. You provide the room and the students. Zero
+                        preparation required.</p>
+                    <p style="font-size:.85rem;margin-bottom:18px" class="ko kn-font">ನಾವೇ ನಿಮ್ಮ ಶಾಲೆಗೆ ಬರುತ್ತೇವೆ.
+                        Session, demos, printed handouts — ಎಲ್ಲವನ್ನೂ ನಾವೇ ನಿಭಾಯಿಸುತ್ತೇವೆ. ನೀವು ಕೊಠಡಿ ಮತ್ತು
+                        ವಿದ್ಯಾರ್ಥಿಗಳನ್ನು ಒದಗಿಸಿದರೆ ಸಾಕು. ನಿಮ್ಮಿಂದ ಯಾವುದೇ ತಯಾರಿ ಬೇಕಿಲ್ಲ.</p>
+
+                    <div class="wstep">
+                        <div class="wtime">0–3 MIN</div>
+                        <div>
+                            <div class="wtitle eo">The Hook</div>
+                            <div class="wtitle ko kn-font">ಗಮನ ಸೆಳೆಯುವ ಆರಂಭ</div>
+                            <div class="wdesc eo">We open with a direct promise: 70 minutes in exchange for tools that
+                                change how they study. No slides of definitions.</div>
+                            <div class="wdesc ko kn-font">70 ನಿಮಿಷ ಗಮನ ಕೊಟ್ಟರೆ, ಅವರ ಓದುವ ರೀತಿಯನ್ನೇ ಬದಲಾಯಿಸುವ tools
+                                ನೀಡುತ್ತೇವೆ. ಬೋರಿಂಗ್ slides ಇಲ್ಲ — ನೇರ ಆಕ್ಷನ್.</div>
+                        </div>
+                    </div>
+                    <div class="wstep">
+                        <div class="wtime" style="background:rgba(39,224,196,.13);color:var(--teal2)">3–15 MIN</div>
+                        <div>
+                            <div class="wtitle eo">Live Demos</div>
+                            <div class="wtitle ko kn-font">Live Demonstrations</div>
+                            <div class="wdesc eo">We transform their school building using AI (students vote: Tokyo?
+                                Switzerland? 2050?). Then we summarise a chapter a student volunteers — in 30 seconds,
+                                plain language.</div>
+                            <div class="wdesc ko kn-font">ಶಾಲೆಯ building ಅನ್ನು AI ಬಳಸಿ transform ಮಾಡುತ್ತೇವೆ —
+                                ವಿದ್ಯಾರ್ಥಿಗಳೇ vote ಮಾಡುತ್ತಾರೆ: Tokyo? Switzerland? 2050? ನಂತರ ಒಬ್ಬ ವಿದ್ಯಾರ್ಥಿ volunteer
+                                ಆಗಿ chapter ಹೇಳುತ್ತಾರೆ — 30 seconds ನಲ್ಲಿ simple ಭಾಷೆಯಲ್ಲಿ explain ಮಾಡುತ್ತೇವೆ.</div>
+                        </div>
+                    </div>
+                    <div class="wstep">
+                        <div class="wtime" style="background:rgba(167,139,250,.13);color:var(--purple)">15–45 MIN</div>
+                        <div>
+                            <div class="wtitle eo">Board Exam Study Methods</div>
+                            <div class="wtitle ko kn-font">Board Exam ಓದುವ ವಿಧಾನಗಳು</div>
+                            <div class="wdesc eo">Live walkthrough of how to use AI for SSLC/PU prep — summaries, AI
+                                flashcards, exam-style practice questions from actual Karnataka syllabus.</div>
+                            <div class="wdesc ko kn-font">SSLC/PU ತಯಾರಿಗೆ AI ಹೇಗೆ ಬಳಸಬೇಕು ಎಂಬುದರ Live walkthrough —
+                                summaries, AI flashcards, Karnataka syllabus ನಿಂದ exam-style ಅಭ್ಯಾಸ ಪ್ರಶ್ನೆಗಳು. ಪ್ರತಿ
+                                ವಿದ್ಯಾರ್ಥಿ ಮನೆಗೆ ಹೋಗಿ ಇಂದೇ ಮಾಡಬಹುದು.</div>
+                        </div>
+                    </div>
+                    <div class="wstep">
+                        <div class="wtime" style="background:rgba(250,204,21,.11);color:var(--yellow)">45–70 MIN</div>
+                        <div>
+                            <div class="wtitle eo">Ethics + Career Awareness</div>
+                            <div class="wtitle ko kn-font">ನೈತಿಕತೆ + Career ಅರಿವು</div>
+                            <div class="wdesc eo">What's right and wrong — clearly. Which careers are changing and what
+                                students can do now. Every student leaves with a printed handout of all prompts.</div>
+                            <div class="wdesc ko kn-font">AI ಬಳಕೆಯ ಸರಿ-ತಪ್ಪು — ಸ್ಪಷ್ಟವಾಗಿ ಹೇಳುತ್ತೇವೆ. ಯಾವ careers
+                                ಬದಲಾಗುತ್ತಿವೆ, ವಿದ್ಯಾರ್ಥಿಗಳು ಈಗ ಏನು ಮಾಡಬಹುದು. Session ನಲ್ಲಿ ಬಳಸಿದ ಎಲ್ಲ prompts printed
+                                handout ಆಗಿ ನೀಡುತ್ತೇವೆ.</div>
+                        </div>
+                    </div>
+
+                    <div class="card reveal card-t mt4">
+                        <div style="font-family:var(--h);font-weight:700;font-size:.83rem;color:var(--teal2);margin-bottom:5px"
+                            class="eo">What your school receives</div>
+                        <div style="font-family:var(--h);font-weight:700;font-size:.83rem;color:var(--teal2);margin-bottom:5px"
+                            class="ko kn-font">ನಿಮ್ಮ ಶಾಲೆಗೆ ಸಿಗುವ ಪ್ರಯೋಜನಗಳು</div>
+                        <div style="font-size:.77rem;color:var(--muted2);line-height:1.9"><span class="eo">✓ Certificate
+                                of AI-Aware Institution<br />✓ Printed prompt handouts for all students<br />✓
+                                Post-session resource pack for teachers<br />✓ Discounted course access for enrolled
+                                students<br />✓ Zero preparation required</span><span class="ko kn-font">✓ AI-Aware
+                                Institution ಪ್ರಮಾಣಪತ್ರ<br />✓ ಎಲ್ಲ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಮುದ್ರಿತ ಪ್ರಾಂಪ್ಟ್
+                                ಹ್ಯಾಂಡೌಟ್‌ಗಳು<br />✓
+                                ಶಿಕ್ಷಕರಿಗೆ ಸಂಪನ್ಮೂಲ ಪ್ಯಾಕ್<br />✓ ನೋಂದಾಯಿತ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ರಿಯಾಯಿತಿ ಬೆಲೆ<br />✓ ಶಾಲೆಯಿಂದ
+                                ಯಾವುದೇ ತಯಾರಿ ಬೇಕಿಲ್ಲ</span></div>
+                    </div>
+
+                    <div class="quote mt4">
+                        <p class="eo">"I've sat through dozens of student workshops. This was the first one where
+                            students were asking questions in the corridor after — that never happens."</p>
+                        <p class="ko kn-font">"ನಾನು ಅನೇಕ ವಿದ್ಯಾರ್ಥಿ workshops ನೋಡಿದ್ದೇನೆ. ಇದರಲ್ಲಿ ವಿದ್ಯಾರ್ಥಿಗಳು corridor
+                            ನಲ್ಲಿ ಇನ್ನೂ ಪ್ರಶ್ನೆ ಕೇಳುತ್ತಿದ್ದರು — ಇದು ತುಂಬಾ ಅಪರೂಪ."</p>
+                    </div>
+                    <div style="font-size:.7rem;color:var(--muted);margin-top:7px"><span class="eo">— Class Teacher,
+                            English Medium School, Udupi</span><span class="ko kn-font">— ವರ್ಗ ಶಿಕ್ಷಕರು, ಇಂಗ್ಲಿಷ್ ಮಾಧ್ಯಮ
+                            ಶಾಲೆ, ಉಡುಪಿ</span></div>
+                </div>
+            </section>
+            <div class="div"></div>
+            <section class="sec">
+                <div class="wrap">
+                    <span class="lbl reveal lbl-t eo">Book a Workshop</span><span class="lbl reveal lbl-t ko kn-font">Workshop ಬುಕ್
+                        ಮಾಡಿ</span>
+                    <h2 style="font-size:1.22rem;margin-bottom:5px" class="eo reveal">Request a session for your school</h2>
+                    <h2 style="font-size:1.22rem;margin-bottom:5px" class="ko kn-font reveal">ನಿಮ್ಮ ಶಾಲೆಗೆ session request ಮಾಡಿ
+                    </h2>
+                    <p style="font-size:.82rem;margin-bottom:18px" class="eo">We respond within 24 hours.</p>
+                    <p style="font-size:.82rem;margin-bottom:18px" class="ko kn-font">24 ಗಂಟೆಯೊಳಗೆ ನಾವು ಉತ್ತರಿಸುತ್ತೇವೆ.
+                    </p>
+                    <div id="wSuc" class="fsuccess"><span class="eo">✓ Request received. We'll reach out within 24
+                            hours.</span><span class="ko kn-font">✓ Request ಸ್ವೀಕರಿಸಿದ್ದೇವೆ. 24 ಗಂಟೆಯೊಳಗೆ ನಿಮ್ಮನ್ನು
+                            ಸಂಪರ್ಕಿಸುತ್ತೇವೆ.</span></div>
+                    <form id="wForm" onsubmit="subForm(event,'wForm','wSuc')">
+                        <div class="fg"><label class="flabel eo">Your Name *</label><label
+                                class="flabel ko kn-font">ನಿಮ್ಮ ಹೆಸರು *</label><input class="field" type="text"
+                                placeholder="Full name" required /></div>
+                        <div class="fg"><label class="flabel eo">School Name *</label><label
+                                class="flabel ko kn-font">ಶಾಲೆಯ ಹೆಸರು *</label><input class="field" type="text"
+                                placeholder="School name" required /></div>
+                        <div class="fg"><label class="flabel eo">Your Role</label><label class="flabel ko kn-font">ನಿಮ್ಮ
+                                ಪಾತ್ರ</label><select class="field">
+                                <option>Principal</option>
+                                <option>Vice Principal</option>
+                                <option>Teacher</option>
+                                <option>Other</option>
+                            </select></div>
+                        <div class="fg"><label class="flabel eo">Phone *</label><label class="flabel ko kn-font">ಫೋನ್
+                                *</label><input class="field" type="tel" placeholder="+91 98765 43210" required /></div>
+                        <div class="fg"><label class="flabel eo">Location</label><label
+                                class="flabel ko kn-font">ಸ್ಥಳ</label><input class="field" type="text"
+                                placeholder="Udupi / Manipal / Kundapur..." /></div>
+                        <div class="fg">
+                            <label class="flabel eo">Student Count</label>
+                            <label class="flabel ko kn-font">ವಿದ್ಯಾರ್ಥಿಗಳ ಸಂಖ್ಯೆ</label>
+                            <select class="field eo">
+                                <option>Less than 50</option>
+                                <option>50–100</option>
+                                <option>100–200</option>
+                                <option>200+</option>
+                            </select>
+                            <select class="field ko kn-font">
+                                <option>50 ಕ್ಕಿಂತ ಕಡಿಮೆ</option>
+                                <option>50–100</option>
+                                <option>100–200</option>
+                                <option>200+</option>
+                            </select>
+                        </div>
+                        <div class="fg"><label class="flabel eo">Notes</label><label class="flabel ko kn-font">ಹೆಚ್ಚಿನ
+                                ಮಾಹಿತಿ</label><textarea class="field" placeholder="Dates, class levels..."
+                                style="min-height:72px"></textarea></div>
+                        <button type="submit" class="btn-b"><span>📅</span><span class="eo">Request Workshop</span><span
+                                class="ko kn-font">Workshop Request ಕಳಿಸಿ</span></button>
+                    </form>
+                </div>
+            </section>
+        </div><!-- /schools -->
+
+        <!-- ═══════════ ABOUT ═══════════ -->
+        <div id="tab-about" class="pg">
+            <section class="sec">
+                <div class="wrap">
+                    <span class="lbl reveal lbl-t eo">Our Story</span><span class="lbl reveal lbl-t ko kn-font">ನಮ್ಮ ಕಥೆ</span>
+                    <h2 style="font-size:1.32rem;margin-bottom:14px" class="eo reveal">Why Beyond Tatva Exists</h2>
+                    <h2 style="font-size:1.32rem;margin-bottom:14px" class="ko kn-font reveal">Beyond Tatva ಏಕೆ ಇದೆ</h2>
+                    <div class="quote">
+                        <p class="eo">"AI is not replacing jobs — it is replacing people who don't know how to use AI.
+                            We want to make sure students in India are on the right side of this shift."</p>
+                        <p class="ko kn-font">"AI ಕೆಲಸಗಳನ್ನು ಬದಲಾಯಿಸುತ್ತಿಲ್ಲ — AI ಬಳಸಲು ಗೊತ್ತಿಲ್ಲದ ಜನರನ್ನು
+                            ಬದಲಾಯಿಸುತ್ತಿದೆ. ಭಾರತದ ವಿದ್ಯಾರ್ಥಿಗಳು ಸರಿಯಾದ ಕಡೆ ಇರಬೇಕೆಂದು ನಾವು ಬಯಸುತ್ತೇವೆ."</p>
+                    </div>
+                    <div class="sitem mt6">
+                        <div class="snum" style="border-color:var(--blue);color:var(--blue2)">1</div>
+                        <div class="sbody">
+                            <div class="stitle eo">The Problem We Saw</div>
+                            <div class="stitle ko kn-font">ನಾವು ಕಂಡ ಸಮಸ್ಯೆ</div>
+                            <div class="sdesc eo">Students in Grades 8–12 are under immense board exam pressure. At the
+                                same time, AI is transforming every industry. Schools cover neither practical AI skills
+                                nor how to use AI for better exam preparation.</div>
+                            <div class="sdesc ko kn-font">8–12ನೇ ತರಗತಿಯ ವಿದ್ಯಾರ್ಥಿಗಳು board exam ಒತ್ತಡದಲ್ಲಿ ಇದ್ದಾರೆ. ಅದೇ
+                                ಸಮಯದಲ್ಲಿ AI ಪ್ರತಿಯೊಂದು ಉದ್ಯಮವನ್ನು ಬದಲಾಯಿಸುತ್ತಿದೆ. ಆದರೆ ಶಾಲೆಗಳು AI ಬಗ್ಗೆ practical ಆಗಿ
+                                ಏನೂ ಕಲಿಸುತ್ತಿಲ್ಲ — board exam ಗೆ AI ಹೇಗೆ ಬಳಸಬೇಕು ಎಂಬುದನ್ನೂ ಸಹ ಕಲಿಸುತ್ತಿಲ್ಲ.</div>
+                        </div>
+                    </div>
+                    <div class="sitem">
+                        <div class="snum" style="border-color:var(--teal);color:var(--teal2)">2</div>
+                        <div class="sbody">
+                            <div class="stitle eo">What We Built</div>
+                            <div class="stitle ko kn-font">ನಾವು ಏನು ಮಾಡಿದೆವು</div>
+                            <div class="sdesc eo">A structured, 5-module course that teaches students to use AI for
+                                board exam prep, creativity, life skills, software engineering, and career building —
+                                all in a safe, supervised environment.</div>
+                            <div class="sdesc ko kn-font">ನಾವು 5 ರಚನಾತ್ಮಕ ಮಾಡ್ಯೂಲ್‌ಗಳಿರುವ ಒಂದು ಕೋರ್ಸ್ ತಯಾರಿಸಿದ್ದೇವೆ.
+                                ಬೋರ್ಡ್ ಪರೀಕ್ಷೆ ತಯಾರಿ, ಸೃಜನಶೀಲತೆ, ಲೈಫ್ ಸ್ಕಿಲ್ಸ್, ಸಾಫ್ಟ್‌ವೇರ್ ಎಂಜಿನಿಯರಿಂಗ್, ಮತ್ತು ವೃತ್ತಿ
+                                ನಿರ್ಮಾಣ —
+                                ಎಲ್ಲವನ್ನೂ ಸುರಕ್ಷಿತ ವಾತಾವರಣದಲ್ಲಿ ಕಲಿಸುತ್ತೇವೆ. AI ಬಳಸಿ ಓದುವುದು, ಚಿತ್ರ ತಯಾರಿಸುವುದು,
+                                ವೀಡಿಯೊಗಳನ್ನು
+                                ಮಾಡುವುದು, ವೆಬ್‌ಸೈಟ್‌ಗಳನ್ನು ಕಟ್ಟುವುದು — ಇದೆಲ್ಲ ವಿದ್ಯಾರ್ಥಿಗಳು ಕಲಿಯುತ್ತಾರೆ.</div>
+                        </div>
+                    </div>
+                    <div class="sitem">
+                        <div class="snum" style="border-color:var(--yellow);color:var(--yellow)">3</div>
+                        <div class="sbody">
+                            <div class="stitle eo">Where We Are Now</div>
+                            <div class="stitle ko kn-font">ಈಗ ನಾವು ಎಲ್ಲಿದ್ದೇವೆ</div>
+                            <div class="sdesc eo">Batch 1 is our pilot — limited to 75 students. We're starting small
+                                deliberately so every student gets real attention and we can refine the course based on
+                                actual outcomes.</div>
+                            <div class="sdesc ko kn-font">ಬ್ಯಾಚ್ 1 ನಮ್ಮ ಪೈಲಟ್ — ಕೇವಲ 75 ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಮಾತ್ರ. ನಾವು
+                                ಉದ್ದೇಶಪೂರ್ವಕವಾಗಿ ಚಿಕ್ಕದಾಗಿ ಶುರು ಮಾಡುತ್ತಿದ್ದೇವೆ ಏಕೆಂದರೆ ಪ್ರತಿ ವಿದ್ಯಾರ್ಥಿಗೆ ನಿಜವಾದ ಗಮನ
+                                ಸಿಗಬೇಕು ಮತ್ತು ವಿದ್ಯಾರ್ಥಿಗಳ ಅನುಭವದ ಆಧಾರದ ಮೇಲೆ ಕೋರ್ಸ್ ಅನ್ನು ಇನ್ನೂ ಉತ್ತಮಗೊಳಿಸಬೇಕು.</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="div"></div>
+            <!-- VISION / ROADMAP from v7 -->
+            <section class="sec">
+                <div class="wrap">
+                    <span class="lbl reveal lbl-p eo">Our Vision</span><span class="lbl reveal lbl-p ko kn-font">ನಮ್ಮ ಗುರಿ</span>
+                    <h2 style="font-size:1.28rem;margin-bottom:6px" class="eo reveal">Not just a course. The start of something
+                        bigger.</h2>
+                    <h2 style="font-size:1.28rem;margin-bottom:6px" class="ko kn-font reveal">ಕೇವಲ course ಅಲ್ಲ. ಇದು ಒಂದು ದೊಡ್ಡ
+                        ಪ್ರಯಾಣದ ಆರಂಭ.</h2>
+                    <p style="font-size:.84rem;margin-bottom:18px" class="eo">We believe Indian students shouldn't just
+                        learn <em>about</em> AI — they should grow up knowing how to use it, build with it, and think
+                        critically around it. Beyond Tatva started in Udupi. The ambition is larger.</p>
+                    <p style="font-size:.84rem;margin-bottom:18px" class="ko kn-font">ಭಾರತೀಯ ವಿದ್ಯಾರ್ಥಿಗಳು AI ಬಗ್ಗೆ ಕೇವಲ
+                        ಕೇಳಬಾರದು — ಅದನ್ನು ಬಳಸಲು, ಅದರಿಂದ ಕಟ್ಟಲು, ಮತ್ತು ಅದರ ಬಗ್ಗೆ ವಿಮರ್ಶಾತ್ಮಕವಾಗಿ ಯೋಚಿಸಲು ಬೆಳೆಯಬೇಕು.
+                        Beyond Tatva ಉಡುಪಿಯಲ್ಲಿ ಶುರುವಾಯಿತು. ಆದರೆ ನಮ್ಮ ಕನಸು ತುಂಬಾ ದೊಡ್ಡದು.</p>
+
+                    <span class="lbl reveal lbl-b eo">The Roadmap</span><span class="lbl reveal lbl-b ko kn-font">ನಮ್ಮ Roadmap</span>
+                    <h3 style="font-size:1.05rem;margin-bottom:16px" class="eo">Five stages. One long game.</h3>
+                    <h3 style="font-size:1.05rem;margin-bottom:16px" class="ko kn-font">ಐದು ಹಂತ. ದೀರ್ಘಕಾಲದ ಯೋಜನೆ.</h3>
+
+                    <div class="sitem">
+                        <div class="snum"
+                            style="background:rgba(10,91,255,.15);color:#93C5FD;border-color:rgba(10,91,255,.4)">1</div>
+                        <div class="sbody">
+                            <div style="display:flex;align-items:center;gap:7px;margin-bottom:3px">
+                                <div class="stitle eo">AI Literacy Course</div>
+                                <div class="stitle ko kn-font">AI ಸಾಕ್ಷರತಾ ಕೋರ್ಸ್</div><span class="spill"
+                                    style="background:rgba(52,211,153,.14);color:var(--green)">NOW</span>
+                            </div>
+                            <div class="sdesc eo">Flagship AI skills course for 14–18-year-olds, online and through
+                                school workshops. Reach the first 500–1,000 students across Udupi and Karnataka.</div>
+                            <div class="sdesc ko kn-font">14–18 ವಯಸ್ಸಿನ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ AI ಕೌಶಲ್ಯ ಕೋರ್ಸ್ — ಆನ್‌ಲೈನ್
+                                ಮತ್ತು
+                                ಶಾಲಾ ಕಾರ್ಯಾಗಾರಗಳ ಮೂಲಕ. ಉಡುಪಿ ಮತ್ತು ಕರ್ನಾಟಕದ ಎಲ್ಲಾ ಕಡೆಯಿಂದ 500–1,000 ವಿದ್ಯಾರ್ಥಿಗಳನ್ನು
+                                ತಲುಪುವ ಗುರಿ ಇದೆ.</div>
+                        </div>
+                    </div>
+                    <div class="sitem">
+                        <div class="snum"
+                            style="background:rgba(99,102,241,.12);color:#818CF8;border-color:rgba(99,102,241,.3)">2
+                        </div>
+                        <div class="sbody">
+                            <div class="stitle eo" style="margin-bottom:3px">Retention & Community</div>
+                            <div class="stitle ko kn-font" style="margin-bottom:3px">ವಿದ್ಯಾರ್ಥಿಗಳ ಸಮುದಾಯ</div>
+                            <div class="sdesc eo">Convert one-time students into long-term learners through newsletters,
+                                micro-courses, and recurring workshops. Build a warm audience that stays 2–3 years.
+                            </div>
+                            <div class="sdesc ko kn-font">ಒಮ್ಮೆ ಕೋರ್ಸ್ ಮಾಡಿದ ವಿದ್ಯಾರ್ಥಿಗಳನ್ನು ದೀರ್ಘಕಾಲದ ಕಲಿಯುವವರನ್ನಾಗಿ
+                                ಬದಲಾಯಿಸುವುದು — ಸುದ್ದಿಪತ್ರಗಳು, ಮೈಕ್ರೋ-ಕೋರ್ಸ್‌ಗಳು, ಮತ್ತು ನಿರಂತರ ಕಾರ್ಯಾಗಾರಗಳ ಮೂಲಕ. 2–3 ವರ್ಷ
+                                ಸಕ್ರಿಯವಾಗಿರುವ ಒಂದು ಬೆಚ್ಚಗಿನ ಸಮುದಾಯ ಕಟ್ಟುವುದು ನಮ್ಮ ಗುರಿ.</div><span class="spill"
+                                style="background:rgba(99,102,241,.12);color:#818CF8">Year 1–2</span>
+                        </div>
+                    </div>
+                    <div class="sitem">
+                        <div class="snum"
+                            style="background:rgba(167,139,250,.12);color:var(--purple);border-color:rgba(167,139,250,.3)">
+                            3</div>
+                        <div class="sbody">
+                            <div class="stitle eo" style="margin-bottom:3px">Career Guidance & Mentorship</div>
+                            <div class="stitle ko kn-font" style="margin-bottom:3px">ವೃತ್ತಿ ಮಾರ್ಗದರ್ಶನ ಮತ್ತು ಮೆಂಟರ್‌ಶಿಪ್
+                            </div>
+                            <div class="sdesc eo">Career assessments, 1:1 guidance, mentorship, and portfolio building
+                                for Class 10–12 students. Become the career partner families trust.</div>
+                            <div class="sdesc ko kn-font">10–12ನೇ ತರಗತಿ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ವೃತ್ತಿ ಮೌಲ್ಯಮಾಪನ, 1:1
+                                ಮಾರ್ಗದರ್ಶನ,
+                                ಮೆಂಟರ್‌ಶಿಪ್, ಮತ್ತು ಪೋರ್ಟ್‌ಫೋಲಿಯೋ ನಿರ್ಮಾಣ ನೀಡುವುದು. ಕುಟುಂಬಗಳ ನಂಬಿಕೆಯ ವೃತ್ತಿ
+                                ಪಾಲುದಾರರಾಗುವುದು
+                                ನಮ್ಮ ಉದ್ದೇಶ.</div><span class="spill"
+                                style="background:rgba(167,139,250,.12);color:var(--purple)">Year 2–3</span>
+                        </div>
+                    </div>
+                    <div class="sitem">
+                        <div class="snum"
+                            style="background:rgba(250,204,21,.1);color:var(--yellow);border-color:rgba(250,204,21,.28)">
+                            4</div>
+                        <div class="sbody">
+                            <div class="stitle eo" style="margin-bottom:3px">Skills School</div>
+                            <div class="stitle ko kn-font" style="margin-bottom:3px">ಸ್ಕಿಲ್ಸ್ ಸ್ಕೂಲ್</div>
+                            <div class="sdesc eo">Select the best students, train them 6–12 months in practical skills,
+                                place them in real jobs. Outcome-based fees tied to their salary.</div>
+                            <div class="sdesc ko kn-font">ಅತ್ಯುತ್ತಮ ವಿದ್ಯಾರ್ಥಿಗಳನ್ನು ಆರಿಸಿ, 6–12 ತಿಂಗಳು ಪ್ರಾಯೋಗಿಕ
+                                ಕೌಶಲ್ಯಗಳ
+                                ತರಬೇತಿ ನೀಡಿ, ನಿಜವಾದ ಕೆಲಸಕ್ಕೆ ಕಳಿಸುವುದು. ಸಾಧನೆ-ಆಧಾರಿತ ಶುಲ್ಕ — ವಿದ್ಯಾರ್ಥಿಗಳ ಸಂಬಳಕ್ಕೆ
+                                ಸಂಬಂಧಿಸಿದ ಶುಲ್ಕ.</div><span class="spill"
+                                style="background:rgba(250,204,21,.1);color:var(--yellow)">Year 3–4</span>
+                        </div>
+                    </div>
+                    <div class="sitem">
+                        <div class="snum"
+                            style="background:rgba(39,224,196,.1);color:var(--teal2);border-color:rgba(39,224,196,.28)">
+                            5</div>
+                        <div class="sbody">
+                            <div class="stitle eo" style="margin-bottom:3px">Continuous Ecosystem</div>
+                            <div class="stitle ko kn-font" style="margin-bottom:3px">ನಿರಂತರ ಶಿಕ್ಷಣ ವ್ಯವಸ್ಥೆ</div>
+                            <div class="sdesc eo">Multi-year tracks from Class 9 through college. 5,000–10,000 long-term
+                                learners. A self-sustaining education ecosystem.</div>
+                            <div class="sdesc ko kn-font">9ನೇ ತರಗತಿಯಿಂದ ಕಾಲೇಜಿನವರೆಗೆ ಬಹು-ವರ್ಷದ ಟ್ರ್ಯಾಕ್‌ಗಳು.
+                                5,000–10,000
+                                ದೀರ್ಘಕಾಲದ ಕಲಿಯುವವರು. ಸ್ವಾವಲಂಬಿ ಶಿಕ್ಷಣ ವ್ಯವಸ್ಥೆ — ತನ್ನಿಂದ ತಾನೇ ಬೆಳೆಯುವ ಶಿಕ್ಷಣ
+                                ವ್ಯವಸ್ಥೆ.</div><span class="spill"
+                                style="background:rgba(39,224,196,.1);color:var(--teal2)">Year 4+</span>
+                        </div>
+                    </div>
+
+                    <div class="card reveal card-t mt4">
+                        <div style="font-family:var(--h);font-weight:700;font-size:.85rem;color:var(--teal2);margin-bottom:5px"
+                            class="eo">Why we're telling you this</div>
+                        <div style="font-family:var(--h);font-weight:700;font-size:.85rem;color:var(--teal2);margin-bottom:5px"
+                            class="ko kn-font">ಇದು ಏಕೆ ಹೇಳ್ತಿದ್ದೇವೆ</div>
+                        <p style="font-size:.79rem" class="eo">Students who join now are at Stage 1 — the founding
+                            cohort. As we grow, they'll have early access, community benefits, and a say in what comes
+                            next. The course is the start, not the destination.</p>
+                        <p style="font-size:.79rem" class="ko kn-font">ಈಗ ಸೇರುವ ವಿದ್ಯಾರ್ಥಿಗಳು ಹಂತ 1 ರಲ್ಲಿ
+                            ಇರುತ್ತಾರೆ — ಅವರು ಸ್ಥಾಪಕ ಸಮೂಹ. ನಾವು ಬೆಳೆದಂತೆ ಅವರಿಗೆ ಆರಂಭಿಕ ಪ್ರವೇಶ, ಸಮುದಾಯದ ಪ್ರಯೋಜನಗಳು,
+                            ಮತ್ತು ಮುಂದಿನ ಹಂತದಲ್ಲಿ ಅವರ ಅಭಿಪ್ರಾಯಕ್ಕೆ ಬೆಲೆ ಇರುತ್ತದೆ. ಕೋರ್ಸ್ ಆರಂಭ ಮಾತ್ರ, ಗಮ್ಯ ಅಲ್ಲ.</p>
+                    </div>
+                </div>
+            </section>
+            <div class="div"></div>
+            <!-- FOUNDER (About page only) -->
+            <section class="sec">
+                <div class="wrap">
+                    <span class="lbl reveal lbl-b eo">Mentor & Course Architect</span><span class="lbl reveal lbl-b ko kn-font">ಮೆಂಟರ್
+                        ಮತ್ತು ಕೋರ್ಸ್ ಆರ್ಕಿಟೆಕ್ಟ್</span>
+                    <div class="founder">
+                        <div class="f-name eo">Chirag Shetty</div>
+                        <div class="f-name ko kn-font">Chirag Shetty</div>
+                        <div class="f-role eo">Mentor · Course Architect · Curriculum Designer</div>
+                        <div class="f-role ko kn-font">ಮೆಂಟರ್ · ಕೋರ್ಸ್ ಆರ್ಕಿಟೆಕ್ಟ್ · ಪಠ್ಯಕ್ರಮ ವಿನ್ಯಾಸಕಾರರು</div>
+                        <p class="f-quote eo mt4">"I believe every student in India deserves access to practical AI
+                            skills — not just theory, but <em>real, usable tools</em> that help them academically today
+                            and professionally tomorrow. That's what Beyond Tatva is built to deliver."</p>
+                        <p class="f-quote ko kn-font mt4">"ಭಾರತದ ಪ್ರತಿಯೊಬ್ಬ ವಿದ್ಯಾರ್ಥಿಗೂ ಪ್ರಾಯೋಗಿಕ AI ಕೌಶಲ್ಯ ಸಿಗಬೇಕು
+                            ಎಂದು ನಾನು ನಂಬುತ್ತೇನೆ — ಕೇವಲ ಬಾಯಿಪಾಠವಲ್ಲ, <em>ನಿಜವಾಗಿ ಉಪಯೋಗಿಸಬಹುದಾದ ಉಪಕರಣಗಳು</em> — ಇಂದು
+                            ಶೈಕ್ಷಣಿಕವಾಗಿ ಮತ್ತು ನಾಳೆ ವೃತ್ತಿಪರವಾಗಿ ಸಹಾಯ ಮಾಡುವ ಉಪಕರಣಗಳು. ಅದಕ್ಕಾಗಿಯೇ Beyond Tatva ಇದೆ."</p>
+                    </div>
+                </div>
+            </section>
+        </div><!-- /about -->
+
+        <!-- ═══════════ CONTACT ═══════════ -->
+        <div id="tab-contact" class="pg">
+            <section class="sec">
+                <div class="wrap">
+                    <span class="lbl reveal lbl-t eo">Get in Touch</span><span class="lbl reveal lbl-t ko kn-font">ಸಂಪರ್ಕಿಸಿ</span>
+                    <h2 style="font-size:1.38rem;margin-bottom:9px" class="eo reveal">We'd love to hear from you.</h2>
+                    <h2 style="font-size:1.38rem;margin-bottom:9px" class="ko kn-font reveal">ನಿಮ್ಮಿಂದ ಕೇಳಲು ನಾವು ಕಾತುರಿದ್ದೇವೆ.
+                    </h2>
+                    <p style="font-size:.85rem;margin-bottom:20px" class="eo">Parent, student, teacher, or principal. We
+                        reply within 24 hours on weekdays.</p>
+                    <p style="font-size:.85rem;margin-bottom:20px" class="ko kn-font">ಪೋಷಕರು, ವಿದ್ಯಾರ್ಥಿ, teacher, ಅಥವಾ
+                        principal — ಯಾರೇ ಆಗಲಿ. Weekdays ನಲ್ಲಿ 24 ಗಂಟೆಯೊಳಗೆ ಉತ್ತರಿಸುತ್ತೇವೆ.</p>
+                    <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:22px">
+                        <div
+                            style="display:flex;gap:11px;align-items:center;background:var(--bg1);border:1px solid var(--brd);border-radius:var(--r);padding:12px 13px">
+                            <span style="font-size:1.1rem;flex-shrink:0">📧</span>
+                            <div>
+                                <div style="font-family:var(--h);font-weight:700;font-size:.81rem;color:var(--white)">
+                                    Email</div>
+                                <div style="font-size:.75rem;color:var(--muted)">hello@beyondtatva.in</div>
+                            </div>
+                        </div>
+                        <div
+                            style="display:flex;gap:11px;align-items:center;background:var(--bg1);border:1px solid var(--brd);border-radius:var(--r);padding:12px 13px">
+                            <span style="font-size:1.1rem;flex-shrink:0">📱</span>
+                            <div>
+                                <div style="font-family:var(--h);font-weight:700;font-size:.81rem;color:var(--white)">
+                                    WhatsApp / Call</div>
+                                <div style="font-size:.75rem;color:var(--muted)">+91 98765 43210</div>
+                            </div>
+                        </div>
+                        <div
+                            style="display:flex;gap:11px;align-items:center;background:var(--bg1);border:1px solid var(--brd);border-radius:var(--r);padding:12px 13px">
+                            <span style="font-size:1.1rem;flex-shrink:0">📍</span>
+                            <div>
+                                <div style="font-family:var(--h);font-weight:700;font-size:.81rem;color:var(--white)"
+                                    class="eo">Serving</div>
+                                <div style="font-family:var(--h);font-weight:700;font-size:.81rem;color:var(--white)"
+                                    class="ko kn-font">ಸೇವೆ ನೀಡುವ ಪ್ರದೇಶಗಳು</div>
+                                <div style="font-size:.75rem;color:var(--muted)">Udupi · Manipal · Kundapur · Karkala ·
+                                    Brahmavar</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="cSuc" class="fsuccess"><span class="eo">✓ Message sent. We'll reply within 24
+                            hours.</span><span class="ko kn-font">✓ ಸಂದೇಶ ಕಳಿಸಲಾಗಿದೆ. 24 ಗಂಟೆಯೊಳಗೆ
+                            ಉತ್ತರಿಸುತ್ತೇವೆ.</span></div>
+                    <form id="cForm" onsubmit="subForm(event,'cForm','cSuc')">
+                        <div class="fg"><label class="flabel eo">Your Name *</label><label
+                                class="flabel ko kn-font">ನಿಮ್ಮ ಹೆಸರು *</label><input class="field" type="text"
+                                placeholder="Full name" required /></div>
+                        <div class="fg"><label class="flabel eo">I am a…</label><label
+                                class="flabel ko kn-font">ನಾನು…</label><select class="field">
+                                <option>ಪೋಷಕ / Parent</option>
+                                <option>ವಿದ್ಯಾರ್ಥಿ / Student</option>
+                                <option>Principal / Teacher</option>
+                                <option>ಇತರ / Other</option>
+                            </select></div>
+                        <div class="fg"><label class="flabel eo">Phone *</label><label class="flabel ko kn-font">ಫೋನ್
+                                *</label><input class="field" type="tel" placeholder="+91..." required /></div>
+                        <div class="fg"><label class="flabel eo">Location</label><label
+                                class="flabel ko kn-font">ಸ್ಥಳ</label><input class="field" type="text"
+                                placeholder="Udupi / Manipal / Kundapur..." /></div>
+                        <div class="fg"><label class="flabel eo">Message *</label><label class="flabel ko kn-font">ಸಂದೇಶ
+                                *</label><textarea class="field" placeholder="How can we help?" required
+                                style="min-height:84px"></textarea></div>
+                        <button type="submit" class="btn-b"><span>✉️</span><span class="eo">Send Message</span><span
+                                class="ko kn-font">ಸಂದೇಶ ಕಳಿಸಿ</span></button>
+                    </form>
+                </div>
+            </section>
+        </div><!-- /contact -->
+
+        <!-- STICKY BAR -->
+        <div class="sticky" id="stickyBar">
+            <div class="si">
+                <div class="sname eo">Beyond Tatva — AI Course</div>
+                <div class="sname ko kn-font">Beyond Tatva — AI ಕೋರ್ಸ್</div>
+                <div class="sprow"><span class="sold">₹2,499</span><span class="snew">₹799</span><span
+                        class="ssave">-68%</span></div>
+            </div>
+            <div class="stimer" id="stickyTimer">⏱ <span id="stCD">--:--</span></div>
+            <button class="sbtn" onclick="window.open('https://rzp.io/rzp/beyondtatva','_blank')">Enroll</button>
+        </div>
+        <div class="pb"></div>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <div class="flogo"><img src="https://files.catbox.moe/nov2sj.svg" alt="BT" width="45" height="auto"
+                    class="logo-img" style="border-radius:5px" /><span class="fname">Beyond Tatva</span></div>
+            <p style="font-size:.78rem;color:var(--muted);line-height:1.6" class="eo">Structured AI education for
+                students in Grades 8–12. Board-aligned, future-focused, parent-trusted.</p>
+            <p style="font-size:.78rem;color:var(--muted);line-height:1.6" class="ko kn-font">8–12ನೇ ತರಗತಿ
+                ವಿದ್ಯಾರ್ಥಿಗಳಿಗಾಗಿ AI ಶಿಕ್ಷಣ. Board-aligned, future-focused.</p>
+            <div class="flinks"><span class="flink" onclick="goTab('home')">Home</span><span class="flink"
+                    onclick="goTab('course')">Course</span><span class="flink"
+                    onclick="goTab('about')">About</span><span class="flink" onclick="goTab('contact')">Contact</span>
+            </div>
+            <div class="fcopy">© 2025 Beyond Tatva. All rights reserved.</div>
+        </footer>
+
+    </div><!-- /site -->
+
+    <script>
+        /* ── STATE ────────────────────────── */
+        let LANG = 'en', THEME = 'dark';
+        const TOTAL = 75, INITIAL = 53;
+        const DEADLINE = new Date(); DEADLINE.setDate(DEADLINE.getDate() + 1);
+
+        /* ── LANGUAGE ─────────────────────── */
+        function chooseLang(l) {
+            LANG = l;
+            try { localStorage.setItem('bt_lang', l) } catch (e) { }
+            document.getElementById('htmlRoot').setAttribute('data-lang', l);
+            document.getElementById('langToggleBtn').textContent = l === 'en' ? 'ಕನ್ನಡ' : 'English';
+            document.getElementById('langPicker').style.display = 'none';
+            var sp = document.getElementById('splash');
+            sp.classList.add('on');
+            setTimeout(function () { sp.classList.add('off'); setTimeout(function () { sp.style.display = 'none'; document.getElementById('site').style.display = 'block'; startTypewriter() }, 500) }, 1800);
+        }
+        function toggleLang() { chooseLang(LANG === 'en' ? 'kn' : 'en') }
+
+        /* ── THEME ────────────────────────── */
+        function toggleTheme() {
+            THEME = THEME === 'dark' ? 'light' : 'dark';
+            document.getElementById('htmlRoot').setAttribute('data-theme', THEME);
+            document.getElementById('themeBtn').textContent = THEME === 'dark' ? '🌙' : '☀️';
+            document.querySelector('meta[name="theme-color"]').content = THEME === 'dark' ? '#080C14' : '#F8FAFC';
+            try { localStorage.setItem('bt_theme', THEME) } catch (e) { }
+        }
+
+        /* ── TABS ─────────────────────────── */
+        function goTab(id) {
+            document.querySelectorAll('.pg').forEach(function (p) { p.classList.remove('on') });
+            document.querySelectorAll('.tab').forEach(function (t) { t.classList.remove('on') });
+            var el = document.getElementById('tab-' + id);
+            if (el) { el.classList.add('on'); window.scrollTo({ top: 0, behavior: 'smooth' }) }
+            var tb = document.querySelector('.tab[data-tab="' + id + '"]');
+            if (tb) tb.classList.add('on');
+        }
+
+        /* ── FAQ ──────────────────────────── */
+        function faq(btn) {
+            var ans = btn.nextElementSibling;
+            var ico = btn.querySelector('.faq-ico');
+            var isOpen = ans.classList.contains('open');
+            ans.classList.toggle('open');
+            ico.classList.toggle('rot');
+        }
+
+        /* ── COUNTDOWN ────────────────────── */
+        function updateCD() {
+            var now = new Date().getTime();
+            var diff = DEADLINE.getTime() - now;
+            if (diff <= 0) { diff = 0 }
+            var d = Math.floor(diff / 86400000);
+            var h = Math.floor((diff % 86400000) / 3600000);
+            var m = Math.floor((diff % 3600000) / 60000);
+            var s = Math.floor((diff % 60000) / 1000);
+            var eD = document.getElementById('cdD'); if (eD) eD.textContent = String(d).padStart(2, '0');
+            var eH = document.getElementById('cdH'); if (eH) eH.textContent = String(h).padStart(2, '0');
+            var eM = document.getElementById('cdM'); if (eM) eM.textContent = String(m).padStart(2, '0');
+            var eS = document.getElementById('cdS'); if (eS) eS.textContent = String(s).padStart(2, '0');
+            var st = document.getElementById('stCD'); if (st) st.textContent = String(d) + 'd ' + String(h).padStart(2, '0') + 'h';
+        }
+        setInterval(updateCD, 1000); updateCD();
+
+        /* ── SEATS ────────────────────────── */
+        function updateSeats() {
+            var sold = INITIAL + Math.floor((new Date().getTime() / 86400000) % 10);
+            if (sold > TOTAL - 3) sold = TOTAL - 3;
+            var left = TOTAL - sold;
+            var pct = Math.round((sold / TOTAL) * 100);
+            var t2 = document.getElementById('seatsTxt2'); if (t2) t2.textContent = left + ' / ' + TOTAL;
+            var b2 = document.getElementById('seatBar2'); if (b2) b2.style.width = pct + '%';
+        }
+        updateSeats();
+
+        /* ── STICKY BAR ───────────────────── */
+        window.addEventListener('scroll', function () {
+
+            var grid = document.querySelector('.hero-grid');
+            var heroText = document.querySelector('.hero-in');
+            
+            if (grid) {
+                // Crazy background warp
+                grid.style.transform = 'translateY(' + (window.scrollY * 0.6) + 'px) scale(' + (1 + window.scrollY * 0.001) + ')';
+                grid.style.opacity = 1 - (window.scrollY * 0.002);
+            }
+            if (heroText) {
+                // Smooth text drop
+                heroText.style.transform = 'translateY(' + (window.scrollY * 0.25) + 'px)';
+            }
+            
+            var bar = document.getElementById('stickyBar');
+            if (!bar) return;
+            if (window.scrollY > 600) bar.classList.add('up');
+            else bar.classList.remove('up');
+        });
+
+        /* ── CONTACT FORM ─────────────────── */
+        function submitContact(e) {
+            e.preventDefault();
+            document.getElementById('contactForm').style.display = 'none';
+            document.getElementById('formOK').style.display = 'block';
+        }
+
+        /* ── TYPEWRITER ───────────────────── */
+        var twEN = ['Study smarter. Score higher.', 'Build websites. Create films.', 'Learn 15+ AI life hacks.', 'AI skills = future readiness.'];
+        var twKN = ['ಬುದ್ಧಿವಂತಿಕೆಯಿಂದ ಓದಿ. ಹೆಚ್ಚು ಅಂಕ ಪಡೆಯಿ.', 'ವೆಬ್‌ಸೈಟ್‌ಗಳನ್ನು ಮಾಡಿ. ಚಲನಚಿತ್ರಗಳನ್ನು ತಯಾರಿಸಿ.', '15+ AI ಲೈಫ್ ಹ್ಯಾಕ್ಸ್ ಕಲಿಯಿರಿ.', 'AI ಕೌಶಲ್ಯ = ಭವಿಷ್ಯ ಸಿದ್ಧ.'];
+        var twIdx = 0, twChar = 0, twDel = false, twTimer = null;
+        function startTypewriter() {
+            var elEN = document.getElementById('typedEN');
+            var elKN = document.getElementById('typedKN');
+            if (!elEN || !elKN) return;
+            function tick() {
+                var txtEN = twEN[twIdx % twEN.length];
+                var txtKN = twKN[twIdx % twKN.length];
+                if (!twDel) {
+                    twChar++;
+                    elEN.textContent = txtEN.substring(0, twChar);
+                    elKN.textContent = txtKN.substring(0, Math.min(twChar, txtKN.length));
+                    if (twChar >= Math.max(txtEN.length, txtKN.length)) { twDel = true; twTimer = setTimeout(tick, 2000); return }
+                } else {
+                    twChar--;
+                    elEN.textContent = txtEN.substring(0, twChar);
+                    elKN.textContent = txtKN.substring(0, Math.min(twChar, txtKN.length));
+                    if (twChar <= 0) { twDel = false; twIdx++; twTimer = setTimeout(tick, 400); return }
+                }
+                twTimer = setTimeout(tick, twDel ? 60 : 120);
+            }
+            tick();
+        }
+
+        /* ── INIT ─────────────────────────── */
+        (function () {
+            try {
+                var sl = localStorage.getItem('bt_lang');
+                var st = localStorage.getItem('bt_theme');
+                if (st === 'light') { THEME = 'light'; document.getElementById('htmlRoot').setAttribute('data-theme', 'light'); document.getElementById('themeBtn').textContent = '☀️'; document.querySelector('meta[name="theme-color"]').content = '#F8FAFC' }
+                if (sl) { chooseLang(sl) }
+            } catch (e) { }
+        })();
+    </script>
+
+    <!-- SCROLL ANIMATIONS OBSERVER -->
+    <script>
+    (function() {
+        // Scroll reveal
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
+        
+        function initReveals() {
+            document.querySelectorAll('.reveal').forEach(function(el) {
+                observer.observe(el);
+            });
+        }
+        
+        // Init on DOM ready and also after splash screen
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initReveals);
+        } else {
+            initReveals();
+        }
+        
+        // Re-init after tab switches (new .reveal elements become visible)
+        var origGoTab = window.goTab;
+        if (typeof origGoTab === 'function') {
+            // Will be patched after goTab is defined
+        }
+        
+        // Patch goTab after script loads
+        setTimeout(function() {
+            if (typeof window.goTab === 'function') {
+                var _orig = window.goTab;
+                window.goTab = function(id) {
+                    _orig(id);
+                    setTimeout(initReveals, 50);
+                };
+            }
+        }, 100);
+    })();
+    </script>
+
+</body>
+
+</html>

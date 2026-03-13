@@ -1,0 +1,192 @@
+[
+  {
+    "File": "move_pricing.js",
+    "Size": 1510,
+    "LastMod": "2026-02-25T10:41:49.332Z"
+  },
+  {
+    "File": "anim_css.js",
+    "Size": 4079,
+    "LastMod": "2026-02-25T10:51:57.502Z"
+  },
+  {
+    "File": "anim_css_v2.js",
+    "Size": 1792,
+    "LastMod": "2026-02-25T10:52:56.593Z"
+  },
+  {
+    "File": "fix_anim.js",
+    "Size": 2444,
+    "LastMod": "2026-02-25T11:07:11.296Z"
+  },
+  {
+    "File": "fix_anim_strict.js",
+    "Size": 4332,
+    "LastMod": "2026-02-25T11:10:01.926Z"
+  },
+  {
+    "File": "fix_anim_final.js",
+    "Size": 3370,
+    "LastMod": "2026-02-25T11:15:22.030Z"
+  },
+  {
+    "File": "center_hero_parallax.js",
+    "Size": 1890,
+    "LastMod": "2026-02-25T11:33:12.513Z"
+  },
+  {
+    "File": "crazy_parallax_fix.js",
+    "Size": 2763,
+    "LastMod": "2026-02-25T11:44:22.058Z"
+  },
+  {
+    "File": "orbit_fix.js",
+    "Size": 1611,
+    "LastMod": "2026-02-25T11:57:23.768Z"
+  },
+  {
+    "File": "fix_scroll_syntax.js",
+    "Size": 1757,
+    "LastMod": "2026-02-25T12:06:05.489Z"
+  },
+  {
+    "File": "refine_orbit_gradient.js",
+    "Size": 3352,
+    "LastMod": "2026-02-25T12:23:21.655Z"
+  },
+  {
+    "File": "inject_orbit_mobile.js",
+    "Size": 2830,
+    "LastMod": "2026-02-25T12:32:41.778Z"
+  },
+  {
+    "File": "final_orbit_mobile_fix.js",
+    "Size": 1511,
+    "LastMod": "2026-02-25T12:34:22.848Z"
+  },
+  {
+    "File": "planetary_orbits_images.js",
+    "Size": 16651,
+    "LastMod": "2026-02-25T12:48:50.247Z"
+  },
+  {
+    "File": "solar_orbit_blend_images.js",
+    "Size": 11930,
+    "LastMod": "2026-02-25T13:02:48.777Z"
+  },
+  {
+    "File": "fix_center_orbit_images.js",
+    "Size": 18141,
+    "LastMod": "2026-02-25T13:15:29.727Z"
+  },
+  {
+    "File": "polish_final.js",
+    "Size": 12307,
+    "LastMod": "2026-02-25T13:30:12.690Z"
+  },
+  {
+    "File": "remove_all_images.js",
+    "Size": 4613,
+    "LastMod": "2026-02-25T13:45:34.470Z"
+  },
+  {
+    "File": "restore_sections.js",
+    "Size": 13950,
+    "LastMod": "2026-02-25T14:02:07.802Z"
+  },
+  {
+    "File": "fix_btn_mobile.js",
+    "Size": 2235,
+    "LastMod": "2026-02-25T14:08:08.474Z"
+  },
+  {
+    "File": "fix_mobile_anim2.js",
+    "Size": 3236,
+    "LastMod": "2026-02-25T16:21:21.114Z"
+  },
+  {
+    "File": "inject_price_anim.js",
+    "Size": 4056,
+    "LastMod": "2026-02-25T16:25:50.358Z"
+  },
+  {
+    "File": "inject_price_anim2.js",
+    "Size": 1579,
+    "LastMod": "2026-02-25T16:30:10.163Z"
+  },
+  {
+    "File": "fix_price_trigger.js",
+    "Size": 770,
+    "LastMod": "2026-02-25T16:36:10.428Z"
+  },
+  {
+    "File": "polish_price_anim.js",
+    "Size": 3575,
+    "LastMod": "2026-02-25T16:59:50.132Z"
+  },
+  {
+    "File": "inject_countdown_anim.js",
+    "Size": 7323,
+    "LastMod": "2026-02-25T17:03:43.173Z"
+  },
+  {
+    "File": "enhance_price_anim.js",
+    "Size": 9709,
+    "LastMod": "2026-02-25T17:09:27.489Z"
+  },
+  {
+    "File": "inject_red_timer.js",
+    "Size": 9388,
+    "LastMod": "2026-02-25T17:26:24.008Z"
+  },
+  {
+    "File": "restore_scripts.js",
+    "Size": 1444,
+    "LastMod": "2026-02-25T17:31:11.266Z"
+  },
+  {
+    "File": "restore_scripts2.js",
+    "Size": 952,
+    "LastMod": "2026-02-25T17:32:10.223Z"
+  },
+  {
+    "File": "restore_scripts3.js",
+    "Size": 742,
+    "LastMod": "2026-02-25T17:32:53.160Z"
+  },
+  {
+    "File": "restore_scripts_final.js",
+    "Size": 1232,
+    "LastMod": "2026-02-25T17:33:41.055Z"
+  },
+  {
+    "File": "revert_and_globalise_timer.js",
+    "Size": 8756,
+    "LastMod": "2026-02-25T17:38:30.426Z"
+  },
+  {
+    "File": "revert_and_globalise_timer2.js",
+    "Size": 8599,
+    "LastMod": "2026-02-25T17:39:28.472Z"
+  },
+  {
+    "File": "revert_and_globalise_timer_safe.js",
+    "Size": 4359,
+    "LastMod": "2026-02-25T17:40:06.323Z"
+  },
+  {
+    "File": "upgrade_ui.js",
+    "Size": 10786,
+    "LastMod": "2026-02-25T17:58:18.241Z"
+  },
+  {
+    "File": "apply_premium_ui.js",
+    "Size": 7477,
+    "LastMod": "2026-02-25T18:10:57.076Z"
+  },
+  {
+    "File": "apply.js",
+    "Size": 1453,
+    "LastMod": "2026-02-25T18:12:55.346Z"
+  }
+]
