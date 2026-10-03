@@ -6,13 +6,13 @@
 <title>Beyond Tatva — AI Course for Class 8–10 Students | Study Smarter for Boards</title>
 <meta name="description" content="A 5-module online AI course for Class 8–10 students. Study smarter for board exams, build real projects, and learn when not to use AI. Founding batch ₹799 with a 7-day full refund." />
 <meta name="theme-color" content="#0A5BFF" />
-<link rel="canonical" href="https://beyondtatvaa.netlify.app/" />
+<link rel="canonical" href="https://beyond-tatva-web-lptp.vercel.app/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Beyond Tatva" />
 <meta property="og:title" content="Your child is already using AI. Teach them to use it right." />
 <meta property="og:description" content="5-module online AI course for Class 8–10. Board-exam study skills, real projects, responsible use. Founding batch ₹799 · 7-day full refund." />
-<meta property="og:url" content="https://beyondtatvaa.netlify.app/" />
-<meta property="og:image" content="https://beyondtatvaa.netlify.app/assets/img/og.jpg" />
+<meta property="og:url" content="https://beyond-tatva-web-lptp.vercel.app/" />
+<meta property="og:image" content="https://beyond-tatva-web-lptp.vercel.app/assets/img/og.jpg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
@@ -30,7 +30,7 @@
   "@type": "Course",
   "name": "Beyond Tatva AI Skills Course",
   "description": "A 5-module online AI course for Class 8–10 students: board-exam study skills, creative projects, life skills and responsible AI use.",
-  "provider": { "@type": "Organization", "name": "Beyond Tatva", "url": "https://beyondtatvaa.netlify.app/", "areaServed": "Udupi, Karnataka, India" },
+  "provider": { "@type": "Organization", "name": "Beyond Tatva", "url": "https://beyond-tatva-web-lptp.vercel.app/", "areaServed": "Udupi, Karnataka, India" },
   "educationalLevel": "Class 8–10",
   "inLanguage": "en",
   "offers": { "@type": "Offer", "price": "799", "priceCurrency": "INR", "category": "Paid", "availability": "https://schema.org/InStock" },
@@ -684,9 +684,8 @@ footer { background: #F7F9FC; border-top: 1px solid var(--line); padding: 44px 0
     <div class="callback reveal" id="callback">
       <h3>Still have questions? We'll call you.</h3>
       <p>Leave your number and we'll call back personally, usually the same day.</p>
-      <form class="form cols" name="parent-callback" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/?sent=callback#callback">
-        <input type="hidden" name="form-name" value="parent-callback" />
-        <p hidden><label>Leave this empty <input name="bot-field" /></label></p>
+      <form class="form cols" name="parent-callback" data-lead novalidate>
+        <p hidden><label>Leave this empty <input name="_gotcha" tabindex="-1" autocomplete="off" /></label></p>
         <label>Your name<input name="name" type="text" autocomplete="name" required placeholder="Parent's name" /></label>
         <label>Phone / WhatsApp<input name="phone" type="tel" autocomplete="tel" inputmode="tel" required placeholder="10-digit mobile number" pattern="[0-9+\s\-]{10,15}" /></label>
         <label>Child's class
@@ -723,9 +722,8 @@ footer { background: #F7F9FC; border-top: 1px solid var(--line); padding: 44px 0
     <div class="school-form" id="workshop">
       <h3>Request a workshop</h3>
       <p>We reply within 24 hours.</p>
-      <form class="form cols" name="school-workshop" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/?sent=school#workshop">
-        <input type="hidden" name="form-name" value="school-workshop" />
-        <p hidden><label>Leave this empty <input name="bot-field" /></label></p>
+      <form class="form cols" name="school-workshop" data-lead novalidate>
+        <p hidden><label>Leave this empty <input name="_gotcha" tabindex="-1" autocomplete="off" /></label></p>
         <label>Your name<input name="name" type="text" autocomplete="name" required placeholder="Full name" /></label>
         <label>Role
           <select name="role"><option>Principal</option><option>Vice Principal</option><option>Teacher</option><option>Other</option></select>
@@ -815,6 +813,11 @@ const CONFIG = {
   // Real date the founding price ends, e.g. '2026-10-31T23:59:59+05:30'.
   // Leave null to hide. Once it passes, the line hides automatically.
   priceDeadline: null,
+
+  // Where form submissions go. Paste a Formspree URL (free: formspree.io),
+  // e.g. 'https://formspree.io/f/abcdwxyz', to get every lead by email.
+  // Leave empty and the forms open WhatsApp (or email) with the details filled in.
+  formEndpoint: '',
 
   // Google Analytics 4 measurement ID, e.g. 'G-XXXXXXX'. Leave empty to disable.
   ga4: ''
@@ -906,32 +909,65 @@ const CONFIG = {
     $$('.reveal').forEach(el => el.classList.add('in'));
   }
 
-  /* Forms → Netlify Forms (a normal POST still works if JS fails) */
+  /* Forms: sent to CONFIG.formEndpoint (e.g. Formspree) if set,
+     otherwise handed to WhatsApp / email with the details pre-filled. */
+  // form.name would return the <input name="name">, so read the attribute.
+  const formId = form => form.getAttribute('name');
+  const LABELS = { 'parent-callback': 'Call-back request', 'school-workshop': 'School workshop request' };
+  const fields = form => [...new FormData(form)].filter(([k, v]) => k !== '_gotcha' && String(v).trim());
+
   function showMsg(form, ok, text) {
     const m = $('.form-msg', form);
     m.className = 'form-msg full ' + (ok ? 'ok' : 'err');
     m.textContent = text;
     m.hidden = false;
   }
-  $$('form[data-netlify]').forEach(form => {
+  function summary(form) {
+    const lines = [LABELS[formId(form)]];
+    for (const [k, v] of fields(form)) {
+      const label = $('[name="' + k + '"]', form).closest('label');
+      lines.push((label ? label.firstChild.textContent.trim() : k) + ': ' + v);
+    }
+    return lines.join('\n');
+  }
+  function handOff(form) {
+    const text = summary(form);
+    if (hasWa) {
+      window.open('https://wa.me/' + waDigits + '?text=' + encodeURIComponent(text), '_blank', 'noopener');
+      showMsg(form, true, '✓ WhatsApp opened with your details. Just press send.');
+    } else if (CONFIG.email) {
+      location.href = 'mailto:' + CONFIG.email + '?subject=' + encodeURIComponent(LABELS[formId(form)]) + '&body=' + encodeURIComponent(text);
+      showMsg(form, true, '✓ Your email app opened with your details. Just press send.');
+    } else {
+      showMsg(form, false, "Sorry, this form isn't set up yet.");
+      return;
+    }
+    track('generate_lead', { form: formId(form), method: hasWa ? 'whatsapp' : 'email' });
+  }
+
+  $$('form[data-lead]').forEach(form => {
     const btn = $('button[type=submit]', form);
+    const okText = formId(form) === 'school-workshop'
+      ? "✓ Request received. We'll contact you within 24 hours."
+      : "✓ Thanks! We'll call you back soon.";
     form.addEventListener('submit', async ev => {
       ev.preventDefault();
       if (!form.reportValidity()) return;
+      if ($('[name=_gotcha]', form).value) return;
+      if (!CONFIG.formEndpoint) return handOff(form);
+
       const label = btn.textContent;
       btn.disabled = true; btn.textContent = 'Sending…';
       try {
-        const res = await fetch('/', {
+        const res = await fetch(CONFIG.formEndpoint, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: new URLSearchParams(new FormData(form)).toString()
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(Object.assign({ _subject: LABELS[formId(form)] }, Object.fromEntries(fields(form))))
         });
         if (!res.ok) throw new Error(res.status);
         form.reset();
-        showMsg(form, true, form.name === 'school-workshop'
-          ? "✓ Request received. We'll contact you within 24 hours."
-          : "✓ Thanks! We'll call you back soon.");
-        track('generate_lead', { form: form.name });
+        showMsg(form, true, okText);
+        track('generate_lead', { form: formId(form) });
       } catch (e) {
         showMsg(form, false, "Sorry, that didn't go through. Please try again" +
           (hasWa ? ' or message us on WhatsApp.' : CONFIG.email ? ' or email ' + CONFIG.email + '.' : '.'));
@@ -939,13 +975,6 @@ const CONFIG = {
       btn.disabled = false; btn.textContent = label;
     });
   });
-
-  /* Success message after a no-JS POST */
-  const sent = new URLSearchParams(location.search).get('sent');
-  if (sent) {
-    const f = $(sent === 'school' ? 'form[name=school-workshop]' : 'form[name=parent-callback]');
-    if (f) showMsg(f, true, "✓ Received. We'll be in touch soon.");
-  }
 })();
 </script>
 </body>
