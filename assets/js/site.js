@@ -90,7 +90,7 @@
   /* ── Confetti ── */
   const cv = $('#confetti'), cx = cv.getContext('2d');
   let parts = [], raf = 0;
-  const COLORS = ['#F6C453', '#FF5E3A', '#2CC6B5', '#8ED6FF', '#9D87FF', '#D9774B', '#F3EADB'];
+  const COLORS = ['#3B5BFF', '#C6F432', '#FF4FA3', '#FFC93C', '#1FBF9F', '#8B6CFF', '#FF8A3D'];
   function sizeCv() { const d = Math.min(2, devicePixelRatio || 1); cv.width = innerWidth * d; cv.height = innerHeight * d; cx.setTransform(d, 0, 0, d, 0, 0); }
   sizeCv(); addEventListener('resize', sizeCv);
   function burst(x, y, n = 80, spread = 1) {
@@ -556,10 +556,10 @@
       scroll();
       const c = $('canvas', wrap), g = c.getContext('2d'), d = Math.min(2, devicePixelRatio || 1);
       const W = wrap.clientWidth, H = wrap.clientHeight; c.width = W * d; c.height = H * d; g.scale(d, d);
-      const grd = g.createLinearGradient(0, 0, W, H); grd.addColorStop(0, '#F7D88A'); grd.addColorStop(.45, '#E9B949'); grd.addColorStop(.7, '#FFF0C2'); grd.addColorStop(1, '#C98F2A');
+      const grd = g.createLinearGradient(0, 0, W, H); grd.addColorStop(0, '#D9FA6B'); grd.addColorStop(.45, '#C6F432'); grd.addColorStop(.7, '#F2FFB8'); grd.addColorStop(1, '#FFC93C');
       g.fillStyle = grd; g.fillRect(0, 0, W, H);
       for (let i = 0; i < 260; i++) { g.fillStyle = 'rgba(255,255,255,' + Math.random() * .35 + ')'; g.fillRect(Math.random() * W, Math.random() * H, 1.5, 1.5); }
-      g.fillStyle = 'rgba(60,38,4,.75)'; g.textAlign = 'center'; g.textBaseline = 'middle';
+      g.fillStyle = 'rgba(21,19,15,.8)'; g.textAlign = 'center'; g.textBaseline = 'middle';
       g.font = '800 ' + Math.round(W / 14) + 'px Manrope, "Noto Sans Kannada", sans-serif'; g.fillText('✨ ' + E.foil + ' ✨', W / 2, H / 2);
       g.font = '600 ' + Math.round(W / 26) + 'px Manrope, sans-serif'; g.fillText('🎁', W / 2, H / 2 + W / 10);
       let down = false, last = null, moves = 0, finished = false;

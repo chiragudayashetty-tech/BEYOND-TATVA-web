@@ -93,7 +93,7 @@
   size(); addEventListener('resize', size);
   function burst(x, y, n = 80) {
     if (reduced) return;
-    const cols = ['#F6C453', '#FF5E3A', '#2CC6B5', '#8ED6FF', '#9D87FF', '#F3EADB'];
+    const cols = ['#3B5BFF', '#C6F432', '#FF4FA3', '#FFC93C', '#1FBF9F', '#8B6CFF'];
     for (let i = 0; i < n; i++) { const a = Math.random() * 6.28, v = 2 + Math.random() * 7; parts.push({ x, y, vx: Math.cos(a) * v, vy: Math.sin(a) * v - 4, r: Math.random() * 6, vr: (Math.random() - .5) * .3, s: 5 + Math.random() * 6, c: cols[i % cols.length], l: 1 }); }
     if (!raf) raf = requestAnimationFrame(tick);
   }
