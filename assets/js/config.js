@@ -18,6 +18,10 @@ window.BT_CONFIG = {
   // click "Activate Form" once, and every lead after that arrives by email.
   formEndpoint: 'https://formsubmit.co/ajax/chiragudayashetty@gmail.com',
 
+  // Web3Forms access key (free, from web3forms.com). When set, it is used
+  // instead of formEndpoint above. Paste the key between the quotes.
+  web3formsKey: '',
+
   // Real Batch 1 enrolments. Leave null to hide the seats bar.
   seatsTotal: 75,
   seatsTaken: null,

@@ -552,10 +552,10 @@
     async function sendLead() {
       if (!C.formEndpoint) { console.warn('[Beyond Tatva] BT_CONFIG.formEndpoint is empty, so this lead was not sent anywhere.'); return; }
       try {
-        const res = await fetch(C.formEndpoint, {
+        const res = await fetch(C.web3formsKey ? 'https://api.web3forms.com/submit' : C.formEndpoint, {
           method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
           body: JSON.stringify({
-            _template: 'table', _captcha: 'false', _subject: 'Module 0 unlock: ' + ans.name + ' (' + englishLabel('cls', ans.cls) + ')', source: 'bindu-chat', language: LANG === 'kn' ? 'Kannada' : 'English',
+            access_key: C.web3formsKey || undefined, _template: 'table', _captcha: 'false', _subject: 'Module 0 unlock: ' + ans.name + ' (' + englishLabel('cls', ans.cls) + ')',  subject: 'Module 0 unlock: ' + ans.name, from_name: 'Beyond Tatva website', source: 'bindu-chat', language: LANG === 'kn' ? 'Kannada' : 'English',
             role: englishLabel('who', ans.who), name: ans.name, class: englishLabel('cls', ans.cls), board: englishLabel('board', ans.board), hardest: englishLabel('hard', ans.hard),
             ai_use: englishLabel('ai', ans.ai), enjoys: englishLabel('love', ans.love), best_time: englishLabel('time', ans.time),
             contact_name: ans.contactName, whatsapp: '+91' + ans.phone, consent: 'yes', recommended: S.rec.map(id => { const t = BT.TATVA.find(x => x.id === id); return 'Module ' + t.n + ' ' + t.title.en; }).join(', ')
@@ -692,7 +692,7 @@
       }
       const label = btn.innerHTML; btn.disabled = true; btn.textContent = T().sending;
       try {
-        const res = await fetch(C.formEndpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(Object.assign({ _template: 'table', _captcha: 'false', _subject: 'School workshop request', source: 'schools-form', language: LANG }, Object.fromEntries(fields()))) });
+        const res = await fetch(C.web3formsKey ? 'https://api.web3forms.com/submit' : C.formEndpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(Object.assign({ access_key: C.web3formsKey || undefined, _template: 'table', _captcha: 'false', _subject: 'School workshop request', subject: 'School workshop request', from_name: 'Beyond Tatva website', source: 'schools-form', language: LANG }, Object.fromEntries(fields()))) });
         if (!res.ok) throw new Error(res.status); { const j = await res.json().catch(() => ({})); if (String(j.success) === 'false') throw new Error(j.message || 'not sent'); }
         form.reset(); show(true, T().okSchool); burst(...centerOf(btn), 60); track('generate_lead', { form: 'school' });
       } catch (err) { show(false, T().err + (hasWa ? T().errWa : C.email ? T().errMail(C.email) : '.')); }

@@ -28,7 +28,7 @@
     if (window.gtag) gtag('event', 'school_workshop_request', { town: d.town });
     if (C.formEndpoint) {
       try {
-        var res = await fetch(C.formEndpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify({ _subject: 'School workshop request: ' + d.school, _template: 'table', _captcha: 'false', source: 'schools-page', school: d.school, principal: d.principal, phone: phone, town: d.town, date: d.date || '' }) });
+        var res = await fetch(C.web3formsKey ? 'https://api.web3forms.com/submit' : C.formEndpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify({ access_key: C.web3formsKey || undefined, subject: 'School workshop request: ' + d.school, from_name: 'Beyond Tatva website', _subject: 'School workshop request: ' + d.school, _template: 'table', _captcha: 'false', source: 'schools-page', school: d.school, principal: d.principal, phone: phone, town: d.town, date: d.date || '' }) });
         if (!res.ok) throw new Error(res.status);
         var j = await res.json().catch(function () { return {}; });
         if (String(j.success) === 'false') throw new Error(j.message || 'not sent');
