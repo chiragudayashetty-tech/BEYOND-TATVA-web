@@ -16,7 +16,7 @@ window.BT_CONFIG = {
   // Where chat answers and form submissions go (emailed via FormSubmit.co).
   // The very first submission sends an activation email to this inbox:
   // click "Activate Form" once, and every lead after that arrives by email.
-  formEndpoint: 'https://formsubmit.co/ajax/chiraguadayashetty@gmail.com',
+  formEndpoint: 'https://formsubmit.co/ajax/chiragudayashetty@gmail.com',
 
   // Real Batch 1 enrolments. Leave null to hide the seats bar.
   seatsTotal: 75,
