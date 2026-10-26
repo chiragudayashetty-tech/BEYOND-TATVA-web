@@ -13,6 +13,7 @@ BT.KN = {
   h_eyebrow: 'AI ಶಿಕ್ಷಣ · 8–10ನೇ ತರಗತಿ · ಉಡುಪಿ',
   h_title: 'ನಿಮ್ಮ ಮಗು ಈಗಾಗಲೇ AI ಬಳಸುತ್ತಿದೆ. <em>ಅದನ್ನೇ ಅವರ ಸೂಪರ್‌ಪವರ್ ಮಾಡೋಣ.</em>',
   h_sub: 'ಬೋರ್ಡ್ ಪರೀಕ್ಷೆಗೆ ಜಾಣ್ಮೆಯ ಓದು, ನಿಜವಾದ ಸೃಜನಶೀಲ ಪ್ರಾಜೆಕ್ಟ್‌ಗಳು ಮತ್ತು ಪ್ರಾಮಾಣಿಕ AI ಅಭ್ಯಾಸಗಳು. ಕನ್ನಡ ಮತ್ತು ಇಂಗ್ಲಿಷ್‌ನಲ್ಲಿ.',
+  h_school: 'ನೀವು ಶಾಲೆಯೇ? ನಮ್ಮ ಶಾಲಾ ಕಾರ್ಯಕ್ರಮ ನೋಡಿ',
   h_note: '1 ನಿಮಿಷ · ಉಚಿತ · ಪಕ್ಕಾ ↓',
   h_gift: '<b>ಮಾಡ್ಯೂಲ್ 0 ಉಚಿತ.</b> ಬಿಂದು ಜೊತೆ 1 ನಿಮಿಷ ಮಾತನಾಡಿ ಅನ್‌ಲಾಕ್ ಮಾಡಿ.',
   h_cta1: 'ಮಾತು ಆರಂಭಿಸಿ', h_cta2: '5 ತತ್ವಗಳನ್ನು ನೋಡಿ',
@@ -164,6 +165,10 @@ BT.BADGES = [
    who: 'parent' | 'student' | 'teacher'. {n} = name (escaped by the engine). */
 BT.CHAT = {
   hello: '<b>ನಮಸ್ಕಾರ! 🙏</b> I\'m <b>Bindu</b>, the little dot where every Beyond Tatva journey begins. Answer a few quick taps and I\'ll unlock <b>Module 0, free</b>.',
+  askWho: 'Who are you here for? · ನೀವು ಯಾರಿಗಾಗಿ ಬಂದಿದ್ದೀರಿ?',
+  whoOpts: [{ v: 'family', em: '👨‍👩‍👧', label: 'My child / myself · ಪೋಷಕರು / ವಿದ್ಯಾರ್ಥಿ' }, { v: 'school', em: '🏫', label: 'My school · ಶಾಲೆ' }],
+  schoolReact: 'Wonderful! 🏫 Our free school workshop has its own page. Taking you there… · ಶಾಲೆಗಳಿಗಾಗಿ ಪ್ರತ್ಯೇಕ ಪುಟ ತೆರೆಯುತ್ತಿದೆ…',
+  schoolBtn: 'Open the school programme →',
   askLang: 'Which language feels like home? · ಯಾವ ಭಾಷೆ ನಿಮಗೆ ಹತ್ತಿರ?',
   langOpts: [{ v: 'kn', em: '🌿', label: 'ಕನ್ನಡ' }, { v: 'en', em: '🌍', label: 'English' }],
   langReact: { en: 'Lovely, English it is 🌍', kn: 'ಸೂಪರ್! ಕನ್ನಡದಲ್ಲೇ ಮಾತನಾಡೋಣ 🌿' },

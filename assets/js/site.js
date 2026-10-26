@@ -386,10 +386,15 @@
       if (S.done && S.ans && S.ans.who) { ans = S.ans; light(TOTAL); await say(L(BT.CHAT.end).back(ans.name ? esc(ans.name) : '')); showPlan(false); return; }
       light(0);
       await say(BT.CHAT.hello);
-      await say(BT.CHAT.askLang);
-      cur = -1; renderFoot();
+      await say(BT.CHAT.askWho);
+      cur = -2; renderFoot();
     }
     function renderFoot() {
+      if (cur === -2) {
+        foot.innerHTML = optsHTML(BT.CHAT.whoOpts);
+        $$('.opt', foot).forEach(b => b.addEventListener('click', () => pickWho(b)));
+        return;
+      }
       if (cur === -1) {
         foot.innerHTML = optsHTML(BT.CHAT.langOpts);
         $$('.opt', foot).forEach(b => b.addEventListener('click', () => pickLang(b)));
@@ -434,6 +439,21 @@
         if (!ok) return fail(c.eConsent);
         finish(name, phone);
       });
+    }
+    async function pickWho(b) {
+      if (busy) return; busy = true;
+      const v = b.dataset.v; foot.innerHTML = '';
+      me(BT.CHAT.whoOpts.find(o => o.v === v).label);
+      track('chat_audience', { who: v });
+      if (v === 'school') {
+        happy(); sfx('coin');
+        await say(BT.CHAT.schoolReact);
+        foot.innerHTML = '<a class="btn btn-gold btn-block" href="/schools">' + esc(BT.CHAT.schoolBtn) + '</a>';
+        setTimeout(() => { location.href = '/schools'; }, 1800);
+        return;
+      }
+      await say(BT.CHAT.askLang);
+      busy = false; cur = -1; renderFoot();
     }
     async function pickLang(b) {
       if (busy) return; busy = true;

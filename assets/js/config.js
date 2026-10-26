@@ -8,7 +8,7 @@ window.BT_CONFIG = {
 
   // Your WhatsApp number with country code, digits only, e.g. '919876543210'.
   // While empty, WhatsApp buttons stay hidden (so no one hits a dead number).
-  whatsapp: '',
+  whatsapp: '916361844418',
 
   // Contact email shown in the footer. Leave empty to hide it.
   email: 'hello@beyondtatva.in',

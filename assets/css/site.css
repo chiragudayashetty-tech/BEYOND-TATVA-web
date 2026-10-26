@@ -683,3 +683,7 @@ html.intro-on body { overflow: hidden; }
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; transition-delay: 0s !important; }
   .grain, .k-row, .aurora i, .seal svg.ring, .ring-spin { animation: none !important; }
 }
+
+/* ── Link to school programme ── */
+.school-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 18px; font-weight: 800; font-size: 15px; color: var(--blue); text-decoration: none; border-bottom: 2px solid var(--lime); padding-bottom: 2px; }
+.school-link:hover { border-color: var(--blue); }
