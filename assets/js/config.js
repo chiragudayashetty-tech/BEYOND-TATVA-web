@@ -11,12 +11,12 @@ window.BT_CONFIG = {
   whatsapp: '916361844418',
 
   // Contact email shown in the footer. Leave empty to hide it.
-  email: 'hello@beyondtatva.in',
+  email: 'chiragshetty@beyondtatva.in',
 
-  // Where chat answers and form submissions go. Create a free form at
-  // formspree.io and paste its URL here, e.g. 'https://formspree.io/f/abcdwxyz'.
-  // IMPORTANT: until this is set, parents' chat answers are NOT sent to you.
-  formEndpoint: '',
+  // Where chat answers and form submissions go (emailed via FormSubmit.co).
+  // The very first submission sends an activation email to this inbox:
+  // click "Activate Form" once, and every lead after that arrives by email.
+  formEndpoint: 'https://formsubmit.co/ajax/chiragshetty@beyondtatva.in',
 
   // Real Batch 1 enrolments. Leave null to hide the seats bar.
   seatsTotal: 75,

@@ -555,13 +555,13 @@
         const res = await fetch(C.formEndpoint, {
           method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
           body: JSON.stringify({
-            _subject: 'Module 0 unlock: ' + ans.name + ' (' + englishLabel('cls', ans.cls) + ')', source: 'bindu-chat', language: LANG === 'kn' ? 'Kannada' : 'English',
+            _template: 'table', _captcha: 'false', _subject: 'Module 0 unlock: ' + ans.name + ' (' + englishLabel('cls', ans.cls) + ')', source: 'bindu-chat', language: LANG === 'kn' ? 'Kannada' : 'English',
             role: englishLabel('who', ans.who), name: ans.name, class: englishLabel('cls', ans.cls), board: englishLabel('board', ans.board), hardest: englishLabel('hard', ans.hard),
             ai_use: englishLabel('ai', ans.ai), enjoys: englishLabel('love', ans.love), best_time: englishLabel('time', ans.time),
             contact_name: ans.contactName, whatsapp: '+91' + ans.phone, consent: 'yes', recommended: S.rec.map(id => { const t = BT.TATVA.find(x => x.id === id); return 'Module ' + t.n + ' ' + t.title.en; }).join(', ')
           })
         });
-        if (!res.ok) throw new Error(res.status);
+        if (!res.ok) throw new Error(res.status); { const j = await res.json().catch(() => ({})); if (String(j.success) === 'false') throw new Error(j.message || 'not sent'); }
       } catch (e) {
         if (hasWa) { const m = document.createElement('div'); m.className = 'msg bot-m'; m.textContent = L(BT.CHAT.end).sendFail; body.appendChild(m); scroll(); }
       }
@@ -692,8 +692,8 @@
       }
       const label = btn.innerHTML; btn.disabled = true; btn.textContent = T().sending;
       try {
-        const res = await fetch(C.formEndpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(Object.assign({ _subject: 'School workshop request', source: 'schools-form', language: LANG }, Object.fromEntries(fields()))) });
-        if (!res.ok) throw new Error(res.status);
+        const res = await fetch(C.formEndpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(Object.assign({ _template: 'table', _captcha: 'false', _subject: 'School workshop request', source: 'schools-form', language: LANG }, Object.fromEntries(fields()))) });
+        if (!res.ok) throw new Error(res.status); { const j = await res.json().catch(() => ({})); if (String(j.success) === 'false') throw new Error(j.message || 'not sent'); }
         form.reset(); show(true, T().okSchool); burst(...centerOf(btn), 60); track('generate_lead', { form: 'school' });
       } catch (err) { show(false, T().err + (hasWa ? T().errWa : C.email ? T().errMail(C.email) : '.')); }
       btn.disabled = false; btn.innerHTML = label;
