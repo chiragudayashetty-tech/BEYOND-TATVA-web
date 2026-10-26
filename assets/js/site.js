@@ -550,18 +550,14 @@
         'Contact: ' + ans.contactName + ' · ' + ans.phone].join('\n');
     }
     async function sendLead() {
-      if (!C.formEndpoint) { console.warn('[Beyond Tatva] BT_CONFIG.formEndpoint is empty, so this lead was not sent anywhere.'); return; }
+      const rec = S.rec.map(id => { const t = BT.TATVA.find(x => x.id === id); return 'Module ' + t.n + ' ' + t.title.en; }).join(', ');
       try {
-        const res = await fetch(C.web3formsKey ? 'https://api.web3forms.com/submit' : C.formEndpoint, {
-          method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify({
-            access_key: C.web3formsKey || undefined, _template: 'table', _captcha: 'false', _subject: 'Module 0 unlock: ' + ans.name + ' (' + englishLabel('cls', ans.cls) + ')',  subject: 'Module 0 unlock: ' + ans.name, from_name: 'Beyond Tatva website', source: 'bindu-chat', language: LANG === 'kn' ? 'Kannada' : 'English',
-            role: englishLabel('who', ans.who), name: ans.name, class: englishLabel('cls', ans.cls), board: englishLabel('board', ans.board), hardest: englishLabel('hard', ans.hard),
-            ai_use: englishLabel('ai', ans.ai), enjoys: englishLabel('love', ans.love), best_time: englishLabel('time', ans.time),
-            contact_name: ans.contactName, whatsapp: '+91' + ans.phone, consent: 'yes', recommended: S.rec.map(id => { const t = BT.TATVA.find(x => x.id === id); return 'Module ' + t.n + ' ' + t.title.en; }).join(', ')
-          })
+        await window.BTLead({
+          company: englishLabel('who', ans.who) + ' · ' + ans.name + ' (' + englishLabel('cls', ans.cls) + ')',
+          lastName: ans.contactName, mobile: '+91' + ans.phone, source: 'Chat',
+          description: summary() + '\nRecommended: ' + rec + '\nConsent: WhatsApp updates, yes\nSource: Bindu chat on website'
         });
-        if (!res.ok) throw new Error(res.status); { const j = await res.json().catch(() => ({})); if (String(j.success) === 'false') throw new Error(j.message || 'not sent'); }
+        track('generate_lead', { form: 'chat' });
       } catch (e) {
         if (hasWa) { const m = document.createElement('div'); m.className = 'msg bot-m'; m.textContent = L(BT.CHAT.end).sendFail; body.appendChild(m); scroll(); }
       }
@@ -684,18 +680,15 @@
       e.preventDefault();
       if (!form.reportValidity() || $('[name=_gotcha]', form).value) return;
       const text = ['School workshop request'].concat(fields().map(([k, v]) => k + ': ' + v)).join('\n');
-      if (!C.formEndpoint) {
-        if (hasWa) { window.open('https://wa.me/' + waDigits + '?text=' + encodeURIComponent(text), '_blank', 'noopener'); show(true, T().okWa); }
-        else if (C.email) { location.href = 'mailto:' + C.email + '?subject=' + encodeURIComponent('School workshop request') + '&body=' + encodeURIComponent(text); show(true, T().okMail); }
-        else show(false, T().notSet);
-        return;
-      }
       const label = btn.innerHTML; btn.disabled = true; btn.textContent = T().sending;
       try {
-        const res = await fetch(C.web3formsKey ? 'https://api.web3forms.com/submit' : C.formEndpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(Object.assign({ access_key: C.web3formsKey || undefined, _template: 'table', _captcha: 'false', _subject: 'School workshop request', subject: 'School workshop request', from_name: 'Beyond Tatva website', source: 'schools-form', language: LANG }, Object.fromEntries(fields()))) });
-        if (!res.ok) throw new Error(res.status); { const j = await res.json().catch(() => ({})); if (String(j.success) === 'false') throw new Error(j.message || 'not sent'); }
+        const v = Object.fromEntries(fields());
+        await window.BTLead({ company: v.school, lastName: v.name, mobile: v.phone, city: v.town || '', source: 'Web Research', description: text + '\nSource: homepage school form (' + LANG + ')' });
         form.reset(); show(true, T().okSchool); burst(...centerOf(btn), 60); track('generate_lead', { form: 'school' });
-      } catch (err) { show(false, T().err + (hasWa ? T().errWa : C.email ? T().errMail(C.email) : '.')); }
+      } catch (err) {
+        if (hasWa) { window.open('https://wa.me/' + waDigits + '?text=' + encodeURIComponent(text), '_blank', 'noopener'); show(true, T().okWa); }
+        else show(false, T().err + (C.email ? T().errMail(C.email) : '.'));
+      }
       btn.disabled = false; btn.innerHTML = label;
     });
   });

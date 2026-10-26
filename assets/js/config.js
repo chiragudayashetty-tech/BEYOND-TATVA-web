@@ -13,14 +13,7 @@ window.BT_CONFIG = {
   // Contact email shown in the footer. Leave empty to hide it.
   email: 'chiragshetty@beyondtatva.in',
 
-  // Where chat answers and form submissions go (emailed via FormSubmit.co).
-  // The very first submission sends an activation email to this inbox:
-  // click "Activate Form" once, and every lead after that arrives by email.
-  formEndpoint: 'https://formsubmit.co/ajax/chiragudayashetty@gmail.com',
-
-  // Web3Forms access key (free, from web3forms.com). When set, it is used
-  // instead of formEndpoint above. Paste the key between the quotes.
-  web3formsKey: '',
+  // Leads go into Zoho CRM (Leads module). Settings live in assets/js/lead.js.
 
   // Real Batch 1 enrolments. Leave null to hide the seats bar.
   seatsTotal: 75,

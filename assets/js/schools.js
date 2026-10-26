@@ -26,16 +26,11 @@
     var btn = form.querySelector('button[type=submit]'); btn.disabled = true;
     var lines = ['School workshop request', 'School: ' + d.school, 'Principal: ' + d.principal, 'Phone: ' + phone, 'Town: ' + d.town, 'Preferred date: ' + (d.date || 'flexible')];
     if (window.gtag) gtag('event', 'school_workshop_request', { town: d.town });
-    if (C.formEndpoint) {
-      try {
-        var res = await fetch(C.web3formsKey ? 'https://api.web3forms.com/submit' : C.formEndpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify({ access_key: C.web3formsKey || undefined, subject: 'School workshop request: ' + d.school, from_name: 'Beyond Tatva website', _subject: 'School workshop request: ' + d.school, _template: 'table', _captcha: 'false', source: 'schools-page', school: d.school, principal: d.principal, phone: phone, town: d.town, date: d.date || '' }) });
-        if (!res.ok) throw new Error(res.status);
-        var j = await res.json().catch(function () { return {}; });
-        if (String(j.success) === 'false') throw new Error(j.message || 'not sent');
-        form.reset(); btn.disabled = false;
-        return show(true, 'Thank you! We have your request and will call you within 24 hours.');
-      } catch (err) { /* fall through to WhatsApp */ }
-    }
+    try {
+      await window.BTLead({ company: d.school, lastName: d.principal, mobile: '+91' + phone, city: d.town, source: 'Web Research', description: lines.join('\n') + '\nSource: /schools page' });
+      form.reset(); btn.disabled = false;
+      return show(true, 'Thank you! We have your request and will call you within 24 hours.');
+    } catch (err) { /* fall through to WhatsApp */ }
     window.open('https://wa.me/' + WA + '?text=' + encodeURIComponent(lines.join('\n')), '_blank', 'noopener');
     btn.disabled = false;
     show(true, 'WhatsApp is opening with your details filled in. Just press send and we will reply within 24 hours.');
