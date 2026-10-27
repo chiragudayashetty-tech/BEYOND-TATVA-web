@@ -902,3 +902,38 @@ html.t-student .quest { display: block; }
 
 /* Parents: no game layer */
 html.t-parent :is(.xp, #soundBtn, .quest, .hand-note) { display: none !important; }
+
+/* ═══ Chosen themes: Parent = "Warm Trust" (P2), School = "Academic Maroon" (S2) ═══ */
+html.t-parent { --bg: #FFF8F0; --blue: #C2410C; --chip: #FDEBDD; }
+html.t-parent body { background: #FFF8F0; }
+html.t-parent .dots { background-image: radial-gradient(rgba(120,60,20,.10) 1px, transparent 1.3px); }
+html.t-parent:not([lang="kn"]) :is(h1, h2, h3) { font-family: var(--serif); font-weight: 700; letter-spacing: -.02em; }
+html.t-parent em { font-family: var(--serif); font-style: italic; color: #C2410C; background: none; }
+html.t-parent :is(.btn, .opt, .send, .subj, .qopt, .copy, .viewbar, .viewbar button, .viewbar a) { border-radius: 14px; }
+html.t-parent :is(.gift-pill, .kinetic) { background: #FDEBDD; }
+html.t-parent .hero-trust svg, html.t-parent .eyebrow { color: #C2410C; }
+html.t-parent .eyebrow::before { content: ""; width: 22px; height: 2px; background: #C2410C; }
+html.t-parent .eyebrow { font-family: var(--sans); font-weight: 800; font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; }
+html.t-parent .school-link { color: #C2410C; border-color: #FDEBDD; }
+html.t-parent .msg.me { background: #C2410C; }
+html.t-parent .hero-trust li::before { color: #15803D; }
+html.t-parent .lang button[aria-pressed="true"] { background: #C2410C; }
+html.t-parent ::selection { background: #FDEBDD; }
+
+html.t-pro { --bg: #FBF8F3; --blue: #7F1D1D; --navy: #3B0D11; }
+html.t-pro body, html.t-pro .nav.solid { background: #FBF8F3; }
+html.t-pro .s-hero { background: linear-gradient(180deg, #F6EEE6, #FBF8F3); }
+html.t-pro :is(h1, h2) { font-family: var(--serif); font-weight: 700; letter-spacing: -.015em; }
+html.t-pro em { font-family: var(--serif); font-style: italic; font-weight: 700; color: #7F1D1D; }
+html.t-pro .btn-gold { background: #7F1D1D; border-color: #7F1D1D; border-radius: 8px; }
+html.t-pro .btn-gold:hover { background: #991B1B; }
+html.t-pro .btn { border-radius: 8px; }
+html.t-pro :is(.s-ic, .s-panel .stamp, .s-mod-top small) { background: #F6E7E2 !important; color: #7F1D1D; }
+html.t-pro .s-panel { background: #FFFFFF; }
+html.t-pro .s-panel li b { background: #7F1D1D; border-color: #7F1D1D; }
+html.t-pro .facts li { background: #F6E7E2; border-color: transparent; }
+html.t-pro .facts svg { color: #B45309; }
+html.t-pro .s-note { background: #FFFFFF; }
+html.t-pro .tag-free { background: #FEF3C7; color: #92400E; border-color: #FDE68A; }
+html.t-pro .form input:focus { border-color: #7F1D1D; box-shadow: 0 0 0 4px rgba(127,29,29,.15); }
+html.t-pro .book .call a { color: #7F1D1D; }
