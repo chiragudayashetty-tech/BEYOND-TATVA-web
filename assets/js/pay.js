@@ -83,7 +83,8 @@
         if (window.console) console.warn('[Beyond Tatva] checkout error:', err && err.message);
         var acts = [{ label: t('Try again', 'ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ'), primary: true, fn: function () { start(link); } }];
         if (wa()) acts.push({ label: t('Enrol on WhatsApp instead', 'WhatsApp ಮೂಲಕ ದಾಖಲಾಗಿ'), href: wa() + '?text=' + encodeURIComponent('Hi! I want to enrol in the Beyond Tatva AI course (₹799).') });
-        dialog('err', t('Checkout didn\'t open', 'ಪಾವತಿ ತೆರೆಯಲಿಲ್ಲ'), t('Please try again in a minute, or message us on WhatsApp and we\'ll send you a secure payment link.', 'ಒಂದು ನಿಮಿಷದ ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ, ಅಥವಾ WhatsApp ಮಾಡಿ, ನಾವು ಸುರಕ್ಷಿತ ಪಾವತಿ ಲಿಂಕ್ ಕಳುಹಿಸುತ್ತೇವೆ.'), acts);
+        var dd = dialog('err', t('Checkout didn\'t open', 'ಪಾವತಿ ತೆರೆಯಲಿಲ್ಲ'), t('Please try again in a minute, or message us on WhatsApp and we\'ll send you a secure payment link.', 'ಒಂದು ನಿಮಿಷದ ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ, ಅಥವಾ WhatsApp ಮಾಡಿ, ನಾವು ಸುರಕ್ಷಿತ ಪಾವತಿ ಲಿಂಕ್ ಕಳುಹಿಸುತ್ತೇವೆ.'), acts);
+        var det = document.createElement('small'); det.className = 'pay-det'; det.textContent = 'Details: ' + ((err && (err.status ? err.status + ' · ' : '') + err.message) || 'unknown'); dd.querySelector('.pay-in').appendChild(det);
       });
   }
 

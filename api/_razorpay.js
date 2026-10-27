@@ -2,7 +2,7 @@
 const crypto = require('crypto');
 
 function creds() {
-  const id = process.env.RAZORPAY_KEY_ID, secret = process.env.RAZORPAY_KEY_SECRET;
+  const id = (process.env.RAZORPAY_KEY_ID || '').trim(), secret = (process.env.RAZORPAY_KEY_SECRET || '').trim();
   if (!id || !secret) { const e = new Error('Razorpay keys are not configured on the server'); e.status = 500; throw e; }
   return { id, secret };
 }
