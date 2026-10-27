@@ -3,7 +3,8 @@
    This is the only file you need to edit. Save, push, done.
    ───────────────────────────────────────────────────────────── */
 window.BT_CONFIG = {
-  // Razorpay payment page every "Enroll" button goes to.
+  // Fallback Razorpay payment page, used only if /api/create-order is unavailable.
+  // Normal checkout opens the Razorpay modal via /api (keys live in Vercel env vars).
   checkoutUrl: 'https://rzp.io/rzp/beyondtatva',
 
   // Your WhatsApp number with country code, digits only, e.g. '919876543210'.

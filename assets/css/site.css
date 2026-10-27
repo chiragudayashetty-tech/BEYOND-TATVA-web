@@ -937,3 +937,14 @@ html.t-pro .s-note { background: #FFFFFF; }
 html.t-pro .tag-free { background: #FEF3C7; color: #92400E; border-color: #FDE68A; }
 html.t-pro .form input:focus { border-color: #7F1D1D; box-shadow: 0 0 0 4px rgba(127,29,29,.15); }
 html.t-pro .book .call a { color: #7F1D1D; }
+
+/* ── Payment result dialog ── */
+.pay-dlg { position: fixed; inset: 0; z-index: 2147483000; display: grid; place-items: center; padding: 18px; background: rgba(21,19,15,.45); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
+.pay-in { width: min(420px, 100%); padding: 26px 22px 20px; border-radius: 24px; background: var(--card); border: 2px solid var(--edge); box-shadow: 8px 8px 0 var(--blue); text-align: center; animation: msg .4s var(--spring) both; }
+.pay-ic { font-size: 40px; line-height: 1; }
+.pay-dlg.wait .pay-ic { animation: spin 2s linear infinite; display: inline-block; }
+.pay-in h3 { font-size: 24px; margin: 12px 0 8px; }
+.pay-in p { color: var(--fg-2); font-size: 15px; word-break: break-word; }
+.pay-act { display: grid; gap: 10px; margin-top: 18px; }
+.pay-act:empty { display: none; }
+html:is(.t-parent, .t-pro) .pay-in { border: 1px solid rgba(21,19,15,.12); box-shadow: 0 20px 50px rgba(20,20,40,.18); }

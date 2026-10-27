@@ -1,0 +1,7 @@
+{
+  "name": "beyond-tatva-web",
+  "private": true,
+  "description": "Beyond Tatva site: static pages plus Vercel serverless API for Razorpay checkout",
+  "engines": { "node": ">=18" },
+  "scripts": { "test:pay": "node api/_test.js" }
+}
