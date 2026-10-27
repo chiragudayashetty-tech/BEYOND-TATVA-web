@@ -687,3 +687,64 @@ html.intro-on body { overflow: hidden; }
 /* ── Link to school programme ── */
 .school-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 18px; font-weight: 800; font-size: 15px; color: var(--blue); text-decoration: none; border-bottom: 2px solid var(--lime); padding-bottom: 2px; }
 .school-link:hover { border-color: var(--blue); }
+
+/* ── Schools link card (homepage) ── */
+.school-cta { display: flex; align-items: center; gap: 16px; max-width: 860px; margin: 0 auto; padding: 20px 22px; text-decoration: none; background: #FFF6CC; }
+.school-cta .s-ic { width: 52px; height: 52px; flex: none; border-radius: 16px; display: grid; place-items: center; background: var(--card); border: 2px solid var(--edge); }
+.school-cta b { display: block; font-size: 18px; line-height: 1.3; }
+.school-cta small { display: block; margin-top: 4px; color: var(--fg-2); font-size: 14px; }
+.school-cta .arr { margin-left: auto; flex: none; width: 24px; height: 24px; transition: transform .2s; }
+.school-cta:hover .arr { transform: translateX(4px); }
+
+/* ═══ Mobile first: fast, short, thumb-friendly ═══ */
+@media (max-width: 760px) {
+  /* performance: no fixed animated layers on phones */
+  .grain, .aurora, .hero-kn, .scroll-cue { display: none; }
+  /* hero: content shows at once, action within reach */
+  .hero { min-height: 0; padding: 18px 0 40px; }
+  .hero h1 { font-size: clamp(34px, 10vw, 44px); margin: 12px 0 14px; }
+  html[lang="kn"] .hero h1 { font-size: clamp(28px, 8vw, 36px); }
+  .hero-sub { font-size: 16px; }
+  .hero .split .w > span { transition-duration: .4s; transition-delay: calc(var(--i) * 15ms); }
+  .gift-pill { margin-top: 16px; font-size: 14px; }
+  .hero-cta { margin-top: 18px; gap: 10px; }
+  .hero-cta .btn { min-height: 52px; }
+  .hero-trust { margin-top: 16px; gap: 6px 16px; font-size: 13px; }
+  .hero-grid { gap: 30px; }
+  .hand-note { font-size: 17px; margin-bottom: 14px; }
+  .chat-body { height: min(56svh, 460px); }
+  /* sections: tighter rhythm */
+  .sec { padding: 56px 0; }
+  .sec-head { margin-bottom: 28px; }
+  .sec-head h2 { font-size: clamp(28px, 8vw, 36px); }
+  html[lang="kn"] .sec-head h2 { font-size: clamp(24px, 7vw, 30px); }
+  .sec-head p { font-size: 16px; margin-top: 12px; }
+  .kinetic { padding: 12px 0; }
+  .k-row.rev { display: none; }
+  .k-row b { font-size: 34px; }
+  .k-row small { font-size: 17px; }
+  /* long grids become swipe rows */
+  .myths, .prompts, .mood { display: flex; columns: auto; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; margin: 0 calc(-1 * var(--gutter)); padding: 18px var(--gutter) 20px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  .myths::-webkit-scrollbar, .prompts::-webkit-scrollbar, .mood::-webkit-scrollbar { display: none; }
+  .myth, .pc, .pin { flex: 0 0 82%; scroll-snap-align: center; margin: 0; }
+  .myth { height: 230px; }
+  .pin .slot { aspect-ratio: 4 / 5 !important; }
+  p.swipe-hint { display: block; }
+  .panel { min-height: 0; }
+  .panel-art { height: 120px; }
+  .notebook { border-radius: 20px; }
+  .nb-right { min-height: 0; }
+  .ba-side .row { font-size: 14.5px; padding: 11px 12px; }
+  .finale { padding: 70px 0 90px; }
+  .faq summary { font-size: 15.5px; }
+  .school-cta { padding: 16px; gap: 12px; }
+  .school-cta b { font-size: 16px; }
+  /* thumb-sized tap targets */
+  .lang button { padding: 9px 12px; }
+  .foot a, .foot button { display: inline-block; padding: 8px 0; }
+  .foot ul { gap: 2px; }
+  .restart { padding: 10px 0; }
+  .brand { min-height: 44px; }
+  footer { padding-bottom: 120px; }
+}
+.swipe-hint { display: none; text-align: center; font-family: var(--hand); font-weight: 700; font-size: 15px; color: var(--muted); margin-top: -6px; }
