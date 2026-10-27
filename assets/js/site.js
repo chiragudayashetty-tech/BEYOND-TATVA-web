@@ -22,6 +22,21 @@
   const L = o => (o && (o[LANG] != null ? o[LANG] : o.en));
 
   /* ── Analytics ── */
+  function aud() { try { return localStorage.getItem('bt_aud') || ''; } catch (e) { return ''; } }
+  (function audienceGate() {
+    const m = document.getElementById('aud'); if (!m) return;
+    if (aud()) { m.remove(); return; }
+    document.documentElement.classList.add('aud-open');
+    m.querySelectorAll('[data-aud]').forEach(b => b.addEventListener('click', e => {
+      const v = b.dataset.aud;
+      try { localStorage.setItem('bt_aud', v); } catch (err) {}
+      track('audience', { who: v });
+      if (v === 'school') return; // link navigates to /schools
+      e.preventDefault();
+      m.classList.add('closing'); document.documentElement.classList.remove('aud-open');
+      setTimeout(() => m.remove(), 350);
+    }));
+  })();
   function track(name, params) { if (window.gtag) gtag('event', name, params || {}); }
   if (C.ga4) {
     const s = document.createElement('script'); s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + C.ga4; document.head.appendChild(s);
@@ -385,7 +400,9 @@
       if (started) return; started = true;
       if (S.done && S.ans && S.ans.who) { ans = S.ans; light(TOTAL); await say(L(BT.CHAT.end).back(ans.name ? esc(ans.name) : '')); showPlan(false); return; }
       light(0);
+      while (document.getElementById('aud') && !document.getElementById('aud').classList.contains('closing')) await new Promise(r => setTimeout(r, 200));
       await say(BT.CHAT.hello);
+      if (aud() === 'parent' || aud() === 'student') { await say(BT.CHAT.askLang); cur = -1; renderFoot(); return; }
       await say(BT.CHAT.askWho);
       cur = -2; renderFoot();
     }
@@ -462,7 +479,8 @@
       applyLang(v, true);
       reward(body.lastChild, 1); award('hello', bot);
       await say(BT.CHAT.langReact[LANG]);
-      busy = false; next(0);
+      busy = false;
+      if (aud() === 'parent' || aud() === 'student') { ans.who = aud(); next(1); } else next(0);
       track('chat_lang', { lang: v });
     }
     async function next(i) {
