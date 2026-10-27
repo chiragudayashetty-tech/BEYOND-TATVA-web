@@ -18,6 +18,8 @@ BT.KN = {
   sc_p: '8–10ನೇ ತರಗತಿ · ಶುಲ್ಕವಿಲ್ಲ · ವಿದ್ಯಾರ್ಥಿಗಳ ಫೋನ್ ಬೇಡ · ಶಿಕ್ಷಕರು ಜೊತೆಗಿರುತ್ತಾರೆ',
   swipe: '← ಇನ್ನಷ್ಟು ನೋಡಲು ಸ್ವೈಪ್ ಮಾಡಿ →',
   h_photo: 'AI ಅಡ್ಡದಾರಿಯಲ್ಲ, ಓದಿನ ಸಂಗಾತಿ',
+  vb_l: 'ನಾನು', vb_p: '👨‍👩‍👧 ಪೋಷಕರು', vb_s: '🎒 ವಿದ್ಯಾರ್ಥಿ', vb_sc: '🏫 ಶಾಲೆ',
+  q_h: '🎮 XP ಸಂಗ್ರಹಿಸಿ',
   h_note: '1 ನಿಮಿಷ · ಉಚಿತ · ಪಕ್ಕಾ ↓',
   h_gift: '<b>ಮಾಡ್ಯೂಲ್ 0 ಉಚಿತ.</b> ಬಿಂದು ಜೊತೆ 1 ನಿಮಿಷ ಮಾತನಾಡಿ ಅನ್‌ಲಾಕ್ ಮಾಡಿ.',
   h_cta1: 'ಮಾತು ಆರಂಭಿಸಿ', h_cta2: '5 ತತ್ವಗಳನ್ನು ನೋಡಿ',
@@ -275,3 +277,14 @@ BT.DEMO = {
       quiz: { q: 'ಯಾವ ಘಟನೆಯ ನಂತರ ಗಾಂಧೀಜಿ ಅಸಹಕಾರ ಚಳುವಳಿಯನ್ನು ಹಿಂಪಡೆದರು?', opts: ['ಚೌರಿ ಚೌರಾ', 'ಜಲಿಯನ್‌ವಾಲಾ ಬಾಗ್', 'ದಂಡಿ ಯಾತ್ರೆ', 'ಸೈಮನ್ ಆಯೋಗ'], a: 0, why: 'ಚೌರಿ ಚೌರಾ (1922) ನಂತರ ಚಳುವಳಿ ಹಿಂಸಾತ್ಮಕವಾಗುತ್ತಿದೆ ಎಂದು ಗಾಂಧೀಜಿ ಭಾವಿಸಿದರು.' } }
   }
 };
+
+/* Student XP quest: simple steps, each tied to a badge. */
+BT.QUEST = [
+  { badges: ['hello', 'bindu'], href: '#chat', en: 'Chat with Bindu & unlock Module 0', kn: 'ಬಿಂದು ಜೊತೆ ಮಾತಾಡಿ, ಮಾಡ್ಯೂಲ್ 0 ಪಡೆಯಿರಿ' },
+  { badges: ['explorer'], href: '#tatva', en: 'Open all 6 modules on the wheel', kn: 'ಚಕ್ರದ ಎಲ್ಲಾ 6 ಮಾಡ್ಯೂಲ್ ತೆರೆಯಿರಿ' },
+  { badges: ['demo', 'quiz'], href: '#demo', en: 'Try the demo & answer the quiz', kn: 'ಡೆಮೊ ಮಾಡಿ, ಕ್ವಿಜ್ ಉತ್ತರಿಸಿ' },
+  { badges: ['slider', 'myth'], href: '#change', en: 'Drag the slider & flip all 4 myths', kn: 'ಸ್ಲೈಡರ್ ಎಳೆಯಿರಿ, 4 ಮಿಥ್ಯೆ ತಿರುಗಿಸಿ' },
+  { badges: ['prompt', 'price'], href: '#prompts', en: 'Copy a prompt & reveal the price', kn: 'ಒಂದು ಪ್ರಾಂಪ್ಟ್ ಕಾಪಿ ಮಾಡಿ, ಬೆಲೆ ನೋಡಿ' },
+  { badges: ['secret', 'end'], href: '#finale', en: 'Tap the logo 5× & reach the end', kn: 'ಲೋಗೋ 5 ಬಾರಿ ಒತ್ತಿ, ಕೊನೆಯವರೆಗೂ ಹೋಗಿ' }
+];
+BT.LEVELS = [[0, '🌱 Beginner', '🌱 ಆರಂಭಿಕ'], [100, '🔥 Explorer', '🔥 ಅನ್ವೇಷಕ'], [200, '⚡ Pro', '⚡ ಪ್ರೊ'], [320, '🏆 Tatva Master', '🏆 ತತ್ವ ಮಾಸ್ಟರ್']];

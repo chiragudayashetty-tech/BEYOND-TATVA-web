@@ -32,12 +32,23 @@
       try { localStorage.setItem('bt_aud', v); } catch (err) {}
       track('audience', { who: v });
       if (v === 'school') return; // link navigates to /schools
-      document.documentElement.classList.toggle('t-parent', v === 'parent');
+      document.documentElement.classList.toggle('t-parent', v === 'parent'); document.documentElement.classList.toggle('t-student', v === 'student');
+      document.querySelectorAll('[data-view]').forEach(x => x.setAttribute('aria-pressed', String(x.dataset.view === v)));
       e.preventDefault();
       m.classList.add('closing'); document.documentElement.classList.remove('aud-open');
       setTimeout(() => m.remove(), 350);
     }));
   })();
+  document.querySelectorAll('[data-view]').forEach(b => b.addEventListener('click', e => {
+    const v = b.dataset.view;
+    try { localStorage.setItem('bt_aud', v); } catch (err) {}
+    if (v === 'school') return;
+    e.preventDefault();
+    const h = document.documentElement; h.classList.toggle('t-parent', v === 'parent'); h.classList.toggle('t-student', v === 'student');
+    document.querySelectorAll('[data-view]').forEach(x => x.setAttribute('aria-pressed', String(x.dataset.view === v)));
+    track('view_switch', { view: v });
+  }));
+  { const a0 = aud(); document.querySelectorAll('[data-view]').forEach(x => x.setAttribute('aria-pressed', String(x.dataset.view === (a0 || 'parent')))); }
   function track(name, params) { if (window.gtag) gtag('event', name, params || {}); }
   if (C.ga4) {
     const s = document.createElement('script'); s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + C.ga4; document.head.appendChild(s);
@@ -166,11 +177,25 @@
     if (S.badges.includes(id)) return;
     const b = BT.BADGES.find(x => x.id === id); if (!b) return;
     S.badges.push(id); save();
+    if (isParent()) { S.xp += b.xp; save(); countTo(S.xp); renderQuest(); track('badge', { id }); return; }
     toast(b.em, T().badge + ' · ' + esc(L(b)[0]), '+' + b.xp + ' XP');
-    addXP(b.xp, fromEl);
+    addXP(b.xp, fromEl); renderQuest();
     sfx('badge'); buzz(25);
     if (big || b.xp >= 40) burst(...(fromEl ? centerOf(fromEl) : [innerWidth / 2, innerHeight / 3]), 90);
     track('badge', { id });
+  }
+  function isParent() { return document.documentElement.classList.contains('t-parent'); }
+  function renderQuest() {
+    const q = document.getElementById('quest'); if (!q || !BT.QUEST) return;
+    const max = BT.BADGES.reduce((a, b) => a + b.xp, 0), xp = Math.min(S.xp, max);
+    $('#qXp').textContent = xp; $('#qMax').textContent = max;
+    $('#qBar').style.width = (xp / max * 100) + '%';
+    const kn = LANG === 'kn', lv = BT.LEVELS.filter(l => xp >= l[0]).pop(), nx = BT.LEVELS.find(l => l[0] > xp);
+    $('#qLvl').textContent = (kn ? lv[2] : lv[1]) + (nx ? (kn ? ' · ಮುಂದಿನ ಹಂತ ' + nx[2] + ': ' + (nx[0] - xp) + ' XP' : ' · ' + (nx[0] - xp) + ' XP to ' + nx[1]) : '');
+    $('#qList').innerHTML = BT.QUEST.map(t => {
+      const got = t.badges.filter(id => S.badges.includes(id)).length, pts = t.badges.reduce((a, id) => a + BT.BADGES.find(b => b.id === id).xp, 0);
+      return '<li class="' + (got === t.badges.length ? 'done' : '') + '"><a href="' + t.href + '"><i>' + (got === t.badges.length ? '✓' : got ? '½' : '') + '</i><span>' + esc(kn ? t.kn : t.en) + '</span><b>+' + pts + '</b></a></li>';
+    }).join('');
   }
   const drawer = $('#drawer');
   function renderBadges() {
@@ -218,6 +243,7 @@
     $('#sealText').textContent = T().seal;
     $('#sealText').setAttribute('textLength', '486');
     setWa(); renderOffer(); renderGift(); wheel.render(); renderPrompts(); demo.onLang(); chat.refresh();
+    renderQuest();
     if (drawer.classList.contains('open')) renderBadges();
     if (persist) { S.lang = LANG; save(); }
   }

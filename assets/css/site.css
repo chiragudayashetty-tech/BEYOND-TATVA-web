@@ -870,3 +870,35 @@ html:is(.t-parent, .t-pro) .hero-photo { border-width: 1.5px; border-color: rgba
 html:is(.t-parent, .t-pro) .hero-photo figcaption { border: 0; }
 @media (max-width: 760px) { .hero-photo { aspect-ratio: 16 / 11; margin: 2px 0 16px; border-radius: 18px; box-shadow: 4px 4px 0 var(--edge); } .hero-photo figcaption { font-size: 13.5px; } }
 @media (min-width: 1000px) { .hero-photo { aspect-ratio: 2 / 1; } }
+
+/* ── "I'm a" view switcher ── */
+.viewbar { display: inline-flex; align-items: center; gap: 4px; padding: 4px; margin-bottom: 18px; border-radius: 999px; background: var(--card); border: 2px solid var(--edge); font-size: 13.5px; font-weight: 800; max-width: 100%; }
+.viewbar > span { padding: 0 6px 0 10px; color: var(--muted); }
+.viewbar button, .viewbar a { border: 0; background: transparent; padding: 8px 12px; border-radius: 999px; font: inherit; color: var(--fg-2); cursor: pointer; text-decoration: none; white-space: nowrap; min-height: 38px; display: inline-flex; align-items: center; }
+.viewbar [aria-pressed="true"] { background: var(--fg); color: #fff; }
+html.t-parent .viewbar { border-width: 1.5px; border-color: rgba(21,19,15,.14); }
+html.t-parent .viewbar [aria-pressed="true"] { background: var(--blue); }
+@media (max-width: 420px) { .viewbar > span { display: none; } .viewbar button, .viewbar a { padding: 8px 10px; font-size: 13px; } }
+
+/* ── Student XP quest (students only) ── */
+.quest { display: none; margin-top: 22px; padding: 16px; border-radius: 20px; background: var(--card); border: 2.5px solid var(--edge); box-shadow: 5px 5px 0 var(--blue); max-width: 560px; }
+html.t-student .quest { display: block; }
+.quest-top { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; font-weight: 800; }
+.quest-top > b { font-size: 18px; }
+.quest-top > span { font-size: 14px; color: var(--fg-2); }
+.quest-top #qXp { color: var(--blue); font-size: 18px; }
+.quest-bar { height: 12px; margin-top: 8px; border-radius: 12px; background: #EFEAE0; border: 2px solid var(--edge); overflow: hidden; }
+.quest-bar i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--lime), var(--sun)); transition: width .8s var(--spring); }
+.quest-lvl { margin-top: 6px; font-family: var(--hand); font-weight: 700; font-size: 15px; color: var(--pink); }
+.quest-list { list-style: none; padding: 0; margin: 10px 0 0; display: grid; gap: 6px; }
+.quest-list a { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 12px; background: #FFFDF6; border: 1.5px solid var(--line-2); text-decoration: none; font-size: 14px; font-weight: 700; min-height: 44px; }
+.quest-list a:hover { background: #F7FFE0; }
+.quest-list i { width: 24px; height: 24px; flex: none; border-radius: 50%; border: 2px solid var(--edge); display: grid; place-items: center; font-style: normal; font-size: 12px; font-weight: 900; background: var(--card); }
+.quest-list span { flex: 1; }
+.quest-list b { font-size: 12.5px; color: var(--blue); white-space: nowrap; }
+.quest-list li.done a { background: #EEFBD8; }
+.quest-list li.done i { background: var(--lime); }
+.quest-list li.done span { text-decoration: line-through; text-decoration-color: rgba(21,19,15,.35); }
+
+/* Parents: no game layer */
+html.t-parent :is(.xp, #soundBtn, .quest, .hand-note) { display: none !important; }

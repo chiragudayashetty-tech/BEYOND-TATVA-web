@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Baloo+Tamma+2:wght@500;600;700;800&family=Noto+Sans+Kannada:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="/assets/css/site.css" />
-<script>(function(d){d.classList.add('js');try{if(false)d.classList.add('intro-on');var a=localStorage.getItem('bt_aud');if(a){d.classList.add('aud-done');if(a==='parent')d.classList.add('t-parent')}}catch(e){}})(document.documentElement)</script>
+<script>(function(d){d.classList.add('js');try{if(false)d.classList.add('intro-on');var a=localStorage.getItem('bt_aud');if(a){d.classList.add('aud-done');d.classList.add(a==='parent'?'t-parent':'t-student')}}catch(e){}})(document.documentElement)</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -144,6 +144,12 @@
   </div>
   <div class="wrap hero-grid">
     <div>
+      <div class="viewbar" role="group" aria-label="View the site as">
+        <span data-i18n="vb_l">I'm a</span>
+        <button type="button" data-view="parent" data-i18n="vb_p">👨‍👩‍👧 Parent</button>
+        <button type="button" data-view="student" data-i18n="vb_s">🎒 Student</button>
+        <a href="/schools" data-view="school" data-i18n="vb_sc">🏫 School</a>
+      </div>
       <p class="eyebrow" data-i18n="h_eyebrow">AI education · Class 8–10 · Udupi</p>
       <h1 class="split" data-i18n="h_title">Your child already uses AI. <em>Let's make it their superpower.</em></h1>
       <figure class="hero-photo reveal"><img src="/assets/photos/hero.webp" alt="A Class 9 student revising biology notes with an AI study helper on her phone" width="825" height="1024" fetchpriority="high" /><figcaption data-i18n="h_photo">AI as a study buddy, not a shortcut</figcaption></figure>
@@ -152,6 +158,12 @@
       <div class="hero-cta reveal" style="--d:.2s">
         <a class="btn btn-gold mag" href="#chat" id="startChat"><span data-i18n="h_cta1">Start chatting</span> <svg class="i"><use href="#i-arrow"/></svg></a>
         <a class="btn btn-ghost mag" href="#tatva" data-i18n="h_cta2">See the 5 tatvas</a>
+      </div>
+      <div class="quest" id="quest">
+        <div class="quest-top"><b data-i18n="q_h">🎮 Collect XP</b><span><b id="qXp">0</b> / <span id="qMax">370</span> XP</span></div>
+        <div class="quest-bar"><i id="qBar"></i></div>
+        <p class="quest-lvl" id="qLvl"></p>
+        <ol class="quest-list" id="qList"></ol>
       </div>
       <ul class="hero-trust reveal" style="--d:.3s">
         <li><svg class="i"><use href="#i-shield"/></svg><span data-i18n="tr1">7-day full refund</span></li>
