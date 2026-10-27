@@ -1,6 +1,6 @@
 /* Beyond Tatva · Razorpay Standard Checkout.
    Any [data-enroll] click → /api/create-order → Razorpay modal → /api/verify-payment.
-   If the API is unavailable, the link's own href (Razorpay payment page) is used instead. */
+   If the API is unavailable, a message offers retry or WhatsApp. */
 (function () {
   'use strict';
   var busy = false;
@@ -80,9 +80,10 @@
       })
       .catch(function (err) {
         waiting.remove(); busy = false;
-        var href = link && link.getAttribute('href');
-        if (href && /^https?:/.test(href)) { location.href = href; return; } // fallback: Razorpay payment page
-        dialog('err', t('Checkout is unavailable right now', 'ಪಾವತಿ ಈಗ ಲಭ್ಯವಿಲ್ಲ'), (err && err.message ? err.message + '. ' : '') + t('Please try again in a minute.', 'ಒಂದು ನಿಮಿಷದ ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.'), [{ label: t('Close', 'ಮುಚ್ಚಿ') }]);
+        if (window.console) console.warn('[Beyond Tatva] checkout error:', err && err.message);
+        var acts = [{ label: t('Try again', 'ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ'), primary: true, fn: function () { start(link); } }];
+        if (wa()) acts.push({ label: t('Enrol on WhatsApp instead', 'WhatsApp ಮೂಲಕ ದಾಖಲಾಗಿ'), href: wa() + '?text=' + encodeURIComponent('Hi! I want to enrol in the Beyond Tatva AI course (₹799).') });
+        dialog('err', t('Checkout didn\'t open', 'ಪಾವತಿ ತೆರೆಯಲಿಲ್ಲ'), t('Please try again in a minute, or message us on WhatsApp and we\'ll send you a secure payment link.', 'ಒಂದು ನಿಮಿಷದ ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ, ಅಥವಾ WhatsApp ಮಾಡಿ, ನಾವು ಸುರಕ್ಷಿತ ಪಾವತಿ ಲಿಂಕ್ ಕಳುಹಿಸುತ್ತೇವೆ.'), acts);
       });
   }
 

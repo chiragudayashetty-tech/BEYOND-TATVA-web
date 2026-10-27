@@ -5,7 +5,7 @@
 window.BT_CONFIG = {
   // Fallback Razorpay payment page, used only if /api/create-order is unavailable.
   // Normal checkout opens the Razorpay modal via /api (keys live in Vercel env vars).
-  checkoutUrl: 'https://rzp.io/rzp/beyondtatva',
+  checkoutUrl: '',
 
   // Your WhatsApp number with country code, digits only, e.g. '919876543210'.
   // While empty, WhatsApp buttons stay hidden (so no one hits a dead number).
