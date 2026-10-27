@@ -32,6 +32,7 @@
       try { localStorage.setItem('bt_aud', v); } catch (err) {}
       track('audience', { who: v });
       if (v === 'school') return; // link navigates to /schools
+      document.documentElement.classList.toggle('t-parent', v === 'parent');
       e.preventDefault();
       m.classList.add('closing'); document.documentElement.classList.remove('aud-open');
       setTimeout(() => m.remove(), 350);

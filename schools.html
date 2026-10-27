@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="t-pro">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
@@ -69,6 +69,25 @@
   .book .call a { color: var(--blue); font-weight: 800; }
   .form .opt-l { font-weight: 600; color: var(--muted); }
   footer { padding-bottom: 50px; }
+  @media (max-width: 760px) {
+    .s-hero { padding: 30px 0 44px; } .s-hero-grid { gap: 26px; }
+    .s-hero h1 { font-size: 34px; }
+    .s-sec { padding: 48px 0; } .s-sec .sec-head { margin-bottom: 22px; } .s-sec .sec-head h2 { font-size: 27px; }
+    .facts { gap: 6px; } .facts li { font-size: 12.5px; padding: 6px 10px; }
+    .s-panel { padding: 20px 18px; } .s-panel li { font-size: 14px; }
+    .points { gap: 12px; } .point { padding: 16px; display: flex; gap: 14px; align-items: flex-start; } .point p { margin-top: 0; font-size: 15px; }
+    .point .s-ic { width: 40px; height: 40px; flex: none; }
+    .gets { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .gets .card { flex-direction: column; gap: 10px; padding: 14px; }
+    .gets h3 { font-size: 15px; } .gets p { font-size: 12.5px; } .gets .s-ic { width: 38px; height: 38px; }
+    .s-intro { font-size: 15.5px; }
+    .mods { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; margin: 0 -20px; padding: 6px 20px 16px; scrollbar-width: none; }
+    .mods::-webkit-scrollbar { display: none; }
+    .s-mod { flex: 0 0 78%; scroll-snap-align: center; padding: 18px; }
+    .mods-hint { display: block; }
+    .book .form-card { padding: 22px 18px; }
+  }
+  .mods-hint { display: none; text-align: center; font-size: 13px; font-weight: 700; color: var(--muted); margin-top: 4px; }
 </style>
 </head>
 <body>
@@ -201,6 +220,7 @@
       <article class="card s-mod reveal" style="--c:var(--air);--d:0.20s"><div class="s-mod-top"><span class="s-ic"><svg class="i"><use href="#i-code"/></svg></span><small>Module 4</small></div><h3>Build with AI</h3><p>Create websites, games and digital tools without coding. Students build real things they can show friends, family and schools.</p></article>
       <article class="card s-mod reveal" style="--c:var(--space);--d:0.25s"><div class="s-mod-top"><span class="s-ic"><svg class="i"><use href="#i-rocket"/></svg></span><small>Module 5</small></div><h3>Business with AI Masterclass</h3><p>How to start something using AI — from idea to execution. Marketing, content, basic finance and building in the age of AI. For students who want to do more than just study.</p></article>
     </div>
+    <p class="mods-hint">← swipe to see all 6 modules →</p>
     <p class="s-note">Or the school can enrol all students as a co-curricular activity. Quoted after visit. No obligation.</p>
   </div>
 </section>

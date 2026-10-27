@@ -768,3 +768,96 @@ html.aud-open body { overflow: hidden; }
 .aud-opt b small { display: block; margin-top: 2px; font-family: var(--kn); font-weight: 600; font-size: 14px; color: var(--muted); }
 .aud-opt svg { flex: none; }
 .aud-opt[data-aud="school"] { background: #FFF6CC; }
+
+/* ═══ Audience themes ═══
+   Students: default playful notebook.
+   Parents (html.t-parent): calmer and more trustworthy — soft shadows, thin lines, no tilt.
+   Schools (html.t-pro): professional — white, navy, no doodles. */
+html:is(.t-parent, .t-pro) :is(.btn, .card, .chat, .opt, .send, .field, .gift-pill, .node, .subj, .notebook, .tabs, .qopt, .ba, .myth .face, .pin, .pc, .copy, .ticket-in, .seal .core, .mentor .slot, .faq details, .buybar, .toast, .drawer-in, .aud-in, .aud-opt, .school-cta, .scratch, .xp, .lang, .icon-btn, .wa-float, .ribbon, .chip, .makes, .s-ic, .form input, .form select, .form textarea, .form-msg, .agenda .ic, .incl li .ic, .panel-art .mnum, .schools .slot, .s-panel, .s-mod-top small, .facts li, .tag-free) {
+  border-width: 1.5px; border-color: rgba(21,19,15,.14); box-shadow: 0 1px 2px rgba(20,20,40,.05), 0 8px 24px rgba(20,20,40,.07);
+}
+html:is(.t-parent, .t-pro) :is(.btn, .opt, .subj, .qopt, .copy, .aud-opt, .card, .school-cta):hover { transform: translateY(-2px); box-shadow: 0 2px 4px rgba(20,20,40,.06), 0 14px 32px rgba(20,20,40,.10); }
+html:is(.t-parent, .t-pro) :is(.btn, .opt, .aud-opt):active { transform: none; }
+html:is(.t-parent, .t-pro) :is(.myth, .pin, .pc, .gift-pill, .eyebrow, .ribbon, .kinetic, .makes, .hand-note, .chat::before) { rotate: 0deg; }
+html:is(.t-parent, .t-pro) .chat::before, html:is(.t-parent, .t-pro) .pc::after { display: none; }
+html:is(.t-parent, .t-pro) .perf::before, html:is(.t-parent, .t-pro) .perf::after { border-width: 1.5px; border-color: rgba(21,19,15,.14); }
+html:is(.t-parent, .t-pro) .perf { border-top: 1.5px dashed rgba(21,19,15,.2); }
+html:is(.t-parent, .t-pro) .nav.solid { border-bottom: 1px solid rgba(21,19,15,.1); }
+html:is(.t-parent, .t-pro) .kinetic { border-width: 1px; border-color: rgba(21,19,15,.1); margin: 10px 0; }
+html:is(.t-parent, .t-pro) footer { border-top: 1px solid rgba(21,19,15,.1); }
+html:is(.t-parent, .t-pro) .msg.me { border: 0; box-shadow: none; }
+html.t-parent .btn-gold, html.t-parent .send, html.t-parent .nb-left .btn { background: var(--blue); color: #fff; border-color: var(--blue); }
+html.t-parent .btn-gold s { color: rgba(255,255,255,.75); }
+html.t-parent .kinetic { background: #EEF2FF; }
+html.t-parent .myth .front { background: #FFF1F6; } html.t-parent .myth .back { background: #F0FAEA; }
+html.t-parent .cursor-glow { display: none; }
+
+/* Schools: professional */
+html.t-pro { --bg: #FFFFFF; --blue: #1E3A8A; --navy: #0F2348; }
+html.t-pro body { background: #FFFFFF; }
+html.t-pro .dots, html.t-pro .aurora, html.t-pro .grain { display: none; }
+html.t-pro .s-hero { background: linear-gradient(180deg, #F3F6FC, #FFFFFF); }
+html.t-pro .btn-gold { background: var(--navy); color: #fff; border-color: var(--navy); }
+html.t-pro .btn-gold:hover { background: #1B3566; }
+html.t-pro .eyebrow { font-family: var(--sans); font-weight: 800; font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--blue); }
+html.t-pro .eyebrow::before { content: ""; width: 22px; height: 2px; background: var(--blue); }
+html.t-pro em { font-family: var(--sans); font-style: normal; font-weight: 800; color: var(--blue); background: none; letter-spacing: inherit; padding: 0; }
+html.t-pro h1, html.t-pro h2 { color: var(--navy); letter-spacing: -.025em; }
+html.t-pro .s-panel { background: #F7F9FD; }
+html.t-pro .s-panel li b { background: var(--navy); color: #fff; border-color: var(--navy); }
+html.t-pro .s-panel .stamp { rotate: 0deg; background: #E8EEFA; border: 0; color: var(--navy); }
+html.t-pro .facts svg { color: #15803D; }
+html.t-pro .tag-free { background: #E7F6EC; color: #166534; border-color: #BBE5C8; }
+html.t-pro .s-ic { background: #EEF2FA !important; color: var(--navy); }
+html.t-pro .s-mod-top small { background: #F1F4FA; color: var(--navy); }
+html.t-pro .s-note { border-style: solid; border-width: 1px; background: #F7F9FD; }
+html.t-pro .copy-row span:last-child { font-family: var(--sans); font-size: 13px; color: var(--muted); }
+html.t-pro .brand-tip { display: none; }
+
+/* ═══ Phones: denser sections, less scrolling ═══ */
+@media (max-width: 760px) {
+  .wheel { width: min(100%, 330px); }
+  .tatva-grid { gap: 18px; }
+  .panel-art { height: 84px; }
+  .panel-art .kn-big { font-size: 70px; bottom: -14px; }
+  .panel-body { padding: 16px 16px 18px; gap: 10px; }
+  .panel-body h3 { font-size: 26px; }
+  .panel-body .tagline { font-size: 17px; }
+  .chip { padding: 6px 10px; font-size: 13.5px; }
+  .tatva-count { margin-top: 12px; font-size: 16px; }
+  .subjects { margin-bottom: 16px; gap: 8px; }
+  .subj { padding: 7px 14px; font-size: 14px; }
+  .nb-left, .nb-right { padding: 16px; }
+  .nb-prompt { min-height: 0; }
+  .empty { min-height: 160px; }
+  .demo-note { margin-top: 12px; }
+  .offer-grid { gap: 20px; }
+  .ticket-in { padding: 24px var(--pad) 20px; }
+  .ticket h3 { font-size: 26px; }
+  .reel { font-size: 60px; } .reel .rup { font-size: 32px; }
+  .incl { grid-template-columns: 1fr 1fr; gap: 10px 12px; }
+  .incl li { font-size: 13.5px; align-items: flex-start; gap: 8px; }
+  .incl li .ic { width: 30px; height: 30px; border-radius: 10px; }
+  .incl li small { font-size: 12px; }
+  .perf { margin: 16px -6px; }
+  .seal { display: none; }
+  .side-card { padding: 18px; }
+  .mentor { grid-template-columns: 96px 1fr; gap: 16px; align-items: start; }
+  .mentor .slot { width: 96px; margin: 0; border-radius: 50%; aspect-ratio: 1; box-shadow: 4px 4px 0 var(--pink); }
+  .art-mentor b { font-size: 34px; }
+  .mentor blockquote { font-size: 20px; }
+  html[lang="kn"] .mentor blockquote { font-size: 16px; }
+  .mentor ul { grid-column: 1 / -1; }
+  .faq { gap: 10px; }
+  .faq details { padding: 0 16px; }
+  .faq summary { padding: 15px 40px 15px 0; }
+  .finale { padding: 50px 0 60px; }
+  .kolam { width: 200px; }
+  .finale h2 { font-size: 40px; }
+  .finale h2 + p { font-size: 22px; }
+  footer { padding-top: 34px; }
+  .foot { grid-template-columns: 1fr 1fr; gap: 18px 16px; }
+  .foot > div:first-child { grid-column: 1 / -1; }
+  .copy-row { margin-top: 20px; }
+}
+html.t-pro .nav.solid { background: rgba(255,255,255,.92); }
