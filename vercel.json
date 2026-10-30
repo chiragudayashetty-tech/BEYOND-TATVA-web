@@ -1,1 +1,88 @@
-{ "cleanUrls": true }
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/deployed 2",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/deployed 3",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/deploy 4",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/index - Copy",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/Buttons done",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/deployed%202",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/deployed%203",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/deploy%204",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/index%20-%20Copy",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/Buttons%20done",
+      "destination": "/",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000; includeSubDomains"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000"
+        }
+      ]
+    }
+  ]
+}
