@@ -1,5 +1,6 @@
 /* POST /api/create-order → { order_id, amount, currency, key_id }
-   The price comes from the server (COURSE_PRICE_PAISE), never from the browser. */
+   The price comes from the server (COURSE_PRICE_PAISE), never from the browser.
+   Coupons live in the COUPONS env var as CODE:paise_off pairs, e.g. "PILOT300:30000,SCHOOL300:30000". */
 const { creds, readBody, send } = require('./_razorpay');
 
 module.exports = async function handler(req, res) {
@@ -11,11 +12,19 @@ module.exports = async function handler(req, res) {
   if (!Number.isInteger(amount) || amount < 100) return send(res, 500, { error: 'Course price must be at least 100 paise' });
 
   const body = readBody(req);
+  const code = String(body.coupon || '').trim().toUpperCase();
+  let off = 0;
+  if (code) {
+    const coupons = Object.fromEntries(String(process.env.COUPONS || '').split(',').map(p => p.trim().split(':')).filter(p => p.length === 2).map(([k, v]) => [k.trim().toUpperCase(), parseInt(v, 10)]));
+    off = coupons[code];
+    if (!Number.isInteger(off) || off <= 0 || amount - off < 100) return send(res, 400, { error: 'Invalid coupon' });
+  }
+
   const clean = v => String(v || '').replace(/[^\p{L}\p{N} .,+@-]/gu, '').slice(0, 80);
   const payload = {
-    amount, currency: 'INR',
+    amount: amount - off, currency: 'INR',
     receipt: 'bt_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6),
-    notes: { course: 'Beyond Tatva AI Course', name: clean(body.name), phone: clean(body.phone), source: clean(body.source) || 'website' }
+    notes: { course: 'Beyond Tatva AI Course', name: clean(body.name), phone: clean(body.phone), source: clean(body.source) || 'website', coupon: clean(code) }
   };
 
   try {
