@@ -42,7 +42,7 @@
     var s = state(), a = s.ans || {};
     var waiting = dialog('wait', t('Opening secure checkout…', 'ಸುರಕ್ಷಿತ ಪಾವತಿ ತೆರೆಯುತ್ತಿದೆ…'), t('Powered by Razorpay. UPI, cards and net banking.', 'Razorpay ಮೂಲಕ. UPI, ಕಾರ್ಡ್, ನೆಟ್ ಬ್ಯಾಂಕಿಂಗ್.'));
     track('begin_checkout', { value: 799, currency: 'INR' });
-    Promise.all([post('/api/create-order', { name: a.contactName || '', phone: a.phone || '', source: 'website' }), loadScript()])
+    Promise.all([post('/api/create-order', { name: a.contactName || '', phone: a.phone || '', source: 'website', coupon: ((document.getElementById('coupon') || {}).value || '').trim() }), loadScript()])
       .then(function (r) {
         var o = r[0]; waiting.remove();
         var rz = new window.Razorpay({
@@ -80,6 +80,7 @@
       })
       .catch(function (err) {
         waiting.remove(); busy = false;
+        if (err && err.status === 400) { dialog('err', t('Coupon not valid', 'ಕೂಪನ್ ಮಾನ್ಯವಲ್ಲ'), t('Check the code, or clear the box to pay the full price.', 'ಕೋಡ್ ಪರಿಶೀಲಿಸಿ, ಅಥವಾ ಪೂರ್ಣ ಬೆಲೆಗೆ ಬಾಕ್ಸ್ ಖಾಲಿ ಮಾಡಿ.'), [{ label: 'OK', primary: true }]); return; }
         if (window.console) console.warn('[Beyond Tatva] checkout error:', err && err.message);
         var acts = [{ label: t('Try again', 'ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ'), primary: true, fn: function () { start(link); } }];
         if (wa()) acts.push({ label: t('Enrol on WhatsApp instead', 'WhatsApp ಮೂಲಕ ದಾಖಲಾಗಿ'), href: wa() + '?text=' + encodeURIComponent('Hi! I want to enrol in the Beyond Tatva AI course (₹799).') });
