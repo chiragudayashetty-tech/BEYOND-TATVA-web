@@ -24,5 +24,5 @@ window.BT_CONFIG = {
   priceDeadline: null,
 
   // Google Analytics 4 measurement ID, e.g. 'G-XXXXXXX'. Leave empty to disable.
-  ga4: ''
+  ga4: 'G-C98KFTE0PD'
 };
