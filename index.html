@@ -26,14 +26,177 @@
 <script>(function(d){d.classList.add('js');try{if(false)d.classList.add('intro-on');var a=localStorage.getItem('bt_aud');if(a){d.classList.add('aud-done');d.classList.add(a==='parent'?'t-parent':'t-student')}}catch(e){}})(document.documentElement)</script>
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "Course",
-  "name": "Beyond Tatva AI Skills Course",
-  "description": "Six AI modules (0–5) for Class 8–10 students: board-exam study skills, creative projects, life skills and responsible AI use. Module 0 is free.",
-  "provider": { "@type": "Organization", "name": "Beyond Tatva", "url": "https://www.beyondtatva.in/", "areaServed": "Udupi, Karnataka, India" },
-  "educationalLevel": "Class 8–10",
-  "inLanguage": ["en", "kn"],
-  "offers": { "@type": "Offer", "price": "799", "priceCurrency": "INR", "category": "Paid" }
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": [
+    "EducationalOrganization",
+    "LocalBusiness"
+   ],
+   "@id": "https://www.beyondtatva.in/#org",
+   "name": "Beyond Tatva",
+   "alternateName": "ಬಿಯಾಂಡ್ ತತ್ವ",
+   "url": "https://www.beyondtatva.in/",
+   "logo": "https://www.beyondtatva.in/assets/img/logo.webp",
+   "image": "https://www.beyondtatva.in/assets/img/og.jpg",
+   "description": "AI skills course and free school AI workshops for Class 8–10 students, in English and Kannada.",
+   "telephone": "+91-6361844418",
+   "email": "chiragshetty@beyondtatva.in",
+   "priceRange": "₹₹",
+   "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Udupi",
+    "addressRegion": "Karnataka",
+    "addressCountry": "IN"
+   },
+   "areaServed": [
+    {
+     "@type": "City",
+     "name": "Udupi"
+    },
+    {
+     "@type": "City",
+     "name": "Manipal"
+    },
+    {
+     "@type": "City",
+     "name": "Kundapur"
+    },
+    {
+     "@type": "City",
+     "name": "Karkala"
+    },
+    {
+     "@type": "City",
+     "name": "Brahmavar"
+    }
+   ],
+   "founder": {
+    "@id": "https://www.beyondtatva.in/#founder"
+   },
+   "sameAs": []
+  },
+  {
+   "@type": "Person",
+   "@id": "https://www.beyondtatva.in/#founder",
+   "name": "Chirag Shetty",
+   "jobTitle": "Founder & course mentor",
+   "worksFor": {
+    "@id": "https://www.beyondtatva.in/#org"
+   },
+   "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Udupi",
+    "addressCountry": "IN"
+   }
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://www.beyondtatva.in/#site",
+   "url": "https://www.beyondtatva.in/",
+   "name": "Beyond Tatva",
+   "inLanguage": [
+    "en-IN",
+    "kn-IN"
+   ],
+   "publisher": {
+    "@id": "https://www.beyondtatva.in/#org"
+   }
+  },
+  {
+   "@type": "Course",
+   "@id": "https://www.beyondtatva.in/#course",
+   "name": "Beyond Tatva AI Skills Course",
+   "description": "Six AI modules (0–5) for Class 8–10 students: board-exam study skills, creative projects, life skills and responsible AI use. Module 0 is free.",
+   "provider": {
+    "@id": "https://www.beyondtatva.in/#org"
+   },
+   "educationalLevel": "Class 8–10",
+   "inLanguage": [
+    "en",
+    "kn"
+   ],
+   "offers": {
+    "@type": "Offer",
+    "price": "799",
+    "priceCurrency": "INR",
+    "category": "Paid",
+    "availability": "https://schema.org/InStock",
+    "url": "https://www.beyondtatva.in/#offer"
+   },
+   "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": "Online",
+    "courseWorkload": "PT6H",
+    "inLanguage": [
+     "en",
+     "kn"
+    ]
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://www.beyondtatva.in/#faq",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "What is Module 0, and is it really free?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. Module 0 (Bindu) is a 15-minute starter: what AI really is, 3 golden rules for honest use, and your child's first study prompt. Chat with Bindu above to unlock it. No payment."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Will this help with board exams?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "That's the main focus of Module 1. Students learn to turn their own textbook chapters into notes, flashcards and exam-style questions."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Isn't using AI for studies cheating?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Copying is cheating. Using AI to understand and to practise is not. We teach when not to use AI: exams, graded homework and independent work."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is it in Kannada?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "This website is fully in Kannada and English, and you can message us in either language. Ask us on WhatsApp about Kannada support for your child's lessons."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How long does it take?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Self-paced with lifetime access. Most students finish in 1–2 weeks alongside school."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What if we don't like it?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Tell us within 7 days and we refund the full ₹799. No questions asked."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What do you do with my number?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "We use it only to send Module 0, your child's plan and course updates on WhatsApp. We don't sell or share it. Reply STOP any time."
+     }
+    }
+   ]
+  }
+ ]
 }
 </script>
 </head>
@@ -441,7 +604,7 @@
       <div><h4 data-i18n="ft_c">Explore</h4><ul><li><a href="#chat" data-i18n="nav_free">Free Module 0</a></li><li><a href="#tatva" data-i18n="nav_course">Course</a></li><li><a href="#demo" data-i18n="nav_demo">Demo</a></li><li><a href="#offer" data-i18n="nav_price">Price</a></li><li><a href="/schools" data-i18n="nav_schools">For Schools</a></li></ul></div>
       <div><h4 data-i18n="ft_ct">Contact</h4><ul><li data-wa-row><a data-wa href="#" data-i18n="ft_wa">WhatsApp us</a></li><li data-email-row><a id="emailLink" href="#"></a></li><li><button class="restart" type="button" id="shareBtn" style="text-decoration:none;color:inherit;font-size:inherit;padding:0" data-i18n="ft_share">Share with a parent friend</button></li><li data-i18n="ft_areas">Udupi · Manipal · Kundapur · Karkala · Brahmavar</li></ul></div>
     </div>
-    <div class="copy-row"><span>© <span id="yr">2026</span> Beyond Tatva</span><span><a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · <a href="/refund">Refunds</a> · <a href="/contact">Contact</a></span><span data-i18n="ft_egg">Psst… tap the logo 5 times.</span></div>
+    <div class="copy-row"><span>© <span id="yr">2026</span> Beyond Tatva · MSME Udyam UDYAM-KR-26-0066858</span><span><a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · <a href="/refund">Refunds</a> · <a href="/contact">Contact</a></span><span data-i18n="ft_egg">Psst… tap the logo 5 times.</span></div>
   </div>
 </footer>
 
