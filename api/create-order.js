@@ -12,6 +12,7 @@ module.exports = async function handler(req, res) {
   if (!Number.isInteger(amount) || amount < 100) return send(res, 500, { error: 'Course price must be at least 100 paise' });
 
   const body = readBody(req);
+  if (!body.consent_parent) return send(res, 422, { error: 'Parent consent required' });
   const code = String(body.coupon || '').trim().toUpperCase();
   let off = 0;
   if (code) {
@@ -24,7 +25,7 @@ module.exports = async function handler(req, res) {
   const payload = {
     amount: amount - off, currency: 'INR',
     receipt: 'bt_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6),
-    notes: { course: 'Beyond Tatva AI Course', name: clean(body.name), phone: clean(body.phone), source: clean(body.source) || 'website', coupon: clean(code) }
+    notes: { course: 'Beyond Tatva AI Course', name: clean(body.name), phone: clean(body.phone), source: clean(body.source) || 'website', coupon: clean(code), parent_consent: body.consent_parent ? 'yes' : 'no', marketing_opt_in: body.consent_marketing ? 'yes' : 'no' }
   };
 
   try {
