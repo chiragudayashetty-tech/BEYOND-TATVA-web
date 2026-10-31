@@ -2,7 +2,7 @@
 (function () {
   'use strict';
   var C = window.BT_CONFIG || {};
-  var WA = (C.whatsapp || '916361844418').replace(/\D/g, '');
+  var WA = (C.whatsapp || '917337645448').replace(/\D/g, '');
   document.getElementById('yr').textContent = new Date().getFullYear();
 
   // Reveal on scroll
