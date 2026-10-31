@@ -16,12 +16,18 @@ window.BT_CONFIG = {
 
   // Leads go into Zoho CRM (Leads module). Settings live in assets/js/lead.js.
 
-  // Real Batch 1 enrolments. Leave null to hide the seats bar.
+  // Prices shown on the page (the amount actually charged is set on the server).
+  price: 799,
+  listPrice: 2499,
+
+  // REAL urgency only. Update these honestly; anything left null is hidden.
+  // Founding batch size and how many seats are already taken (update as people pay).
   seatsTotal: 75,
   seatsTaken: null,
-
-  // Real date the founding price ends, e.g. '2026-10-31T23:59:59+05:30'. null hides it.
+  // Date the founding price ends, e.g. '2026-11-15T23:59:59+05:30'.
   priceDeadline: null,
+  // Date Batch 1 starts, e.g. '2026-11-16'.
+  batchStart: null,
 
   // Google Analytics 4 measurement ID, e.g. 'G-XXXXXXX'. Leave empty to disable.
   ga4: 'G-C98KFTE0PD'

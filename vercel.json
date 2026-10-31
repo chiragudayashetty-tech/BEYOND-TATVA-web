@@ -76,7 +76,16 @@
       ]
     },
     {
-      "source": "/assets/(.*)",
+      "source": "/assets/(js|css)/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=300, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/assets/(img|photos)/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
