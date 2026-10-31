@@ -37,21 +37,52 @@
   }
   function wa() { var n = ((window.BT_CONFIG || {}).whatsapp || '').replace(/\D/g, ''); return n ? 'https://wa.me/' + n : ''; }
 
+
+  /* Parent consent (DPDP Act 2023): required before every checkout */
+  function askConsent(done) {
+    var old = document.getElementById('payDlg'); if (old) old.remove();
+    var d = document.createElement('div'); d.id = 'payDlg'; d.className = 'pay-dlg consent'; d.setAttribute('role', 'dialog'); d.setAttribute('aria-modal', 'true');
+    d.innerHTML = '<div class="pay-in"><div class="pay-ic">👨‍👩‍👧</div><h3></h3><p></p>' +
+      '<label class="cs-row"><input type="checkbox" id="csReq"> <span id="csReqT"></span></label>' +
+      '<label class="cs-row"><input type="checkbox" id="csOpt"> <span id="csOptT"></span></label>' +
+      '<small class="cs-err" id="csErr" hidden></small><div class="pay-act"></div></div>';
+    d.querySelector('h3').textContent = t('Parent / guardian consent', 'ಪೋಷಕರ / ರಕ್ಷಕರ ಒಪ್ಪಿಗೆ');
+    d.querySelector('p').textContent = t('This course is for students under 18, so a parent or guardian must agree before enrolling.', 'ಈ ಕೋರ್ಸ್ 18 ವರ್ಷದೊಳಗಿನ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ. ಆದ್ದರಿಂದ ದಾಖಲಾತಿಗೆ ಮೊದಲು ಪೋಷಕರು ಒಪ್ಪಬೇಕು.');
+    d.querySelector('#csReqT').innerHTML = t('I am the parent or legal guardian of this student. I consent to Beyond Tatva using my and my child\'s details only to provide the course and send course updates, as described in the <a href="/privacy" target="_blank">Privacy Policy</a>. I can ask for deletion at any time. <b>(Required)</b>', 'ನಾನು ಈ ವಿದ್ಯಾರ್ಥಿಯ ಪೋಷಕ/ಕಾನೂನುಬದ್ಧ ರಕ್ಷಕ. ಕೋರ್ಸ್ ನೀಡಲು ಮತ್ತು ಕೋರ್ಸ್ ಮಾಹಿತಿ ಕಳುಹಿಸಲು ಮಾತ್ರ ನನ್ನ ಮತ್ತು ನನ್ನ ಮಗುವಿನ ವಿವರಗಳನ್ನು ಬಳಸಲು Beyond Tatva ಗೆ ಒಪ್ಪಿಗೆ ನೀಡುತ್ತೇನೆ (<a href="/privacy" target="_blank">ಗೌಪ್ಯತಾ ನೀತಿ</a>). ಯಾವಾಗ ಬೇಕಾದರೂ ಅಳಿಸಲು ಕೇಳಬಹುದು. <b>(ಕಡ್ಡಾಯ)</b>');
+    d.querySelector('#csOptT').textContent = t('(Optional) You may also message me about future Beyond Tatva courses useful for my child.', '(ಐಚ್ಛಿಕ) ನನ್ನ ಮಗುವಿಗೆ ಉಪಯುಕ್ತವಾದ ಮುಂದಿನ Beyond Tatva ಕೋರ್ಸ್‌ಗಳ ಬಗ್ಗೆ ಸಂದೇಶ ಕಳುಹಿಸಬಹುದು.');
+    var act = d.querySelector('.pay-act');
+    var go = document.createElement('button'); go.type = 'button'; go.className = 'btn btn-gold btn-block'; go.textContent = t('Agree & continue to payment', 'ಒಪ್ಪಿ ಪಾವತಿಗೆ ಮುಂದುವರಿಯಿರಿ');
+    var no = document.createElement('button'); no.type = 'button'; no.className = 'btn btn-ghost btn-block'; no.textContent = t('Cancel', 'ರದ್ದು');
+    go.addEventListener('click', function () {
+      if (!d.querySelector('#csReq').checked) { var e = d.querySelector('#csErr'); e.hidden = false; e.textContent = t('Please tick the parent consent box to continue.', 'ಮುಂದುವರಿಯಲು ಪೋಷಕರ ಒಪ್ಪಿಗೆ ಬಾಕ್ಸ್ ಟಿಕ್ ಮಾಡಿ.'); return; }
+      var c = { parent: true, marketing: d.querySelector('#csOpt').checked, at: new Date().toISOString() };
+      try { var st = state(); st.consent = c; localStorage.setItem('bt_v3', JSON.stringify(st)); } catch (e2) {}
+      track('parent_consent', { marketing: c.marketing });
+      d.remove(); done(c);
+    });
+    no.addEventListener('click', function () { d.remove(); busy = false; });
+    act.appendChild(go); act.appendChild(no);
+    document.body.appendChild(d);
+  }
+
   function start(link) {
     if (busy) return; busy = true;
+    askConsent(function (consent) { pay(link, consent); });
+  }
+  function pay(link, consent) {
     var s = state(), a = s.ans || {};
     var waiting = dialog('wait', t('Opening secure checkout…', 'ಸುರಕ್ಷಿತ ಪಾವತಿ ತೆರೆಯುತ್ತಿದೆ…'), t('Powered by Razorpay. UPI, cards and net banking.', 'Razorpay ಮೂಲಕ. UPI, ಕಾರ್ಡ್, ನೆಟ್ ಬ್ಯಾಂಕಿಂಗ್.'));
     track('begin_checkout', { value: 799, currency: 'INR' });
-    Promise.all([post('/api/create-order', { name: a.contactName || '', phone: a.phone || '', source: 'website', coupon: ((document.getElementById('coupon') || {}).value || '').trim() }), loadScript()])
+    Promise.all([post('/api/create-order', { name: a.contactName || '', phone: a.phone || '', source: 'website', consent_parent: true, consent_marketing: !!(consent && consent.marketing), coupon: ((document.getElementById('coupon') || {}).value || '').trim() }), loadScript()])
       .then(function (r) {
         var o = r[0]; waiting.remove();
         var rz = new window.Razorpay({
           key: o.key_id, order_id: o.order_id, amount: o.amount, currency: o.currency,
           name: 'Beyond Tatva', description: t('AI Course · Founding batch', 'AI ಕೋರ್ಸ್ · ಸ್ಥಾಪಕ ಬ್ಯಾಚ್'), image: location.origin + '/assets/img/logo.webp',
           prefill: { name: a.contactName || '', contact: a.phone ? '+91' + a.phone : '' },
-          notes: { child: a.name || '', class: a.cls || '' },
+          notes: { child: a.name || '', class: a.cls || '', parent_consent: 'yes ' + ((consent && consent.at) || ''), marketing_opt_in: consent && consent.marketing ? 'yes' : 'no' },
           theme: { color: getComputedStyle(document.documentElement).getPropertyValue('--blue').trim() || '#3B5BFF' },
-          modal: { ondismiss: function () { busy = false; dialog('err', t('Payment cancelled', 'ಪಾವತಿ ರದ್ದಾಗಿದೆ'), t('No money was taken. You can try again any time.', 'ಯಾವುದೇ ಹಣ ಕಡಿತವಾಗಿಲ್ಲ. ಯಾವಾಗ ಬೇಕಾದರೂ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.'), [{ label: t('Try again', 'ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ'), primary: true, fn: function () { start(link); } }, { label: t('Close', 'ಮುಚ್ಚಿ') }]); track('checkout_dismissed'); } },
+          modal: { ondismiss: function () { busy = false; dialog('err', t('Payment cancelled', 'ಪಾವತಿ ರದ್ದಾಗಿದೆ'), t('No money was taken. You can try again any time.', 'ಯಾವುದೇ ಹಣ ಕಡಿತವಾಗಿಲ್ಲ. ಯಾವಾಗ ಬೇಕಾದರೂ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.'), [{ label: t('Try again', 'ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ'), primary: true, fn: function () { busy = true; pay(link, consent); } }, { label: t('Close', 'ಮುಚ್ಚಿ') }]); track('checkout_dismissed'); } },
           handler: function (resp) {
             var v = dialog('wait', t('Confirming your payment…', 'ಪಾವತಿ ದೃಢೀಕರಿಸುತ್ತಿದೆ…'), t('Please don\'t close this page.', 'ದಯವಿಟ್ಟು ಈ ಪುಟ ಮುಚ್ಚಬೇಡಿ.'));
             post('/api/verify-payment', { razorpay_order_id: resp.razorpay_order_id, razorpay_payment_id: resp.razorpay_payment_id, razorpay_signature: resp.razorpay_signature })
@@ -82,7 +113,7 @@
         waiting.remove(); busy = false;
         if (err && err.status === 400) { dialog('err', t('Coupon not valid', 'ಕೂಪನ್ ಮಾನ್ಯವಲ್ಲ'), t('Check the code, or clear the box to pay the full price.', 'ಕೋಡ್ ಪರಿಶೀಲಿಸಿ, ಅಥವಾ ಪೂರ್ಣ ಬೆಲೆಗೆ ಬಾಕ್ಸ್ ಖಾಲಿ ಮಾಡಿ.'), [{ label: 'OK', primary: true }]); return; }
         if (window.console) console.warn('[Beyond Tatva] checkout error:', err && err.message);
-        var acts = [{ label: t('Try again', 'ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ'), primary: true, fn: function () { start(link); } }];
+        var acts = [{ label: t('Try again', 'ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ'), primary: true, fn: function () { busy = true; pay(link, consent); } }];
         if (wa()) acts.push({ label: t('Enrol on WhatsApp instead', 'WhatsApp ಮೂಲಕ ದಾಖಲಾಗಿ'), href: wa() + '?text=' + encodeURIComponent('Hi! I want to enrol in the Beyond Tatva AI course (₹799).') });
         var dd = dialog('err', t('Checkout didn\'t open', 'ಪಾವತಿ ತೆರೆಯಲಿಲ್ಲ'), t('Please try again in a minute, or message us on WhatsApp and we\'ll send you a secure payment link.', 'ಒಂದು ನಿಮಿಷದ ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ, ಅಥವಾ WhatsApp ಮಾಡಿ, ನಾವು ಸುರಕ್ಷಿತ ಪಾವತಿ ಲಿಂಕ್ ಕಳುಹಿಸುತ್ತೇವೆ.'), acts);
         var det = document.createElement('small'); det.className = 'pay-det'; det.textContent = 'Details: ' + ((err && (err.status ? err.status + ' · ' : '') + err.message) || 'unknown'); dd.querySelector('.pay-in').appendChild(det);
