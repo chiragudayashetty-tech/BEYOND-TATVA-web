@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Free Module 0 · Beyond Tatva</title><link rel="canonical" href="https://www.beyondtatva.in/module0"/>
+<meta name="description" content="Get Beyond Tatva's free Module 0 on WhatsApp. Practical, safe AI skills for students in Classes 8–10."/>
+<style>body{font:16px/1.6 system-ui,sans-serif;max-width:520px;margin:0 auto;padding:28px 16px;color:#1b1b1b;background:#FBF7EF}h1{font-size:26px;margin:0 0 6px}p.sub{color:#555;margin:0 0 20px}form{background:#fff;border-radius:14px;padding:18px;box-shadow:0 2px 10px rgba(0,0,0,.06)}label.f{display:block;font-weight:600;margin:12px 0 4px}input[type=text],input[type=tel],select{width:100%;box-sizing:border-box;font:inherit;padding:10px 12px;border:1px solid #d8d2c4;border-radius:10px}.ck{display:flex;gap:10px;align-items:flex-start;margin-top:14px;font-size:14.5px}.ck input{margin-top:4px;width:18px;height:18px;flex:none}button{margin-top:18px;width:100%;font:inherit;font-weight:700;padding:13px;border:0;border-radius:10px;background:#0b6e6e;color:#fff;cursor:pointer}button:disabled{opacity:.6}.msg{margin-top:12px;font-size:15px}.err{color:#b3261e}.ok{color:#1f7a3f}.small{font-size:13px;color:#666;margin-top:14px}a{color:#0b6e6e}.hp{position:absolute;left:-9999px}</style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C98KFTE0PD"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-C98KFTE0PD");</script>
+<link rel="icon" href="/favicon.ico" sizes="any"/>
+</head><body>
+<h1>Get Module 0 free 🎁</h1>
+<p class="sub">A short starter lesson on using AI to study smarter, for Classes 8–10. We send it on WhatsApp.</p>
+<form id="m0" novalidate>
+  <label class="f" for="pn">Parent's name</label><input type="text" id="pn" maxlength="40" autocomplete="name" required>
+  <label class="f" for="sn">Student's first name</label><input type="text" id="sn" maxlength="30">
+  <label class="f" for="cl">Class</label><select id="cl"><option value="">Choose</option><option>8</option><option>9</option><option>10</option></select>
+  <label class="f" for="sc">School</label><input type="text" id="sc" maxlength="60">
+  <label class="f" for="ph">Parent's WhatsApp number</label><input type="tel" id="ph" inputmode="numeric" maxlength="14" autocomplete="tel" required>
+  <input class="hp" id="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+  <label class="ck"><input type="checkbox" id="c1"><span>I am the parent or guardian. I agree that Beyond Tatva may use these details to send Module 0 and course information on WhatsApp, as set out in the <a href="/privacy">privacy policy</a>. <b>(required)</b></span></label>
+  <label class="ck"><input type="checkbox" id="c2"><span>You may also tell me about future courses and workshops. (optional)</span></label>
+  <button type="submit" id="go">Send me Module 0</button>
+  <p class="msg" id="msg" hidden></p>
+  <p class="small">🔒 No spam. We never share your number. Reply STOP anytime.</p>
+</form>
+<script src="/assets/js/config.js"></script><script src="/assets/js/lead.js"></script>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)},f=$('m0'),m=$('msg'),b=$('go');
+  var src=new URLSearchParams(location.search).get('src')||'direct';
+  function show(ok,t){m.hidden=false;m.className='msg '+(ok?'ok':'err');m.textContent=t}
+  f.addEventListener('submit',function(e){
+    e.preventDefault(); if($('hp').value) return;
+    var pn=$('pn').value.trim(), raw=$('ph').value.replace(/\D/g,''), ph=raw.length===12&&raw.indexOf('91')===0?raw.slice(2):raw;
+    if(!pn) return show(false,'Please enter the parent\'s name.');
+    if(!/^[6-9]\d{9}$/.test(ph)) return show(false,'Please enter a valid 10-digit mobile number.');
+    if(!$('c1').checked) return show(false,'Please tick the parent consent box to continue.');
+    var d=['Module 0 sign-up','Student: '+$('sn').value.trim(),'Class: '+$('cl').value,'Parent consent: yes','Future courses opt-in: '+($('c2').checked?'yes':'no'),'Source: module0 page ('+src+')','Time: '+new Date().toISOString()].join('\n');
+    b.disabled=true;
+    window.BTLead({source:'Chat',lastName:pn,mobile:ph,company:$('sc').value.trim(),city:'',description:d}).then(function(){
+      f.reset(); show(true,'Done! We will send Module 0 to your WhatsApp within 24 hours.');
+      if(window.gtag) gtag('event','generate_lead',{form:'module0',src:src});
+    }).catch(function(){
+      var n=((window.BT_CONFIG||{}).whatsapp||'917337645448').replace(/\D/g,'');
+      show(true,'Opening WhatsApp so you can send your request directly.');
+      window.open('https://wa.me/'+n+'?text='+encodeURIComponent('Hi, I would like Module 0.\nParent: '+pn+'\n'+d),'_blank','noopener');
+    }).then(function(){b.disabled=false});
+  });
+})();
+</script>
+</body></html>
