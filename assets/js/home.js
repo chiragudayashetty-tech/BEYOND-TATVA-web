@@ -50,6 +50,21 @@
     q6: 'ಇಷ್ಟವಾಗದಿದ್ದರೆ?', a6: '7 ದಿನದೊಳಗೆ ತಿಳಿಸಿ, ಪೂರ್ಣ ₹799 ವಾಪಸ್. ಯಾವುದೇ ಪ್ರಶ್ನೆ ಇಲ್ಲ.',
     q7: 'ನನ್ನ ನಂಬರ್ ಅನ್ನು ಏನು ಮಾಡುತ್ತೀರಿ?', a7: 'ಮಾಡ್ಯೂಲ್ 0, ಮಗುವಿನ ಯೋಜನೆ ಮತ್ತು ಕೋರ್ಸ್ ಮಾಹಿತಿಯನ್ನು WhatsApp ನಲ್ಲಿ ಕಳುಹಿಸಲು ಮಾತ್ರ. ಯಾರಿಗೂ ಕೊಡುವುದಿಲ್ಲ. ಯಾವಾಗ ಬೇಕಾದರೂ STOP ಎಂದು ಉತ್ತರಿಸಿ.',
     school: 'ನೀವು ಶಾಲೆಯೇ? ಉಚಿತ AI ಕಾರ್ಯಾಗಾರ ಬುಕ್ ಮಾಡಿ', ft: '8–10ನೇ ತರಗತಿಗೆ AI ಕೌಶಲ · ಉಡುಪಿ, ಕರ್ನಾಟಕ',
+    photoCap: 'AI ಅಡ್ಡದಾರಿಯಲ್ಲ, ಓದಿನ ಸಂಗಾತಿ',
+    howH: 'ಇದು ಹೇಗೆ ಕೆಲಸ ಮಾಡುತ್ತದೆ',
+    s1: 'ಮಾಡ್ಯೂಲ್ 0 ಉಚಿತವಾಗಿ ಪ್ರಯತ್ನಿಸಿ', s1d: 'ಲೋಕಿ ಜೊತೆ ಒಂದು ನಿಮಿಷ ಮಾತಾಡಿ. ನಿಮ್ಮ ಮಗು ಇಂದೇ ಕಲಿಯಲು ಆರಂಭಿಸುತ್ತದೆ.',
+    s2: 'ಸ್ಥಾಪಕ ಬೆಲೆಯಲ್ಲಿ ದಾಖಲಾಗಿ', s2d: 'ಒಂದೇ ಪಾವತಿ, ಎಲ್ಲಾ 6 ಮಾಡ್ಯೂಲ್, ಜೀವನಪರ್ಯಂತ ಪ್ರವೇಶ. 7 ದಿನದಲ್ಲಿ ಪೂರ್ಣ ಹಣ ವಾಪಸ್.',
+    s3: 'ಕಲಿಯಿರಿ, ನಿರ್ಮಿಸಿ, ತೋರಿಸಿ', s3d: 'ಫೋನ್‌ನಲ್ಲೇ ಸಣ್ಣ ಪಾಠಗಳು, ನಿಜವಾದ ಪ್ರಾಜೆಕ್ಟ್‌ಗಳು, ಕೊನೆಯಲ್ಲಿ ಪ್ರಮಾಣಪತ್ರ.',
+    courseP: 'ಆರು ಸಣ್ಣ ಮಾಡ್ಯೂಲ್‌ಗಳು. ಪ್ರತಿಯೊಂದರ ಕೊನೆಯಲ್ಲಿ ನಿಮ್ಮ ಮಗು ತಾನೇ ಮಾಡಿದ ಏನನ್ನಾದರೂ ತೋರಿಸಬಹುದು.',
+    mod0: 'ಮಾಡ್ಯೂಲ್ 0 · ಉಚಿತ', mod1: 'ಮಾಡ್ಯೂಲ್ 1', mod2: 'ಮಾಡ್ಯೂಲ್ 2', mod3: 'ಮಾಡ್ಯೂಲ್ 3', mod4: 'ಮಾಡ್ಯೂಲ್ 4', mod5: 'ಮಾಡ್ಯೂಲ್ 5',
+    makeH: 'ನಿಮ್ಮ ಮಗು ಏನು ಮಾಡುತ್ತದೆ',
+    k1: 'ರಿವಿಷನ್ ನೋಟ್ಸ್', k1d: 'ತನ್ನದೇ ಪಠ್ಯಪುಸ್ತಕದಿಂದ', k2: 'ಫ್ಲ್ಯಾಶ್‌ಕಾರ್ಡ್ ಮತ್ತು ಕ್ವಿಜ್', k2d: 'ಬೋರ್ಡ್ ಪರೀಕ್ಷೆ ಅಭ್ಯಾಸಕ್ಕೆ', k3: 'ಪ್ರಾಜೆಕ್ಟ್ ಪೋಸ್ಟರ್', k3d: 'AI ಟೂಲ್‌ಗಳಿಂದ ವಿನ್ಯಾಸ', k4: 'ಸಣ್ಣ ವಿಡಿಯೋ', k4d: 'ಸ್ಕ್ರಿಪ್ಟ್ ಮತ್ತು ಎಡಿಟ್', k5: 'ಸ್ವಂತ ವೆಬ್‌ಸೈಟ್', k5d: 'ಕೋಡಿಂಗ್ ಇಲ್ಲದೆ', k6: 'ಪ್ರಮಾಣಪತ್ರ', k6d: 'ಎಲ್ಲಾ ಮಾಡ್ಯೂಲ್ ನಂತರ',
+    swipe: 'ಇನ್ನಷ್ಟು ನೋಡಲು ಸ್ವೈಪ್ ಮಾಡಿ →',
+    vsH: 'ನಕಲಿಗೆ AI vs ಕಲಿಕೆಗೆ AI', vsA: 'ಮಾರ್ಗದರ್ಶನವಿಲ್ಲದೆ', vsB: 'ಬಿಯಾಂಡ್ ತತ್ವ ಜೊತೆ',
+    va1: 'ಉತ್ತರ ನಕಲು ಮಾಡುತ್ತದೆ, ಏನೂ ಕಲಿಯುವುದಿಲ್ಲ', va2: 'AI ಹೇಳಿದ್ದೆಲ್ಲಾ ನಂಬುತ್ತದೆ', va3: 'ಗಂಟೆಗಟ್ಟಲೆ ಸ್ಕ್ರೋಲಿಂಗ್', va4: 'ಪರೀಕ್ಷೆಗೆ ಮೊದಲು ಆತಂಕ',
+    vb1: 'ಅರ್ಥಮಾಡಿಕೊಳ್ಳಲು AI, ನಂತರ ಅಭ್ಯಾಸ', vb2: 'ಸತ್ಯ ಪರಿಶೀಲಿಸಿ ನಕಲಿ ಗುರುತಿಸುತ್ತದೆ', vb3: 'AI ಜೊತೆ ಓದಿನ ಸಮಯ ಯೋಜನೆ', vb4: 'ಸ್ವಂತ ನೋಟ್ಸ್‌ನಿಂದ ವೇಗದ ರಿವಿಷನ್',
+    mH: 'ನಿಮ್ಮ ಮಾರ್ಗದರ್ಶಕರು', mP: 'ಚಿರಾಗ್ ಶೆಟ್ಟಿ ಹದಿಹರೆಯದವರಿಗೆ AI ಬಳಸುವುದನ್ನಷ್ಟೇ ಅಲ್ಲ, AI ಗಿಂತ ಚುರುಕಾಗಿ ಯೋಚಿಸುವುದನ್ನು ಕಲಿಸುತ್ತಾರೆ. ಬಿಯಾಂಡ್ ತತ್ವ ಉಡುಪಿಯಲ್ಲಿ 8–10ನೇ ತರಗತಿ ವಿದ್ಯಾರ್ಥಿಗಳು ಮತ್ತು ಪೋಷಕರಿಗಾಗಿ ರೂಪುಗೊಂಡಿದೆ.',
+    tr1: 'ದಿನದಲ್ಲಿ ಪೂರ್ಣ ಹಣ ವಾಪಸ್', tr2: 'ಪೋಷಕರ ಒಪ್ಪಿಗೆ ಮತ್ತು ಗೌಪ್ಯತೆ ಮೊದಲು', tr3: 'ಉಡುಪಿಯಲ್ಲಿ ರೂಪುಗೊಂಡಿದೆ', tr4: 'MSME ನೋಂದಾಯಿತ',
     dockNote: '7 ದಿನದಲ್ಲಿ ಪೂರ್ಣ ಹಣ ವಾಪಸ್',
     wH: 'ನಮಸ್ಕಾರ, ನಾನು <em>ಲೋಕಿ</em> 👋', wP: 'ನಿಮ್ಮ ಮಗುವಿನ AI ಓದಿನ ಮಾರ್ಗದರ್ಶಿ. 4 ಸಣ್ಣ ಉತ್ತರ ನೀಡಿ, ಮಾಡ್ಯೂಲ್ 0 ಉಚಿತ.', wSkip: 'ಕೋರ್ಸ್ ನೋಡುತ್ತೇನೆ →'
   };
@@ -143,7 +158,7 @@
   // Light XP for real engagement
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { addXp('see-' + e.target.id, 15); io.unobserve(e.target); } }); }, { threshold: .4 });
-    ['offer', 'course', 'faq'].forEach(function (id) { var el = document.getElementById(id); if (el) io.observe(el); });
+    ['how', 'offer', 'course', 'make', 'vs', 'trust', 'faq'].forEach(function (id) { var el = document.getElementById(id); if (el) io.observe(el); });
   }
   $$('.faq details').forEach(function (d, i) { d.addEventListener('toggle', function () { if (d.open) addXp('faq' + i, 5); }); });
 
@@ -239,7 +254,8 @@
         .then(function () { return say(T('Enroll now to get all 6 modules at the founding price of <b>' + inr(price) + '</b> (' + inr(list) + ' after Batch 1). 7-day full refund.', 'ಸ್ಥಾಪಕ ಬೆಲೆ <b>' + inr(price) + '</b>ಗೆ ಎಲ್ಲಾ 6 ಮಾಡ್ಯೂಲ್ ಪಡೆಯಲು ಈಗಲೇ ದಾಖಲಾಗಿ (ಬ್ಯಾಚ್ 1 ನಂತರ ' + inr(list) + '). 7 ದಿನದಲ್ಲಿ ಪೂರ್ಣ ಹಣ ವಾಪಸ್.'), my); })
         .then(function () {
           if (my !== run) return;
-          foot.innerHTML = '<div class="done-acts"><a class="btn shine enroll" data-enroll href="#offer">' + T('Enroll now · ', 'ಈಗಲೇ ದಾಖಲಾಗಿ · ') + inr(price) + '</a><a class="btn ghost" href="/module-0">' + T('Start Module 0 free →', 'ಮಾಡ್ಯೂಲ್ 0 ಉಚಿತವಾಗಿ ಆರಂಭಿಸಿ →') + '</a></div><button class="restart" type="button" id="restart">' + T('Start over', 'ಮತ್ತೆ ಆರಂಭಿಸಿ') + '</button>';
+          foot.innerHTML = '<div class="done-acts"><a class="btn shine enroll" data-enroll href="#offer">' + T('Enroll now · ', 'ಈಗಲೇ ದಾಖಲಾಗಿ · ') + inr(price) + '</a><a class="btn ghost" href="/module-0">' + T('Start Module 0 free →', 'ಮಾಡ್ಯೂಲ್ 0 ಉಚಿತವಾಗಿ ಆರಂಭಿಸಿ →') + '</a><button class="btn ghost" type="button" id="browse">' + T('Browse the website', 'ವೆಬ್‌ಸೈಟ್ ನೋಡಿ') + '</button></div><button class="restart" type="button" id="restart">' + T('Start over', 'ಮತ್ತೆ ಆರಂಭಿಸಿ') + '</button>';
+          $('#browse').addEventListener('click', function () { if (window.BTCloseWelcome) window.BTCloseWelcome('browse'); setTimeout(function () { $('#how').scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' }); }, 300); track('chat_browse'); });
           $('#restart').addEventListener('click', function () { S.done = false; S.ans = {}; save(); start(); });
         });
     }
