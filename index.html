@@ -144,7 +144,7 @@
      "name": "What is Module 0, and is it really free?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Yes. Module 0 (Bindu) is a 15-minute starter: what AI really is, 3 golden rules for honest use, and your child's first study prompt. Chat with Bindu above to unlock it. No payment."
+      "text": "Yes. Module 0 (Loki) is a 15-minute starter: what AI really is, 3 golden rules for honest use, and your child's first study prompt. Chat with Loki above to unlock it. No payment."
      }
     },
     {
@@ -232,10 +232,10 @@
     </div>
 
     <!-- Chat opens first -->
-    <div class="chat" id="chat" aria-label="Chat with Bindu">
+    <div class="chat" id="chat" aria-label="Chat with Loki">
       <div class="chat-head">
         <span class="bot" aria-hidden="true"><i></i><i></i></span>
-        <div><b>Bindu</b><small data-t="botSub">Answer 4 quick taps · unlock Module 0 free</small></div>
+        <div><b>Loki</b><small data-t="botSub">Answer 4 quick taps · unlock Module 0 free</small></div>
         <span class="steps" id="steps" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="chat-body" id="chatBody" aria-live="polite"></div>
@@ -279,7 +279,7 @@
   <!-- FAQ -->
   <section class="faq" id="faq">
     <h2 data-t="faqH">Parents ask</h2>
-    <details><summary data-t="q1">What is Module 0, and is it really free?</summary><p data-t="a1">Yes. Module 0 (Bindu) is a 15-minute starter: what AI really is, 3 golden rules for honest use, and your child's first study prompt. Chat with Bindu above to unlock it. No payment.</p></details>
+    <details><summary data-t="q1">What is Module 0, and is it really free?</summary><p data-t="a1">Yes. Module 0 (Loki) is a 15-minute starter: what AI really is, 3 golden rules for honest use, and your child's first study prompt. Chat with Loki above to unlock it. No payment.</p></details>
     <details><summary data-t="q2">Will this help with board exams?</summary><p data-t="a2">That's the main focus of Module 1. Students learn to turn their own textbook chapters into notes, flashcards and exam-style questions.</p></details>
     <details><summary data-t="q3">Isn't using AI for studies cheating?</summary><p data-t="a3">Copying is cheating. Using AI to understand and to practise is not. We teach when not to use AI: exams, graded homework and independent work.</p></details>
     <details><summary data-t="q4">Is it in Kannada?</summary><p data-t="a4">This website is fully in Kannada and English, and you can message us in either language. Ask us on WhatsApp about Kannada support for your child's lessons.</p></details>
@@ -297,6 +297,23 @@
   <p class="links"><a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · <a href="/refund">Refunds</a> · <a href="/contact">Contact</a> · <a href="/ai-course-udupi">AI course Udupi</a> · <a href="/ai-for-board-exams">AI for board exams</a> · <a href="/is-using-ai-cheating">Is AI cheating?</a></p>
   <p class="msme">© <span id="yr">2026</span> Beyond Tatva · MSME Udyam UDYAM-KR-26-0066858</p>
 </footer>
+
+
+<!-- Welcome popup: Loki opens the site -->
+<div class="welcome" id="welcome" role="dialog" aria-modal="true" aria-labelledby="wH" hidden>
+  <div class="w-in">
+    <button class="w-x" type="button" id="wClose" aria-label="Close">✕</button>
+    <div class="w-top">
+      <span class="bot big" aria-hidden="true"><i></i><i></i></span>
+      <div>
+        <h2 id="wH" data-t="wH">Hi, I'm <em>Loki</em> 👋</h2>
+        <p data-t="wP">Your child's AI study guide. 4 quick taps and Module 0 is free.</p>
+      </div>
+    </div>
+    <div class="w-slot" id="wSlot"></div>
+    <button class="w-skip" type="button" id="wSkip" data-t="wSkip">Just show me the course →</button>
+  </div>
+</div>
 
 <!-- Sticky bottom bar: Enroll #2 (always visible) -->
 <div class="dock" id="dock">

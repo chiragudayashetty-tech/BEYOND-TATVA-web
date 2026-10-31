@@ -1,5 +1,5 @@
 /* Beyond Tatva · homepage
-   Bindu chat (opens first), one language at a time, XP circle with a 5% reward,
+   Loki chat (opens first), one language at a time, XP circle with a 5% reward,
    real urgency from config.js, and GA4. Checkout lives in pay.js. */
 (function () {
   'use strict';
@@ -7,7 +7,7 @@
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
   var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var REWARD_CODE = 'BINDU5', XP_FULL = 300;
+  var REWARD_CODE = 'LOKI5', XP_FULL = 300;
 
   /* ── Storage ── */
   function load(k, d) { try { return JSON.parse(localStorage.getItem(k)) || d; } catch (e) { return d; } }
@@ -42,7 +42,7 @@
     m4: 'AI ಜೊತೆ ನಿರ್ಮಾಣ', m4d: 'ಕೋಡಿಂಗ್ ಇಲ್ಲದೆ ವೆಬ್‌ಸೈಟ್, ಆಟ ಮತ್ತು ಟೂಲ್‌ಗಳು.',
     m5: 'AI ಜೊತೆ ವ್ಯಾಪಾರ', m5d: 'ಐಡಿಯಾದಿಂದ ಆರಂಭದವರೆಗೆ: ಮಾರ್ಕೆಟಿಂಗ್, ಕಂಟೆಂಟ್, ಮೂಲ ಹಣಕಾಸು.',
     faqH: 'ಪೋಷಕರ ಪ್ರಶ್ನೆಗಳು',
-    q1: 'ಮಾಡ್ಯೂಲ್ 0 ಎಂದರೇನು, ಅದು ನಿಜವಾಗಿಯೂ ಉಚಿತವೇ?', a1: 'ಹೌದು. ಮಾಡ್ಯೂಲ್ 0 (ಬಿಂದು) 15 ನಿಮಿಷದ ಆರಂಭಿಕ ಪಾಠ: AI ಎಂದರೇನು, ಪ್ರಾಮಾಣಿಕ ಬಳಕೆಯ 3 ನಿಯಮಗಳು ಮತ್ತು ಮೊದಲ ಓದಿನ ಪ್ರಾಂಪ್ಟ್. ಮೇಲಿನ ಚಾಟ್ ಮೂಲಕ ಉಚಿತವಾಗಿ ತೆರೆಯಿರಿ.',
+    q1: 'ಮಾಡ್ಯೂಲ್ 0 ಎಂದರೇನು, ಅದು ನಿಜವಾಗಿಯೂ ಉಚಿತವೇ?', a1: 'ಹೌದು. ಮಾಡ್ಯೂಲ್ 0 (ಲೋಕಿ) 15 ನಿಮಿಷದ ಆರಂಭಿಕ ಪಾಠ: AI ಎಂದರೇನು, ಪ್ರಾಮಾಣಿಕ ಬಳಕೆಯ 3 ನಿಯಮಗಳು ಮತ್ತು ಮೊದಲ ಓದಿನ ಪ್ರಾಂಪ್ಟ್. ಮೇಲಿನ ಚಾಟ್ ಮೂಲಕ ಉಚಿತವಾಗಿ ತೆರೆಯಿರಿ.',
     q2: 'ಇದು ಬೋರ್ಡ್ ಪರೀಕ್ಷೆಗೆ ಸಹಾಯ ಮಾಡುತ್ತದೆಯೇ?', a2: 'ಮಾಡ್ಯೂಲ್ 1ರ ಮುಖ್ಯ ಗುರಿ ಅದೇ. ತಮ್ಮದೇ ಪಠ್ಯಪುಸ್ತಕದ ಪಾಠಗಳಿಂದ ನೋಟ್ಸ್, ಫ್ಲ್ಯಾಶ್‌ಕಾರ್ಡ್ ಮತ್ತು ಪರೀಕ್ಷಾ ಮಾದರಿ ಪ್ರಶ್ನೆಗಳನ್ನು ಮಾಡಲು ಕಲಿಯುತ್ತಾರೆ.',
     q3: 'ಓದಿಗೆ AI ಬಳಸುವುದು ನಕಲು ಅಲ್ಲವೇ?', a3: 'ನಕಲು ಮಾಡುವುದು ತಪ್ಪು. ಅರ್ಥ ಮಾಡಿಕೊಳ್ಳಲು ಮತ್ತು ಅಭ್ಯಾಸಕ್ಕೆ AI ಬಳಸುವುದು ತಪ್ಪಲ್ಲ. ಪರೀಕ್ಷೆ, ಅಂಕದ ಹೋಂವರ್ಕ್‌ನಲ್ಲಿ AI ಬಳಸಬಾರದು ಎಂದೂ ಕಲಿಸುತ್ತೇವೆ.',
     q4: 'ಇದು ಕನ್ನಡದಲ್ಲಿ ಇದೆಯೇ?', a4: 'ಈ ವೆಬ್‌ಸೈಟ್ ಸಂಪೂರ್ಣ ಕನ್ನಡ ಮತ್ತು ಇಂಗ್ಲಿಷ್‌ನಲ್ಲಿದೆ. ಯಾವ ಭಾಷೆಯಲ್ಲಾದರೂ ನಮಗೆ ಸಂದೇಶ ಕಳುಹಿಸಿ. ಪಾಠಗಳಿಗೆ ಕನ್ನಡ ಸಹಾಯದ ಬಗ್ಗೆ WhatsApp ನಲ್ಲಿ ಕೇಳಿ.',
@@ -50,7 +50,8 @@
     q6: 'ಇಷ್ಟವಾಗದಿದ್ದರೆ?', a6: '7 ದಿನದೊಳಗೆ ತಿಳಿಸಿ, ಪೂರ್ಣ ₹799 ವಾಪಸ್. ಯಾವುದೇ ಪ್ರಶ್ನೆ ಇಲ್ಲ.',
     q7: 'ನನ್ನ ನಂಬರ್ ಅನ್ನು ಏನು ಮಾಡುತ್ತೀರಿ?', a7: 'ಮಾಡ್ಯೂಲ್ 0, ಮಗುವಿನ ಯೋಜನೆ ಮತ್ತು ಕೋರ್ಸ್ ಮಾಹಿತಿಯನ್ನು WhatsApp ನಲ್ಲಿ ಕಳುಹಿಸಲು ಮಾತ್ರ. ಯಾರಿಗೂ ಕೊಡುವುದಿಲ್ಲ. ಯಾವಾಗ ಬೇಕಾದರೂ STOP ಎಂದು ಉತ್ತರಿಸಿ.',
     school: 'ನೀವು ಶಾಲೆಯೇ? ಉಚಿತ AI ಕಾರ್ಯಾಗಾರ ಬುಕ್ ಮಾಡಿ', ft: '8–10ನೇ ತರಗತಿಗೆ AI ಕೌಶಲ · ಉಡುಪಿ, ಕರ್ನಾಟಕ',
-    dockNote: '7 ದಿನದಲ್ಲಿ ಪೂರ್ಣ ಹಣ ವಾಪಸ್'
+    dockNote: '7 ದಿನದಲ್ಲಿ ಪೂರ್ಣ ಹಣ ವಾಪಸ್',
+    wH: 'ನಮಸ್ಕಾರ, ನಾನು <em>ಲೋಕಿ</em> 👋', wP: 'ನಿಮ್ಮ ಮಗುವಿನ AI ಓದಿನ ಮಾರ್ಗದರ್ಶಿ. 4 ಸಣ್ಣ ಉತ್ತರ ನೀಡಿ, ಮಾಡ್ಯೂಲ್ 0 ಉಚಿತ.', wSkip: 'ಕೋರ್ಸ್ ನೋಡುತ್ತೇನೆ →'
   };
   var EN = {};
   $$('[data-t]').forEach(function (el) { EN[el.dataset.t] = el.innerHTML; });
@@ -146,7 +147,7 @@
   }
   $$('.faq details').forEach(function (d, i) { d.addEventListener('toggle', function () { if (d.open) addXp('faq' + i, 5); }); });
 
-  /* ── Bindu chat: opens first ── */
+  /* ── Loki chat: opens first ── */
   var chat = (function () {
     var body = $('#chatBody'), foot = $('#chatFoot'), dots = $$('#steps i'), busy = false, run = 0;
     function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
@@ -173,7 +174,7 @@
     function start() {
       var my = ++run; body.innerHTML = ''; foot.innerHTML = ''; step(0);
       if (S.done && S.ans.phone) return showDone();
-      say(T('Hi! I\'m <b>Bindu</b> 👋 Four quick taps and I\'ll unlock <b>Module 0 free</b>.', 'ನಮಸ್ಕಾರ! ನಾನು <b>ಬಿಂದು</b> 👋 ನಾಲ್ಕು ಸಣ್ಣ ಉತ್ತರ ನೀಡಿ, <b>ಮಾಡ್ಯೂಲ್ 0 ಉಚಿತ</b>ವಾಗಿ ತೆರೆಯುತ್ತೇನೆ.'), my)
+      say(T('Hi! I\'m <b>Loki</b> 👋 Four quick taps and I\'ll unlock <b>Module 0 free</b>.', 'ನಮಸ್ಕಾರ! ನಾನು <b>ಲೋಕಿ</b> 👋 ನಾಲ್ಕು ಸಣ್ಣ ಉತ್ತರ ನೀಡಿ, <b>ಮಾಡ್ಯೂಲ್ 0 ಉಚಿತ</b>ವಾಗಿ ತೆರೆಯುತ್ತೇನೆ.'), my)
         .then(function () { return say(T('Who are you?', 'ನೀವು ಯಾರು?'), my); })
         .then(function () { if (my === run) choices(Q.who(), '', pickWho); });
       track('chat_start');
@@ -245,8 +246,30 @@
     return { start: start, restart: start, showDone: function () { showDone(false); } };
   })();
 
+  /* ── Welcome popup: the chat opens inside it on first visit ── */
+  var welcome = $('#welcome'), chatEl = $('#chat'), home = chatEl.parentNode, homeNext = chatEl.nextSibling;
+  function openWelcome() {
+    $('#wSlot').appendChild(chatEl); welcome.hidden = false; document.documentElement.classList.add('w-open');
+    setTimeout(function () { welcome.classList.add('in'); }, 10); track('welcome_open');
+  }
+  function closeWelcome(why) {
+    if (welcome.hidden) return;
+    welcome.classList.remove('in'); document.documentElement.classList.remove('w-open');
+    setTimeout(function () { welcome.hidden = true; home.insertBefore(chatEl, homeNext); }, reduced ? 0 : 250);
+    try { sessionStorage.setItem('bt_welcome', '1'); } catch (e) {}
+    track('welcome_close', { why: why });
+  }
+  window.BTCloseWelcome = closeWelcome;
+  $('#wClose').addEventListener('click', function () { closeWelcome('x'); });
+  $('#wSkip').addEventListener('click', function () { closeWelcome('skip'); $('#offer').scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' }); });
+  welcome.addEventListener('click', function (e) { if (e.target === welcome) closeWelcome('backdrop'); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeWelcome('esc'); });
+  document.addEventListener('click', function (e) { if (e.target.closest && e.target.closest('#welcome [data-enroll], #welcome a[href^="/module-0"]')) closeWelcome('cta'); }, true);
+
   /* ── Boot ── */
   $('#yr').textContent = new Date().getFullYear();
   applyLang(LANG);
+  var seen = false; try { seen = !!sessionStorage.getItem('bt_welcome'); } catch (e) {}
+  if (!S.done && !seen) openWelcome();
   chat.start();
 })();

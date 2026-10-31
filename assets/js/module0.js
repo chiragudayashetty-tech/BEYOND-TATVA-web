@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════════════════════════
-   BEYOND TATVA · Module 0 · Bindu (free starter lesson)
-   Unlocked after the Bindu chat on the home page.
+   BEYOND TATVA · Module 0 · Loki (free starter lesson)
+   Unlocked after the Loki chat on the home page.
    ═══════════════════════════════════════════════════════════════ */
 (function () {
   'use strict';
@@ -19,10 +19,10 @@
   /* ── Words ── */
   const W = {
     en: {
-      title: 'Module 0 · Bindu — Beyond Tatva', eyebrow: 'Module 0 · ಬಿಂದು · Free', h1: 'The Starting <em>Point</em>',
+      title: 'Module 0 · Loki — Beyond Tatva', eyebrow: 'Module 0 · ಲೋಕಿ · Free', h1: 'The Starting <em>Point</em>',
       sub: n => (n ? 'Made for ' + n + '. ' : '') + '15 minutes, 4 small steps.',
       track: ['What AI is', 'Golden rules', 'First prompt', 'Quick check'],
-      lockH: 'Module 0 is free', lockP: 'Chat with Bindu for one minute to unlock it.', lockBtn: 'Chat with Bindu →', home: 'Back to home',
+      lockH: 'Module 0 is free', lockP: 'Chat with Loki for one minute to unlock it.', lockBtn: 'Chat with Loki →', home: 'Back to home',
       s1h: '1 · What AI really is', s1p: 'Three ideas that change how you use it.', got: 'Got it ✓',
       facts: [['🧩', 'It predicts, it doesn\'t "know"', 'Tools like ChatGPT learned patterns from huge amounts of text. They build an answer by predicting one word at a time.'],
         ['⚠️', 'It can be confidently wrong', 'AI sometimes makes up facts that sound right. That\'s why we always check.'],
@@ -48,14 +48,14 @@
         ['Before asking AI for help with a sum, you should…', ['Try it yourself first', 'Copy the AI answer', 'Skip the sum'], 'Think first, then ask. Your brain has to do the lifting.']
       ],
       right: 'Correct!', wrong: 'Not quite.', score: s => 'You got ' + s + '/3', stepDone: 'Step complete', xp: n => '+' + n + ' XP',
-      finH: 'Module 0 complete! 🎉', finP: n => 'Well done' + (n ? ', ' + n : '') + '. You\'ve taken the first step.', certTop: 'MODULE 0 · BINDU · COMPLETE',
+      finH: 'Module 0 complete! 🎉', finP: n => 'Well done' + (n ? ', ' + n : '') + '. You\'ve taken the first step.', certTop: 'MODULE 0 · LOKI · COMPLETE',
       next: 'Ready for Module 1? Get all 5 tatvas for ₹799.', enroll: 'Enroll for ₹799', allDone: 'Module 0 complete'
     },
     kn: {
-      title: 'ಮಾಡ್ಯೂಲ್ 0 · ಬಿಂದು — Beyond Tatva', eyebrow: 'ಮಾಡ್ಯೂಲ್ 0 · ಬಿಂದು · ಉಚಿತ', h1: 'ಆರಂಭದ <em>ಬಿಂದು</em>',
+      title: 'ಮಾಡ್ಯೂಲ್ 0 · ಲೋಕಿ — Beyond Tatva', eyebrow: 'ಮಾಡ್ಯೂಲ್ 0 · ಲೋಕಿ · ಉಚಿತ', h1: 'ಆರಂಭದ <em>ಲೋಕಿ</em>',
       sub: n => (n ? n + ' ಅವರಿಗಾಗಿ. ' : '') + '15 ನಿಮಿಷ, 4 ಸಣ್ಣ ಹಂತಗಳು.',
       track: ['AI ಎಂದರೇನು', 'ಸುವರ್ಣ ನಿಯಮಗಳು', 'ಮೊದಲ ಪ್ರಾಂಪ್ಟ್', 'ಸಣ್ಣ ಪರೀಕ್ಷೆ'],
-      lockH: 'ಮಾಡ್ಯೂಲ್ 0 ಉಚಿತ', lockP: 'ಅನ್‌ಲಾಕ್ ಮಾಡಲು ಬಿಂದು ಜೊತೆ ಒಂದು ನಿಮಿಷ ಮಾತನಾಡಿ.', lockBtn: 'ಬಿಂದು ಜೊತೆ ಮಾತನಾಡಿ →', home: 'ಮುಖಪುಟಕ್ಕೆ',
+      lockH: 'ಮಾಡ್ಯೂಲ್ 0 ಉಚಿತ', lockP: 'ಅನ್‌ಲಾಕ್ ಮಾಡಲು ಲೋಕಿ ಜೊತೆ ಒಂದು ನಿಮಿಷ ಮಾತನಾಡಿ.', lockBtn: 'ಲೋಕಿ ಜೊತೆ ಮಾತನಾಡಿ →', home: 'ಮುಖಪುಟಕ್ಕೆ',
       s1h: '1 · AI ಅಂದರೆ ನಿಜವಾಗಿ ಏನು', s1p: 'ಬಳಸುವ ರೀತಿಯನ್ನೇ ಬದಲಿಸುವ ಮೂರು ವಿಚಾರಗಳು.', got: 'ಅರ್ಥವಾಯಿತು ✓',
       facts: [['🧩', 'ಅದು ಊಹಿಸುತ್ತದೆ, "ತಿಳಿದಿರುವುದಿಲ್ಲ"', 'ChatGPT ನಂತಹ ಟೂಲ್‌ಗಳು ಅಪಾರ ಪಠ್ಯದಿಂದ ಮಾದರಿಗಳನ್ನು ಕಲಿತಿವೆ. ಅವು ಒಂದೊಂದೇ ಪದವನ್ನು ಊಹಿಸುತ್ತಾ ಉತ್ತರ ರಚಿಸುತ್ತವೆ.'],
         ['⚠️', 'ಆತ್ಮವಿಶ್ವಾಸದಿಂದ ತಪ್ಪು ಹೇಳಬಹುದು', 'AI ಕೆಲವೊಮ್ಮೆ ಸರಿಯೆನಿಸುವ ತಪ್ಪು ಮಾಹಿತಿಯನ್ನು ಸೃಷ್ಟಿಸುತ್ತದೆ. ಅದಕ್ಕೇ ನಾವು ಯಾವಾಗಲೂ ಪರಿಶೀಲಿಸುತ್ತೇವೆ.'],
@@ -81,7 +81,7 @@
         ['ಲೆಕ್ಕಕ್ಕೆ AI ಸಹಾಯ ಕೇಳುವ ಮೊದಲು ನೀವು…', ['ಮೊದಲು ನೀವೇ ಪ್ರಯತ್ನಿಸಬೇಕು', 'AI ಉತ್ತರವನ್ನು ನಕಲು ಮಾಡಬೇಕು', 'ಆ ಲೆಕ್ಕವನ್ನು ಬಿಡಬೇಕು'], 'ಮೊದಲು ಯೋಚಿಸಿ, ನಂತರ ಕೇಳಿ. ಕೆಲಸ ಮಾಡಬೇಕಾದದ್ದು ನಿಮ್ಮ ಮೆದುಳು.']
       ],
       right: 'ಸರಿಯಾದ ಉತ್ತರ!', wrong: 'ಸರಿಯಲ್ಲ.', score: s => 'ನೀವು 3ರಲ್ಲಿ ' + s + ' ಸರಿ', stepDone: 'ಹಂತ ಪೂರ್ಣ', xp: n => '+' + n + ' XP',
-      finH: 'ಮಾಡ್ಯೂಲ್ 0 ಪೂರ್ಣ! 🎉', finP: n => 'ಶಭಾಷ್' + (n ? ', ' + n : '') + '! ಮೊದಲ ಹೆಜ್ಜೆ ಇಟ್ಟಿದ್ದೀರಿ.', certTop: 'ಮಾಡ್ಯೂಲ್ 0 · ಬಿಂದು · ಪೂರ್ಣ',
+      finH: 'ಮಾಡ್ಯೂಲ್ 0 ಪೂರ್ಣ! 🎉', finP: n => 'ಶಭಾಷ್' + (n ? ', ' + n : '') + '! ಮೊದಲ ಹೆಜ್ಜೆ ಇಟ್ಟಿದ್ದೀರಿ.', certTop: 'ಮಾಡ್ಯೂಲ್ 0 · ಲೋಕಿ · ಪೂರ್ಣ',
       next: 'ಮಾಡ್ಯೂಲ್ 1ಕ್ಕೆ ಸಿದ್ಧವೇ? ಎಲ್ಲಾ 5 ತತ್ವಗಳು ₹799ಕ್ಕೆ.', enroll: '₹799ಕ್ಕೆ ದಾಖಲಾಗಿ', allDone: 'ಮಾಡ್ಯೂಲ್ 0 ಪೂರ್ಣ'
     }
   };

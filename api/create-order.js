@@ -1,7 +1,7 @@
 /* POST /api/create-order → { order_id, amount, currency, key_id }
    The price comes from the server (COURSE_PRICE_PAISE), never from the browser.
    Coupons live in the COUPONS env var as CODE:paise_off or CODE:percent% pairs, e.g. "PILOT300:30000,EXTRA5:5%".
-   The XP reward coupon BINDU5 (5% off) is built in; REWARD_COUPON overrides it. */
+   The XP reward coupon LOKI5 (old BINDU5 still works) (5% off) is built in; REWARD_COUPON overrides it. */
 const { creds, readBody, send } = require('./_razorpay');
 
 module.exports = async function handler(req, res) {
@@ -18,7 +18,7 @@ module.exports = async function handler(req, res) {
   let off = 0;
   if (code) {
     // Reward coupon from the XP bubble (public by design); override with REWARD_COUPON="CODE:5%".
-    const list = String(process.env.COUPONS || '') + ',' + String(process.env.REWARD_COUPON || 'BINDU5:5%');
+    const list = String(process.env.COUPONS || '') + ',' + String(process.env.REWARD_COUPON || 'LOKI5:5%,BINDU5:5%');
     const coupons = Object.fromEntries(list.split(',').map(p => p.trim().split(':')).filter(p => p.length === 2 && p[0]).map(([k, v]) => {
       v = v.trim();
       return [k.trim().toUpperCase(), /%$/.test(v) ? Math.round(amount * parseFloat(v) / 100) : parseInt(v, 10)];

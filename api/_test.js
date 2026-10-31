@@ -27,7 +27,7 @@ let fails = 0; const ok = (name, cond, got) => { console.log((cond ? 'PASS ' : '
   r = await call(createOrder, 'GET', {}); ok('GET → 405', r.status === 405, r);
   global.fetch = async (url, opt) => { sent = { url, opt }; return { ok: true, status: 200, json: async () => ({ id: 'order_C', amount: JSON.parse(opt.body).amount, currency: 'INR' }) }; };
   const base = parseInt(process.env.COURSE_PRICE_PAISE || '79900', 10);
-  r = await call(createOrder, 'POST', { consent_parent: true, coupon: 'bindu5' }); ok('BINDU5 gives 5% off', r.status === 200 && r.body.amount === base - Math.round(base * 0.05), r.body);
+  r = await call(createOrder, 'POST', { consent_parent: true, coupon: 'loki5' }); ok('LOKI5 gives 5% off', r.status === 200 && r.body.amount === base - Math.round(base * 0.05), r.body);
   r = await call(createOrder, 'POST', { consent_parent: true, coupon: 'NOPE' }); ok('unknown coupon → 400', r.status === 400, r);
   r = await call(createOrder, 'POST', { coupon: 'BINDU5' }); ok('no consent → 422', r.status === 422, r);
   global.fetch = realFetch;

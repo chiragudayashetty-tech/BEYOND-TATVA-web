@@ -22,7 +22,7 @@ window.BT_CONFIG = {
 
   // REAL urgency only. Update these honestly; anything left null is hidden.
   // Founding batch size and how many seats are already taken (update as people pay).
-  seatsTotal: 75,
+  seatsTotal: 50,
   seatsTaken: null,
   // Date the founding price ends, e.g. '2026-11-15T23:59:59+05:30'.
   priceDeadline: null,

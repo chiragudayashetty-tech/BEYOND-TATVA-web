@@ -201,3 +201,24 @@ footer .links a { display: inline-block; padding: 4px 0; }
 .cs-row { display: flex; gap: 10px; align-items: flex-start; margin-top: 12px; text-align: left; font-size: 13.5px; color: var(--ink-2); line-height: 1.45; }
 .cs-row input { width: 20px; height: 20px; margin-top: 1px; flex: none; accent-color: var(--accent); }
 .cs-err { display: block; margin-top: 8px; color: #B91C1C; font-weight: 700; font-size: 13px; }
+
+/* ── Welcome popup (Loki opens the site) ── */
+.welcome { position: fixed; inset: 0; z-index: 58; display: grid; place-items: end center; padding: 10px 10px calc(var(--dock-h) + env(safe-area-inset-bottom, 0px) + 8px); background: rgba(31,23,18,.42); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); opacity: 0; transition: opacity .25s; }
+.welcome.in { opacity: 1; }
+html.w-open body { overflow: hidden; }
+.w-in { position: relative; width: min(460px, 100%); max-height: calc(100svh - var(--dock-h) - 28px); display: flex; flex-direction: column; padding: 18px 14px 12px; border-radius: 24px; background: linear-gradient(180deg, #FFF3E6, #FFFFFF 38%); box-shadow: 0 24px 60px rgba(31,23,18,.3); transform: translateY(30px) scale(.97); transition: transform .45s cubic-bezier(.34,1.56,.64,1); }
+.welcome.in .w-in { transform: none; }
+.w-x { position: absolute; top: 8px; right: 8px; width: 36px; height: 36px; border: 0; border-radius: 50%; background: rgba(31,23,18,.06); cursor: pointer; color: var(--ink-2); }
+.w-top { display: flex; align-items: center; gap: 12px; padding: 2px 34px 12px 4px; }
+.bot.big { width: 58px; height: 58px; animation: hello 1.2s ease .3s both; }
+.bot.big i { top: 21px; width: 6px; height: 11px; }
+.bot.big i:first-child { left: 18px; } .bot.big i:last-child { right: 18px; }
+@keyframes hello { 0% { transform: scale(0) rotate(-30deg); } 55% { transform: scale(1.12) rotate(8deg); } 75% { transform: rotate(-6deg); } 100% { transform: none; } }
+.w-top h2 { font-size: 25px; line-height: 1.15; animation: in .5s ease .45s both; }
+.w-top p { margin-top: 4px; font-size: 14px; color: var(--ink-2); animation: in .5s ease .6s both; }
+.w-slot { min-height: 0; display: flex; flex-direction: column; flex: 1; }
+.w-slot .chat { box-shadow: none; flex: 1; min-height: 0; animation: in .45s ease .7s both; }
+.w-slot .chat-head { display: none; }
+.w-slot .chat-body { height: auto; min-height: 150px; max-height: 34svh; }
+.w-skip { margin-top: 8px; align-self: center; border: 0; background: none; color: var(--ink-2); font-size: 13.5px; font-weight: 700; text-decoration: underline; cursor: pointer; padding: 8px; }
+@media (min-width: 900px) { .welcome { place-items: center; padding: 20px; } .w-in { max-height: 86vh; } .w-slot .chat-body { max-height: 46vh; } }
